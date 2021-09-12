@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Sep 10 16:10:41 2021
+# Process ID: 4078406
+# Current directory: /home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/u96v2_sbc_base_auto_pc_8_synth_1
+# Command line: vivado -log u96v2_sbc_base_auto_pc_8.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source u96v2_sbc_base_auto_pc_8.tcl
+# Log file: /home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/u96v2_sbc_base_auto_pc_8_synth_1/u96v2_sbc_base_auto_pc_8.vds
+# Journal file: /home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/u96v2_sbc_base_auto_pc_8_synth_1/vivado.jou
+#-----------------------------------------------------------
+source u96v2_sbc_base_auto_pc_8.tcl -notrace

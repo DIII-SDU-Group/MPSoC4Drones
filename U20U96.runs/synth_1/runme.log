@@ -1,0 +1,758 @@
+
+*** Running vivado
+    with args -log u96v2_sbc_base_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source u96v2_sbc_base_wrapper.tcl
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source u96v2_sbc_base_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/esme/Downloads/IP2020/hdl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mnt/data0/Vivado2020-2/Vivado/2020.2/data/ip'.
+Command: synth_design -top u96v2_sbc_base_wrapper -part xczu3eg-sbva484-1-i
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Device 21-403] Loading part xczu3eg-sbva484-1-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 4092390
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2635.414 ; gain = 30.875 ; free physical = 6041 ; free virtual = 17407
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_wrapper' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/hdl/u96v2_sbc_base_wrapper.vhd:44]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:7370' bound to instance 'u96v2_sbc_base_i' of component 'u96v2_sbc_base' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/hdl/u96v2_sbc_base_wrapper.vhd:75]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:7404]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_PWM_w_Int_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_PWM_w_Int_0_0_stub.vhdl:5' bound to instance 'PWM_w_Int_0' of component 'u96v2_sbc_base_PWM_w_Int_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8394]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_PWM_w_Int_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_PWM_w_Int_0_0_stub.vhdl:36]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_PWM_w_Int_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_PWM_w_Int_1_0_stub.vhdl:5' bound to instance 'PWM_w_Int_1' of component 'u96v2_sbc_base_PWM_w_Int_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8422]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_PWM_w_Int_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_PWM_w_Int_1_0_stub.vhdl:36]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_bram_ctrl_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_bram_ctrl_0_0_stub.vhdl:5' bound to instance 'axi_bram_ctrl_0' of component 'u96v2_sbc_base_axi_bram_ctrl_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8450]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_bram_ctrl_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_bram_ctrl_0_0_stub.vhdl:62]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_blk_mem_gen_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_blk_mem_gen_0_0_stub.vhdl:5' bound to instance 'axi_bram_ctrl_0_bram' of component 'u96v2_sbc_base_blk_mem_gen_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8504]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_blk_mem_gen_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_blk_mem_gen_0_0_stub.vhdl:27]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_gpio_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_0_0_stub.vhdl:5' bound to instance 'axi_gpio_0' of component 'u96v2_sbc_base_axi_gpio_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8525]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_gpio_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_0_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_gpio_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_1_0_stub.vhdl:5' bound to instance 'axi_gpio_1' of component 'u96v2_sbc_base_axi_gpio_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8549]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_gpio_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_1_0_stub.vhdl:31]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_gpio_2_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_2_0_stub.vhdl:5' bound to instance 'axi_gpio_2' of component 'u96v2_sbc_base_axi_gpio_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8572]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_gpio_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_gpio_2_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_intc_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_intc_0_0_stub.vhdl:5' bound to instance 'axi_intc_0' of component 'u96v2_sbc_base_axi_intc_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8596]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_intc_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_intc_0_0_stub.vhdl:32]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_uart16550_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_uart16550_0_0_stub.vhdl:5' bound to instance 'axi_uart16550_0' of component 'u96v2_sbc_base_axi_uart16550_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8620]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_uart16550_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_uart16550_0_0_stub.vhdl:46]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_axi_uart16550_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_uart16550_1_0_stub.vhdl:5' bound to instance 'axi_uart16550_1' of component 'u96v2_sbc_base_axi_uart16550_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8658]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_uart16550_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_axi_uart16550_1_0_stub.vhdl:46]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_clk_wiz_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_clk_wiz_0_0_stub.vhdl:5' bound to instance 'clk_wiz_0' of component 'u96v2_sbc_base_clk_wiz_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8696]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_clk_wiz_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_clk_wiz_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_0_1' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_0_1_stub.vhdl:5' bound to instance 'proc_sys_reset_0' of component 'u96v2_sbc_base_proc_sys_reset_0_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8709]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_0_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_0_1_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_1_0_stub.vhdl:5' bound to instance 'proc_sys_reset_1' of component 'u96v2_sbc_base_proc_sys_reset_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8722]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_1_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_2_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_2_0_stub.vhdl:5' bound to instance 'proc_sys_reset_2' of component 'u96v2_sbc_base_proc_sys_reset_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8735]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_2_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_3_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_3_0_stub.vhdl:5' bound to instance 'proc_sys_reset_3' of component 'u96v2_sbc_base_proc_sys_reset_3_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8748]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_3_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_3_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_4_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_4_0_stub.vhdl:5' bound to instance 'proc_sys_reset_4' of component 'u96v2_sbc_base_proc_sys_reset_4_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8761]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_4_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_4_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_5_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_5_0_stub.vhdl:5' bound to instance 'proc_sys_reset_5' of component 'u96v2_sbc_base_proc_sys_reset_5_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8774]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_5_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_5_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_6_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_6_0_stub.vhdl:5' bound to instance 'proc_sys_reset_6' of component 'u96v2_sbc_base_proc_sys_reset_6_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:8787]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_6_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_6_0_stub.vhdl:21]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_interconnect_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:5211]
+INFO: [Synth 8-638] synthesizing module 'm00_couplers_imp_86WGDV' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:93]
+INFO: [Synth 8-256] done synthesizing module 'm00_couplers_imp_86WGDV' (1#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'm01_couplers_imp_17GM6DW' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:270]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_0_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:565]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_0_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_0_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:644]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_0_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm01_couplers_imp_17GM6DW' (2#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:270]
+INFO: [Synth 8-638] synthesizing module 'm02_couplers_imp_1IL70U4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:773]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_1' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_1_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1068]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_1_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_1' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_1_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1147]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_1_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm02_couplers_imp_1IL70U4' (3#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:773]
+INFO: [Synth 8-638] synthesizing module 'm03_couplers_imp_JB6FA3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1276]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_2' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_2_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_2' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1571]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_2' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_2_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_2' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_2_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_2' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1650]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_2' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_2_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm03_couplers_imp_JB6FA3' (4#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1276]
+INFO: [Synth 8-638] synthesizing module 'm04_couplers_imp_WBPKFG' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1779]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_3' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_3_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2074]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_3_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_3' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_3_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2153]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_3_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm04_couplers_imp_WBPKFG' (5#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:1779]
+INFO: [Synth 8-638] synthesizing module 'm05_couplers_imp_1W5PO5N' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2282]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_4' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_4_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2577]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_4_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_4' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_4_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2656]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_4_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm05_couplers_imp_1W5PO5N' (6#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2282]
+INFO: [Synth 8-638] synthesizing module 'm06_couplers_imp_1C7CVQB' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2787]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_5' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_5_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_5' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3084]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_5' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_5_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_5' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_5_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_5' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3163]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_5' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_5_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm06_couplers_imp_1C7CVQB' (7#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:2787]
+INFO: [Synth 8-638] synthesizing module 'm07_couplers_imp_CDODJ8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3294]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_6' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_6_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3591]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_6_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_6' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_6_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3670]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_6_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm07_couplers_imp_CDODJ8' (8#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3294]
+INFO: [Synth 8-638] synthesizing module 'm08_couplers_imp_1LL3J2L' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3799]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_7' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_7_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_7' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4094]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_7' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_7_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_7' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_7_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_7' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4173]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_7' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_7_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm08_couplers_imp_1LL3J2L' (9#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:3799]
+INFO: [Synth 8-638] synthesizing module 'm09_couplers_imp_LTX8BU' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4302]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_ds_8' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_8_stub.vhdl:5' bound to instance 'auto_ds' of component 'u96v2_sbc_base_auto_ds_8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4597]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_ds_8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_ds_8_stub.vhdl:87]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_auto_pc_8' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_8_stub.vhdl:5' bound to instance 'auto_pc' of component 'u96v2_sbc_base_auto_pc_8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4676]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_auto_pc_8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_auto_pc_8_stub.vhdl:67]
+INFO: [Synth 8-256] done synthesizing module 'm09_couplers_imp_LTX8BU' (10#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4302]
+INFO: [Synth 8-638] synthesizing module 's00_couplers_imp_1PCWDC6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4827]
+INFO: [Synth 8-256] done synthesizing module 's00_couplers_imp_1PCWDC6' (11#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:4827]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xbar_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_xbar_0_stub.vhdl:5' bound to instance 'xbar' of component 'u96v2_sbc_base_xbar_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:6929]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_xbar_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_xbar_0_stub.vhdl:93]
+INFO: [Synth 8-256] done synthesizing module 'u96v2_sbc_base_axi_interconnect_0_0' (12#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:5211]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_proc_sys_reset_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_0_0_stub.vhdl:5' bound to instance 'rst_ps8_0_100M' of component 'u96v2_sbc_base_proc_sys_reset_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9058]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_proc_sys_reset_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_proc_sys_reset_0_0_stub.vhdl:21]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_system_management_wiz_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_system_management_wiz_0_0_stub.vhdl:5' bound to instance 'system_management_wiz_0' of component 'u96v2_sbc_base_system_management_wiz_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9071]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_system_management_wiz_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_system_management_wiz_0_0_stub.vhdl:36]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlconcat_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconcat_0_0/synth/u96v2_sbc_base_xlconcat_0_0.v:60' bound to instance 'xlconcat_0' of component 'u96v2_sbc_base_xlconcat_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9099]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlconcat_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconcat_0_0/synth/u96v2_sbc_base_xlconcat_0_0.v:60]
+INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+	Parameter IN0_WIDTH bound to: 1 - type: integer 
+	Parameter IN1_WIDTH bound to: 1 - type: integer 
+	Parameter IN2_WIDTH bound to: 1 - type: integer 
+	Parameter IN3_WIDTH bound to: 1 - type: integer 
+	Parameter IN4_WIDTH bound to: 2 - type: integer 
+	Parameter IN5_WIDTH bound to: 1 - type: integer 
+	Parameter IN6_WIDTH bound to: 1 - type: integer 
+	Parameter IN7_WIDTH bound to: 1 - type: integer 
+	Parameter IN8_WIDTH bound to: 1 - type: integer 
+	Parameter IN9_WIDTH bound to: 1 - type: integer 
+	Parameter IN10_WIDTH bound to: 1 - type: integer 
+	Parameter IN11_WIDTH bound to: 1 - type: integer 
+	Parameter IN12_WIDTH bound to: 1 - type: integer 
+	Parameter IN13_WIDTH bound to: 1 - type: integer 
+	Parameter IN14_WIDTH bound to: 1 - type: integer 
+	Parameter IN15_WIDTH bound to: 1 - type: integer 
+	Parameter IN16_WIDTH bound to: 1 - type: integer 
+	Parameter IN17_WIDTH bound to: 1 - type: integer 
+	Parameter IN18_WIDTH bound to: 1 - type: integer 
+	Parameter IN19_WIDTH bound to: 1 - type: integer 
+	Parameter IN20_WIDTH bound to: 1 - type: integer 
+	Parameter IN21_WIDTH bound to: 1 - type: integer 
+	Parameter IN22_WIDTH bound to: 1 - type: integer 
+	Parameter IN23_WIDTH bound to: 1 - type: integer 
+	Parameter IN24_WIDTH bound to: 1 - type: integer 
+	Parameter IN25_WIDTH bound to: 1 - type: integer 
+	Parameter IN26_WIDTH bound to: 1 - type: integer 
+	Parameter IN27_WIDTH bound to: 1 - type: integer 
+	Parameter IN28_WIDTH bound to: 1 - type: integer 
+	Parameter IN29_WIDTH bound to: 1 - type: integer 
+	Parameter IN30_WIDTH bound to: 1 - type: integer 
+	Parameter IN31_WIDTH bound to: 1 - type: integer 
+	Parameter IN32_WIDTH bound to: 1 - type: integer 
+	Parameter IN33_WIDTH bound to: 1 - type: integer 
+	Parameter IN34_WIDTH bound to: 1 - type: integer 
+	Parameter IN35_WIDTH bound to: 1 - type: integer 
+	Parameter IN36_WIDTH bound to: 1 - type: integer 
+	Parameter IN37_WIDTH bound to: 1 - type: integer 
+	Parameter IN38_WIDTH bound to: 1 - type: integer 
+	Parameter IN39_WIDTH bound to: 1 - type: integer 
+	Parameter IN40_WIDTH bound to: 1 - type: integer 
+	Parameter IN41_WIDTH bound to: 1 - type: integer 
+	Parameter IN42_WIDTH bound to: 1 - type: integer 
+	Parameter IN43_WIDTH bound to: 1 - type: integer 
+	Parameter IN44_WIDTH bound to: 1 - type: integer 
+	Parameter IN45_WIDTH bound to: 1 - type: integer 
+	Parameter IN46_WIDTH bound to: 1 - type: integer 
+	Parameter IN47_WIDTH bound to: 1 - type: integer 
+	Parameter IN48_WIDTH bound to: 1 - type: integer 
+	Parameter IN49_WIDTH bound to: 1 - type: integer 
+	Parameter IN50_WIDTH bound to: 1 - type: integer 
+	Parameter IN51_WIDTH bound to: 1 - type: integer 
+	Parameter IN52_WIDTH bound to: 1 - type: integer 
+	Parameter IN53_WIDTH bound to: 1 - type: integer 
+	Parameter IN54_WIDTH bound to: 1 - type: integer 
+	Parameter IN55_WIDTH bound to: 1 - type: integer 
+	Parameter IN56_WIDTH bound to: 1 - type: integer 
+	Parameter IN57_WIDTH bound to: 1 - type: integer 
+	Parameter IN58_WIDTH bound to: 1 - type: integer 
+	Parameter IN59_WIDTH bound to: 1 - type: integer 
+	Parameter IN60_WIDTH bound to: 1 - type: integer 
+	Parameter IN61_WIDTH bound to: 1 - type: integer 
+	Parameter IN62_WIDTH bound to: 1 - type: integer 
+	Parameter IN63_WIDTH bound to: 1 - type: integer 
+	Parameter IN64_WIDTH bound to: 1 - type: integer 
+	Parameter IN65_WIDTH bound to: 1 - type: integer 
+	Parameter IN66_WIDTH bound to: 1 - type: integer 
+	Parameter IN67_WIDTH bound to: 1 - type: integer 
+	Parameter IN68_WIDTH bound to: 1 - type: integer 
+	Parameter IN69_WIDTH bound to: 1 - type: integer 
+	Parameter IN70_WIDTH bound to: 1 - type: integer 
+	Parameter IN71_WIDTH bound to: 1 - type: integer 
+	Parameter IN72_WIDTH bound to: 1 - type: integer 
+	Parameter IN73_WIDTH bound to: 1 - type: integer 
+	Parameter IN74_WIDTH bound to: 1 - type: integer 
+	Parameter IN75_WIDTH bound to: 1 - type: integer 
+	Parameter IN76_WIDTH bound to: 1 - type: integer 
+	Parameter IN77_WIDTH bound to: 1 - type: integer 
+	Parameter IN78_WIDTH bound to: 1 - type: integer 
+	Parameter IN79_WIDTH bound to: 1 - type: integer 
+	Parameter IN80_WIDTH bound to: 1 - type: integer 
+	Parameter IN81_WIDTH bound to: 1 - type: integer 
+	Parameter IN82_WIDTH bound to: 1 - type: integer 
+	Parameter IN83_WIDTH bound to: 1 - type: integer 
+	Parameter IN84_WIDTH bound to: 1 - type: integer 
+	Parameter IN85_WIDTH bound to: 1 - type: integer 
+	Parameter IN86_WIDTH bound to: 1 - type: integer 
+	Parameter IN87_WIDTH bound to: 1 - type: integer 
+	Parameter IN88_WIDTH bound to: 1 - type: integer 
+	Parameter IN89_WIDTH bound to: 1 - type: integer 
+	Parameter IN90_WIDTH bound to: 1 - type: integer 
+	Parameter IN91_WIDTH bound to: 1 - type: integer 
+	Parameter IN92_WIDTH bound to: 1 - type: integer 
+	Parameter IN93_WIDTH bound to: 1 - type: integer 
+	Parameter IN94_WIDTH bound to: 1 - type: integer 
+	Parameter IN95_WIDTH bound to: 1 - type: integer 
+	Parameter IN96_WIDTH bound to: 1 - type: integer 
+	Parameter IN97_WIDTH bound to: 1 - type: integer 
+	Parameter IN98_WIDTH bound to: 1 - type: integer 
+	Parameter IN99_WIDTH bound to: 1 - type: integer 
+	Parameter IN100_WIDTH bound to: 1 - type: integer 
+	Parameter IN101_WIDTH bound to: 1 - type: integer 
+	Parameter IN102_WIDTH bound to: 1 - type: integer 
+	Parameter IN103_WIDTH bound to: 1 - type: integer 
+	Parameter IN104_WIDTH bound to: 1 - type: integer 
+	Parameter IN105_WIDTH bound to: 1 - type: integer 
+	Parameter IN106_WIDTH bound to: 1 - type: integer 
+	Parameter IN107_WIDTH bound to: 1 - type: integer 
+	Parameter IN108_WIDTH bound to: 1 - type: integer 
+	Parameter IN109_WIDTH bound to: 1 - type: integer 
+	Parameter IN110_WIDTH bound to: 1 - type: integer 
+	Parameter IN111_WIDTH bound to: 1 - type: integer 
+	Parameter IN112_WIDTH bound to: 1 - type: integer 
+	Parameter IN113_WIDTH bound to: 1 - type: integer 
+	Parameter IN114_WIDTH bound to: 1 - type: integer 
+	Parameter IN115_WIDTH bound to: 1 - type: integer 
+	Parameter IN116_WIDTH bound to: 1 - type: integer 
+	Parameter IN117_WIDTH bound to: 1 - type: integer 
+	Parameter IN118_WIDTH bound to: 1 - type: integer 
+	Parameter IN119_WIDTH bound to: 1 - type: integer 
+	Parameter IN120_WIDTH bound to: 1 - type: integer 
+	Parameter IN121_WIDTH bound to: 1 - type: integer 
+	Parameter IN122_WIDTH bound to: 1 - type: integer 
+	Parameter IN123_WIDTH bound to: 1 - type: integer 
+	Parameter IN124_WIDTH bound to: 1 - type: integer 
+	Parameter IN125_WIDTH bound to: 1 - type: integer 
+	Parameter IN126_WIDTH bound to: 1 - type: integer 
+	Parameter IN127_WIDTH bound to: 1 - type: integer 
+	Parameter dout_width bound to: 7 - type: integer 
+	Parameter NUM_PORTS bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (13#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlconcat_0_0' (14#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconcat_0_0/synth/u96v2_sbc_base_xlconcat_0_0.v:60]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlconstant_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_0_0/synth/u96v2_sbc_base_xlconstant_0_0.v:57' bound to instance 'xlconstant_0' of component 'u96v2_sbc_base_xlconstant_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9109]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlconstant_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_0_0/synth/u96v2_sbc_base_xlconstant_0_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+	Parameter CONST_VAL bound to: 1'b1 
+	Parameter CONST_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant' (15#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlconstant_0_0' (16#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_0_0/synth/u96v2_sbc_base_xlconstant_0_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlconstant_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_1_0/synth/u96v2_sbc_base_xlconstant_1_0.v:57' bound to instance 'xlconstant_1' of component 'u96v2_sbc_base_xlconstant_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9113]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlconstant_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_1_0/synth/u96v2_sbc_base_xlconstant_1_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+	Parameter CONST_VAL bound to: 1'b0 
+	Parameter CONST_WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlconstant_v1_1_7_xlconstant__parameterized0' (16#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/fcfc/hdl/xlconstant_v1_1_vl_rfs.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlconstant_1_0' (17#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlconstant_1_0/synth/u96v2_sbc_base_xlconstant_1_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_0_0/synth/u96v2_sbc_base_xlslice_0_0.v:57' bound to instance 'xlslice_0' of component 'u96v2_sbc_base_xlslice_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9117]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_0_0/synth/u96v2_sbc_base_xlslice_0_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 29 - type: integer 
+	Parameter DIN_TO bound to: 28 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice' (18#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_0_0' (19#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_0_0/synth/u96v2_sbc_base_xlslice_0_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_1_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_1_0/synth/u96v2_sbc_base_xlslice_1_0.v:57' bound to instance 'xlslice_1' of component 'u96v2_sbc_base_xlslice_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9122]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_1_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_1_0/synth/u96v2_sbc_base_xlslice_1_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 27 - type: integer 
+	Parameter DIN_TO bound to: 20 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized0' (19#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_1_0' (20#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_1_0/synth/u96v2_sbc_base_xlslice_1_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_2_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_2_0/synth/u96v2_sbc_base_xlslice_2_0.v:57' bound to instance 'xlslice_2' of component 'u96v2_sbc_base_xlslice_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9127]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_2_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_2_0/synth/u96v2_sbc_base_xlslice_2_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized1' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 19 - type: integer 
+	Parameter DIN_TO bound to: 18 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized1' (20#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_2_0' (21#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_2_0/synth/u96v2_sbc_base_xlslice_2_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_3_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_3_0/synth/u96v2_sbc_base_xlslice_3_0.v:57' bound to instance 'xlslice_3' of component 'u96v2_sbc_base_xlslice_3_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9132]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_3_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_3_0/synth/u96v2_sbc_base_xlslice_3_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized2' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 17 - type: integer 
+	Parameter DIN_TO bound to: 14 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized2' (21#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_3_0' (22#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_3_0/synth/u96v2_sbc_base_xlslice_3_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_4_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_4_0/synth/u96v2_sbc_base_xlslice_4_0.v:57' bound to instance 'xlslice_4' of component 'u96v2_sbc_base_xlslice_4_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9137]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_4_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_4_0/synth/u96v2_sbc_base_xlslice_4_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized3' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 13 - type: integer 
+	Parameter DIN_TO bound to: 13 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized3' (22#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_4_0' (23#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_4_0/synth/u96v2_sbc_base_xlslice_4_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_5_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_5_0/synth/u96v2_sbc_base_xlslice_5_0.v:57' bound to instance 'xlslice_5' of component 'u96v2_sbc_base_xlslice_5_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9142]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_5_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_5_0/synth/u96v2_sbc_base_xlslice_5_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized4' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 12 - type: integer 
+	Parameter DIN_TO bound to: 12 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized4' (23#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_5_0' (24#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_5_0/synth/u96v2_sbc_base_xlslice_5_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_6_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_6_0/synth/u96v2_sbc_base_xlslice_6_0.v:57' bound to instance 'xlslice_6' of component 'u96v2_sbc_base_xlslice_6_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9147]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_6_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_6_0/synth/u96v2_sbc_base_xlslice_6_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized5' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 11 - type: integer 
+	Parameter DIN_TO bound to: 10 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized5' (24#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_6_0' (25#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_6_0/synth/u96v2_sbc_base_xlslice_6_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_7_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_7_0/synth/u96v2_sbc_base_xlslice_7_0.v:57' bound to instance 'xlslice_7' of component 'u96v2_sbc_base_xlslice_7_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9152]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_7_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_7_0/synth/u96v2_sbc_base_xlslice_7_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized6' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 9 - type: integer 
+	Parameter DIN_TO bound to: 2 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized6' (25#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_7_0' (26#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_7_0/synth/u96v2_sbc_base_xlslice_7_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_8_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_8_0/synth/u96v2_sbc_base_xlslice_8_0.v:57' bound to instance 'xlslice_8' of component 'u96v2_sbc_base_xlslice_8_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9157]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_8_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_8_0/synth/u96v2_sbc_base_xlslice_8_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized7' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 1 - type: integer 
+	Parameter DIN_TO bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized7' (26#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_8_0' (27#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_8_0/synth/u96v2_sbc_base_xlslice_8_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_xlslice_9_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_9_0/synth/u96v2_sbc_base_xlslice_9_0.v:57' bound to instance 'xlslice_9' of component 'u96v2_sbc_base_xlslice_9_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9162]
+INFO: [Synth 8-6157] synthesizing module 'u96v2_sbc_base_xlslice_9_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_9_0/synth/u96v2_sbc_base_xlslice_9_0.v:57]
+INFO: [Synth 8-6157] synthesizing module 'xlslice_v1_0_2_xlslice__parameterized8' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+	Parameter DIN_WIDTH bound to: 30 - type: integer 
+	Parameter DIN_FROM bound to: 0 - type: integer 
+	Parameter DIN_TO bound to: 0 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'xlslice_v1_0_2_xlslice__parameterized8' (27#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ipshared/11d0/hdl/xlslice_v1_0_vl_rfs.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'u96v2_sbc_base_xlslice_9_0' (28#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xlslice_9_0/synth/u96v2_sbc_base_xlslice_9_0.v:57]
+INFO: [Synth 8-3491] module 'u96v2_sbc_base_zynq_ultra_ps_e_0_0' declared at '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_zynq_ultra_ps_e_0_0_stub.vhdl:5' bound to instance 'zynq_ultra_ps_e_0' of component 'u96v2_sbc_base_zynq_ultra_ps_e_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:9167]
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_zynq_ultra_ps_e_0_0' [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/.Xil/Vivado-4092209-adm-127190/realtime/u96v2_sbc_base_zynq_ultra_ps_e_0_0_stub.vhdl:63]
+INFO: [Synth 8-256] done synthesizing module 'u96v2_sbc_base' (29#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/synth/u96v2_sbc_base.vhd:7404]
+INFO: [Synth 8-256] done synthesizing module 'u96v2_sbc_base_wrapper' (30#1) [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/hdl/u96v2_sbc_base_wrapper.vhd:44]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2704.320 ; gain = 99.781 ; free physical = 6566 ; free virtual = 17933
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2719.164 ; gain = 114.625 ; free physical = 6629 ; free virtual = 17996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 2719.164 ; gain = 114.625 ; free physical = 6629 ; free virtual = 17996
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2719.164 ; gain = 0.000 ; free physical = 6620 ; free virtual = 17987
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_zynq_ultra_ps_e_0_0/u96v2_sbc_base_zynq_ultra_ps_e_0_0/u96v2_sbc_base_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/zynq_ultra_ps_e_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_zynq_ultra_ps_e_0_0/u96v2_sbc_base_zynq_ultra_ps_e_0_0/u96v2_sbc_base_zynq_ultra_ps_e_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/zynq_ultra_ps_e_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xbar_0/u96v2_sbc_base_xbar_0/u96v2_sbc_base_xbar_0_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/xbar'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_xbar_0/u96v2_sbc_base_xbar_0/u96v2_sbc_base_xbar_0_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/xbar'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_0/u96v2_sbc_base_auto_ds_0/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_0/u96v2_sbc_base_auto_ds_0/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_0/u96v2_sbc_base_auto_pc_0/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_0/u96v2_sbc_base_auto_pc_0/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_1/u96v2_sbc_base_auto_ds_1/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_1/u96v2_sbc_base_auto_ds_1/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_1/u96v2_sbc_base_auto_pc_1/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_1/u96v2_sbc_base_auto_pc_1/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_2/u96v2_sbc_base_auto_ds_2/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_2/u96v2_sbc_base_auto_ds_2/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_2/u96v2_sbc_base_auto_pc_2/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_2/u96v2_sbc_base_auto_pc_2/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_3/u96v2_sbc_base_auto_ds_3/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_3/u96v2_sbc_base_auto_ds_3/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_3/u96v2_sbc_base_auto_pc_3/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_3/u96v2_sbc_base_auto_pc_3/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_4/u96v2_sbc_base_auto_ds_4/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_4/u96v2_sbc_base_auto_ds_4/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_4/u96v2_sbc_base_auto_pc_4/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_4/u96v2_sbc_base_auto_pc_4/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_5/u96v2_sbc_base_auto_ds_5/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_5/u96v2_sbc_base_auto_ds_5/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_5/u96v2_sbc_base_auto_pc_5/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_5/u96v2_sbc_base_auto_pc_5/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_6/u96v2_sbc_base_auto_ds_6/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_6/u96v2_sbc_base_auto_ds_6/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_6/u96v2_sbc_base_auto_pc_6/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_6/u96v2_sbc_base_auto_pc_6/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_7/u96v2_sbc_base_auto_ds_7/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_7/u96v2_sbc_base_auto_ds_7/u96v2_sbc_base_auto_ds_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_7/u96v2_sbc_base_auto_pc_7/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_7/u96v2_sbc_base_auto_pc_7/u96v2_sbc_base_auto_pc_1_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_8/u96v2_sbc_base_auto_ds_8/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_ds'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_ds_8/u96v2_sbc_base_auto_ds_8/u96v2_sbc_base_auto_ds_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_ds'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_8/u96v2_sbc_base_auto_pc_8/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_pc'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_auto_pc_8/u96v2_sbc_base_auto_pc_8/u96v2_sbc_base_auto_pc_2_in_context.xdc] for cell 'u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_pc'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_0_0/u96v2_sbc_base_proc_sys_reset_0_0/u96v2_sbc_base_proc_sys_reset_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/rst_ps8_0_100M'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_0_0/u96v2_sbc_base_proc_sys_reset_0_0/u96v2_sbc_base_proc_sys_reset_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/rst_ps8_0_100M'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_bram_ctrl_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_bram_ctrl_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_blk_mem_gen_0_0/u96v2_sbc_base_blk_mem_gen_0_0/u96v2_sbc_base_blk_mem_gen_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_bram_ctrl_0_bram'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_blk_mem_gen_0_0/u96v2_sbc_base_blk_mem_gen_0_0/u96v2_sbc_base_blk_mem_gen_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_bram_ctrl_0_bram'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_uart16550_0_0/u96v2_sbc_base_axi_uart16550_0_0/u96v2_sbc_base_axi_uart16550_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_uart16550_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_uart16550_0_0/u96v2_sbc_base_axi_uart16550_0_0/u96v2_sbc_base_axi_uart16550_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_uart16550_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_uart16550_1_0/u96v2_sbc_base_axi_uart16550_1_0/u96v2_sbc_base_axi_uart16550_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_uart16550_1'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_uart16550_1_0/u96v2_sbc_base_axi_uart16550_1_0/u96v2_sbc_base_axi_uart16550_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_uart16550_1'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_0_0/u96v2_sbc_base_axi_gpio_0_0/u96v2_sbc_base_axi_gpio_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_0_0/u96v2_sbc_base_axi_gpio_0_0/u96v2_sbc_base_axi_gpio_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_1_0/u96v2_sbc_base_axi_gpio_1_0/u96v2_sbc_base_axi_gpio_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_1'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_1_0/u96v2_sbc_base_axi_gpio_1_0/u96v2_sbc_base_axi_gpio_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_1'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_2_0/u96v2_sbc_base_axi_gpio_2_0/u96v2_sbc_base_axi_gpio_2_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_2'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_gpio_2_0/u96v2_sbc_base_axi_gpio_2_0/u96v2_sbc_base_axi_gpio_2_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_gpio_2'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_PWM_w_Int_0_0/u96v2_sbc_base_PWM_w_Int_0_0/u96v2_sbc_base_PWM_w_Int_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/PWM_w_Int_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_PWM_w_Int_0_0/u96v2_sbc_base_PWM_w_Int_0_0/u96v2_sbc_base_PWM_w_Int_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/PWM_w_Int_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_PWM_w_Int_1_0/u96v2_sbc_base_PWM_w_Int_1_0/u96v2_sbc_base_PWM_w_Int_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/PWM_w_Int_1'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_PWM_w_Int_1_0/u96v2_sbc_base_PWM_w_Int_1_0/u96v2_sbc_base_PWM_w_Int_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/PWM_w_Int_1'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_system_management_wiz_0_0/u96v2_sbc_base_system_management_wiz_0_0/u96v2_sbc_base_system_management_wiz_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/system_management_wiz_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_system_management_wiz_0_0/u96v2_sbc_base_system_management_wiz_0_0/u96v2_sbc_base_system_management_wiz_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/system_management_wiz_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_intc_0_0/u96v2_sbc_base_axi_intc_0_0/u96v2_sbc_base_axi_intc_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_intc_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_intc_0_0/u96v2_sbc_base_axi_intc_0_0/u96v2_sbc_base_axi_intc_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/axi_intc_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_clk_wiz_0_0/u96v2_sbc_base_clk_wiz_0_0/u96v2_sbc_base_clk_wiz_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/clk_wiz_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_clk_wiz_0_0/u96v2_sbc_base_clk_wiz_0_0/u96v2_sbc_base_clk_wiz_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/clk_wiz_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_0_1/u96v2_sbc_base_proc_sys_reset_0_1/u96v2_sbc_base_proc_sys_reset_0_1_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_0'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_0_1/u96v2_sbc_base_proc_sys_reset_0_1/u96v2_sbc_base_proc_sys_reset_0_1_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_0'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_1_0/u96v2_sbc_base_proc_sys_reset_1_0/u96v2_sbc_base_proc_sys_reset_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_1'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_1_0/u96v2_sbc_base_proc_sys_reset_1_0/u96v2_sbc_base_proc_sys_reset_1_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_1'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_2_0/u96v2_sbc_base_proc_sys_reset_2_0/u96v2_sbc_base_proc_sys_reset_2_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_2'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_2_0/u96v2_sbc_base_proc_sys_reset_2_0/u96v2_sbc_base_proc_sys_reset_2_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_2'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_3_0/u96v2_sbc_base_proc_sys_reset_3_0/u96v2_sbc_base_proc_sys_reset_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_3'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_3_0/u96v2_sbc_base_proc_sys_reset_3_0/u96v2_sbc_base_proc_sys_reset_0_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_3'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_4_0/u96v2_sbc_base_proc_sys_reset_4_0/u96v2_sbc_base_proc_sys_reset_4_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_4'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_4_0/u96v2_sbc_base_proc_sys_reset_4_0/u96v2_sbc_base_proc_sys_reset_4_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_4'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_5_0/u96v2_sbc_base_proc_sys_reset_5_0/u96v2_sbc_base_proc_sys_reset_5_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_5'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_5_0/u96v2_sbc_base_proc_sys_reset_5_0/u96v2_sbc_base_proc_sys_reset_5_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_5'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_6_0/u96v2_sbc_base_proc_sys_reset_6_0/u96v2_sbc_base_proc_sys_reset_6_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_6'
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_proc_sys_reset_6_0/u96v2_sbc_base_proc_sys_reset_6_0/u96v2_sbc_base_proc_sys_reset_6_0_in_context.xdc] for cell 'u96v2_sbc_base_i/proc_sys_reset_6'
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.srcs/constrs_1/imports/base/u96v2_sbc_base.xdc]
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.srcs/constrs_1/imports/base/u96v2_sbc_base.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.srcs/constrs_1/imports/base/u96v2_sbc_base.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/u96v2_sbc_base_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/u96v2_sbc_base_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2808.945 ; gain = 0.000 ; free physical = 6522 ; free virtual = 17889
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2808.945 ; gain = 0.000 ; free physical = 6522 ; free virtual = 17889
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'u96v2_sbc_base_i/axi_bram_ctrl_0_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2808.945 ; gain = 204.406 ; free physical = 6596 ; free virtual = 17963
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu3eg-sbva484-1-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 2808.945 ; gain = 204.406 ; free physical = 6596 ; free virtual = 17963
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/zynq_ultra_ps_e_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/xbar. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m01_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m02_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m03_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m04_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m05_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m06_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m07_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m08_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_ds. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph/m09_couplers/auto_pc. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/ps8_0_axi_periph. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/rst_ps8_0_100M. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_bram_ctrl_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_bram_ctrl_0_bram. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_uart16550_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_uart16550_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_gpio_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_gpio_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_gpio_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/PWM_w_Int_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/PWM_w_Int_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/system_management_wiz_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlconcat_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_5. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_6. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_7. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_8. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlslice_9. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/axi_intc_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/clk_wiz_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_1. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_2. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_3. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_4. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_5. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/proc_sys_reset_6. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlconstant_0. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for u96v2_sbc_base_i/xlconstant_1. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2808.945 ; gain = 204.406 ; free physical = 6599 ; free virtual = 17966
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2808.945 ; gain = 204.406 ; free physical = 6598 ; free virtual = 17967
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2808.945 ; gain = 204.406 ; free physical = 6590 ; free virtual = 17964
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 3230.328 ; gain = 625.789 ; free physical = 5945 ; free virtual = 17320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 3231.328 ; gain = 626.789 ; free physical = 5943 ; free virtual = 17318
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:22 ; elapsed = 00:00:31 . Memory (MB): peak = 3252.367 ; gain = 647.828 ; free physical = 5938 ; free virtual = 17313
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17311
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+-----------------------------------------+----------+
+|      |BlackBox name                            |Instances |
++------+-----------------------------------------+----------+
+|1     |u96v2_sbc_base_xbar_0                    |         1|
+|2     |u96v2_sbc_base_auto_ds_0                 |         1|
+|3     |u96v2_sbc_base_auto_pc_0                 |         1|
+|4     |u96v2_sbc_base_auto_ds_1                 |         1|
+|5     |u96v2_sbc_base_auto_pc_1                 |         1|
+|6     |u96v2_sbc_base_auto_ds_2                 |         1|
+|7     |u96v2_sbc_base_auto_pc_2                 |         1|
+|8     |u96v2_sbc_base_auto_ds_3                 |         1|
+|9     |u96v2_sbc_base_auto_pc_3                 |         1|
+|10    |u96v2_sbc_base_auto_ds_4                 |         1|
+|11    |u96v2_sbc_base_auto_pc_4                 |         1|
+|12    |u96v2_sbc_base_auto_ds_5                 |         1|
+|13    |u96v2_sbc_base_auto_pc_5                 |         1|
+|14    |u96v2_sbc_base_auto_ds_6                 |         1|
+|15    |u96v2_sbc_base_auto_pc_6                 |         1|
+|16    |u96v2_sbc_base_auto_ds_7                 |         1|
+|17    |u96v2_sbc_base_auto_pc_7                 |         1|
+|18    |u96v2_sbc_base_auto_ds_8                 |         1|
+|19    |u96v2_sbc_base_auto_pc_8                 |         1|
+|20    |u96v2_sbc_base_PWM_w_Int_0_0             |         1|
+|21    |u96v2_sbc_base_PWM_w_Int_1_0             |         1|
+|22    |u96v2_sbc_base_axi_bram_ctrl_0_0         |         1|
+|23    |u96v2_sbc_base_blk_mem_gen_0_0           |         1|
+|24    |u96v2_sbc_base_axi_gpio_0_0              |         1|
+|25    |u96v2_sbc_base_axi_gpio_1_0              |         1|
+|26    |u96v2_sbc_base_axi_gpio_2_0              |         1|
+|27    |u96v2_sbc_base_axi_intc_0_0              |         1|
+|28    |u96v2_sbc_base_axi_uart16550_0_0         |         1|
+|29    |u96v2_sbc_base_axi_uart16550_1_0         |         1|
+|30    |u96v2_sbc_base_clk_wiz_0_0               |         1|
+|31    |u96v2_sbc_base_proc_sys_reset_0_1        |         1|
+|32    |u96v2_sbc_base_proc_sys_reset_1_0        |         1|
+|33    |u96v2_sbc_base_proc_sys_reset_2_0        |         1|
+|34    |u96v2_sbc_base_proc_sys_reset_3_0        |         1|
+|35    |u96v2_sbc_base_proc_sys_reset_4_0        |         1|
+|36    |u96v2_sbc_base_proc_sys_reset_5_0        |         1|
+|37    |u96v2_sbc_base_proc_sys_reset_6_0        |         1|
+|38    |u96v2_sbc_base_proc_sys_reset_0_0        |         1|
+|39    |u96v2_sbc_base_system_management_wiz_0_0 |         1|
+|40    |u96v2_sbc_base_zynq_ultra_ps_e_0_0       |         1|
++------+-----------------------------------------+----------+
+
+Report Cell Usage: 
++------+----------------------------------------------+------+
+|      |Cell                                          |Count |
++------+----------------------------------------------+------+
+|1     |u96v2_sbc_base_PWM_w_Int_0_0_bbox             |     1|
+|2     |u96v2_sbc_base_PWM_w_Int_1_0_bbox             |     1|
+|3     |u96v2_sbc_base_auto_ds_0_bbox                 |     1|
+|4     |u96v2_sbc_base_auto_ds_1_bbox                 |     1|
+|5     |u96v2_sbc_base_auto_ds_2_bbox                 |     1|
+|6     |u96v2_sbc_base_auto_ds_3_bbox                 |     1|
+|7     |u96v2_sbc_base_auto_ds_4_bbox                 |     1|
+|8     |u96v2_sbc_base_auto_ds_5_bbox                 |     1|
+|9     |u96v2_sbc_base_auto_ds_6_bbox                 |     1|
+|10    |u96v2_sbc_base_auto_ds_7_bbox                 |     1|
+|11    |u96v2_sbc_base_auto_ds_8_bbox                 |     1|
+|12    |u96v2_sbc_base_auto_pc_0_bbox                 |     1|
+|13    |u96v2_sbc_base_auto_pc_1_bbox                 |     1|
+|14    |u96v2_sbc_base_auto_pc_2_bbox                 |     1|
+|15    |u96v2_sbc_base_auto_pc_3_bbox                 |     1|
+|16    |u96v2_sbc_base_auto_pc_4_bbox                 |     1|
+|17    |u96v2_sbc_base_auto_pc_5_bbox                 |     1|
+|18    |u96v2_sbc_base_auto_pc_6_bbox                 |     1|
+|19    |u96v2_sbc_base_auto_pc_7_bbox                 |     1|
+|20    |u96v2_sbc_base_auto_pc_8_bbox                 |     1|
+|21    |u96v2_sbc_base_axi_bram_ctrl_0_0_bbox         |     1|
+|22    |u96v2_sbc_base_axi_gpio_0_0_bbox              |     1|
+|23    |u96v2_sbc_base_axi_gpio_1_0_bbox              |     1|
+|24    |u96v2_sbc_base_axi_gpio_2_0_bbox              |     1|
+|25    |u96v2_sbc_base_axi_intc_0_0_bbox              |     1|
+|26    |u96v2_sbc_base_axi_uart16550_0_0_bbox         |     1|
+|27    |u96v2_sbc_base_axi_uart16550_1_0_bbox         |     1|
+|28    |u96v2_sbc_base_blk_mem_gen_0_0_bbox           |     1|
+|29    |u96v2_sbc_base_clk_wiz_0_0_bbox               |     1|
+|30    |u96v2_sbc_base_proc_sys_reset_0_0_bbox        |     1|
+|31    |u96v2_sbc_base_proc_sys_reset_0_1_bbox        |     1|
+|32    |u96v2_sbc_base_proc_sys_reset_1_0_bbox        |     1|
+|33    |u96v2_sbc_base_proc_sys_reset_2_0_bbox        |     1|
+|34    |u96v2_sbc_base_proc_sys_reset_3_0_bbox        |     1|
+|35    |u96v2_sbc_base_proc_sys_reset_4_0_bbox        |     1|
+|36    |u96v2_sbc_base_proc_sys_reset_5_0_bbox        |     1|
+|37    |u96v2_sbc_base_proc_sys_reset_6_0_bbox        |     1|
+|38    |u96v2_sbc_base_system_management_wiz_0_0_bbox |     1|
+|39    |u96v2_sbc_base_xbar_0_bbox                    |     1|
+|40    |u96v2_sbc_base_zynq_ultra_ps_e_0_0_bbox       |     1|
+|41    |IBUF                                          |     5|
+|42    |OBUF                                          |    42|
++------+----------------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.305 ; gain = 653.766 ; free physical = 5929 ; free virtual = 17311
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 3258.305 ; gain = 563.984 ; free physical = 5966 ; free virtual = 17348
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:33 . Memory (MB): peak = 3258.312 ; gain = 653.766 ; free physical = 5966 ; free virtual = 17348
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3270.273 ; gain = 0.000 ; free physical = 6047 ; free virtual = 17430
+INFO: [Netlist 29-17] Analyzing 5 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3289.117 ; gain = 0.000 ; free physical = 5983 ; free virtual = 17368
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  IBUF => IBUF (IBUFCTRL, INBUF): 5 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+193 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 3289.117 ; gain = 919.969 ; free physical = 6119 ; free virtual = 17504
+INFO: [Common 17-1381] The checkpoint '/home/esme/Desktop/VivadoProjects/U20U96/U20U96.runs/synth_1/u96v2_sbc_base_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file u96v2_sbc_base_wrapper_utilization_synth.rpt -pb u96v2_sbc_base_wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Sep 10 16:22:13 2021...

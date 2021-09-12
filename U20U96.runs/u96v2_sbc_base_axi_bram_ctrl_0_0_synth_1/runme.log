@@ -1,0 +1,489 @@
+
+*** Running vivado
+    with args -log u96v2_sbc_base_axi_bram_ctrl_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source u96v2_sbc_base_axi_bram_ctrl_0_0.tcl
+
+
+****** Vivado v2020.2.2 (64-bit)
+  **** SW Build 3118627 on Tue Feb  9 05:13:49 MST 2021
+  **** IP Build 3115676 on Tue Feb  9 10:48:11 MST 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+Sourcing tcl script '/tools/Xilinx/Vivado/2020.2/scripts/Vivado_init.tcl'
+4 Beta devices matching pattern found, 0 enabled.
+Set Board Part RepoPath: /home/training/git/avnet/bdf /home/training/Documents/KV260/vivado_humboldt_som_ea2_release_2020.2.2/som_ea_drop
+source u96v2_sbc_base_axi_bram_ctrl_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/ip'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2020.2/data/ip'.
+update_ip_catalog: Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 2337.000 ; gain = 0.000 ; free physical = 5934 ; free virtual = 10842
+Command: synth_design -top u96v2_sbc_base_axi_bram_ctrl_0_0 -part xczu3eg-sbva484-1-i -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xczu3eg'
+INFO: [Device 21-403] Loading part xczu3eg-sbva484-1-i
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 25999
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2578.406 ; gain = 31.902 ; free physical = 3774 ; free virtual = 8696
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'u96v2_sbc_base_axi_bram_ctrl_0_0' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/synth/u96v2_sbc_base_axi_bram_ctrl_0_0.vhd:115]
+	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
+	Parameter C_MEMORY_DEPTH bound to: 1024 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 10 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 1 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_RD_CMD_OPTIMIZATION bound to: 0 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'axi_bram_ctrl' declared at '/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:31357' bound to instance 'U0' of component 'axi_bram_ctrl' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/synth/u96v2_sbc_base_axi_bram_ctrl_0_0.vhd:278]
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:31528]
+	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
+	Parameter C_MEMORY_DEPTH bound to: 1024 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 10 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 1 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_RD_CMD_OPTIMIZATION bound to: 0 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_top' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30527]
+	Parameter C_BRAM_ADDR_WIDTH bound to: 10 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 1 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_FAMILY bound to: zynquplus - type: string 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_RD_CMD_OPTIMIZATION bound to: 0 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'full_axi' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29280]
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 1 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_RD_CMD_OPTIMIZATION bound to: 0 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_WIDTH bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+	Parameter C_ENABLE_AXI_CTRL_REG_IF bound to: 0 - type: integer 
+	Parameter C_CE_FAILING_REGISTERS bound to: 0 - type: integer 
+	Parameter C_UE_FAILING_REGISTERS bound to: 0 - type: integer 
+	Parameter C_ECC_STATUS_REGISTERS bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_REGISTER bound to: 0 - type: integer 
+	Parameter C_CE_COUNTER_WIDTH bound to: 0 - type: integer 
+WARNING: [Synth 8-6774] Null subtype or type declaration found [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29350]
+INFO: [Synth 8-3919] null assignment ignored [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29350]
+INFO: [Synth 8-638] synthesizing module 'wr_chnl' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:24159]
+	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 4 - type: integer 
+	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_SUPPORTS_NARROW bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_WIDTH bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+INFO: [Synth 8-506] null port 'FaultInjectECC' ignored [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:24126]
+INFO: [Synth 8-638] synthesizing module 'wrap_brst' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12455]
+	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 4 - type: integer 
+	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'wrap_brst' (1#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12455]
+INFO: [Synth 8-226] default block is never used [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:25502]
+INFO: [Synth 8-638] synthesizing module 'ua_narrow' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:11989]
+	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 4 - type: integer 
+	Parameter C_NARROW_BURST_CNT_LEN bound to: 4 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12168]
+INFO: [Synth 8-226] default block is never used [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:12207]
+INFO: [Synth 8-256] done synthesizing module 'ua_narrow' (2#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:11989]
+INFO: [Synth 8-226] default block is never used [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:25832]
+INFO: [Synth 8-638] synthesizing module 'SRL_FIFO' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:133]
+	Parameter C_DATA_BITS bound to: 16 - type: integer 
+	Parameter C_DEPTH bound to: 8 - type: integer 
+	Parameter C_XON bound to: 0 - type: bool 
+INFO: [Synth 8-3491] module 'FDR' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26982' bound to instance 'Data_Exists_DFF' of component 'FDR' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:230]
+INFO: [Synth 8-6157] synthesizing module 'FDR' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26982]
+	Parameter INIT bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'FDR' (3#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26982]
+INFO: [Synth 8-3491] module 'MUXCY_L' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198' bound to instance 'MUXCY_L_I' of component 'MUXCY_L' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:247]
+INFO: [Synth 8-6157] synthesizing module 'MUXCY_L' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198]
+INFO: [Synth 8-6155] done synthesizing module 'MUXCY_L' (4#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198]
+INFO: [Synth 8-3491] module 'XORCY' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556' bound to instance 'XORCY_I' of component 'XORCY' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:254]
+INFO: [Synth 8-6157] synthesizing module 'XORCY' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556]
+INFO: [Synth 8-6155] done synthesizing module 'XORCY' (5#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556]
+INFO: [Synth 8-3491] module 'FDRE' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995' bound to instance 'FDRE_I' of component 'FDRE' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:260]
+INFO: [Synth 8-6157] synthesizing module 'FDRE' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995]
+	Parameter INIT bound to: 1'b0 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_R_INVERTED bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'FDRE' (6#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995]
+INFO: [Synth 8-3491] module 'MUXCY_L' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198' bound to instance 'MUXCY_L_I' of component 'MUXCY_L' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:247]
+INFO: [Synth 8-3491] module 'XORCY' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556' bound to instance 'XORCY_I' of component 'XORCY' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:254]
+INFO: [Synth 8-3491] module 'FDRE' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995' bound to instance 'FDRE_I' of component 'FDRE' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:260]
+INFO: [Synth 8-3491] module 'MUXCY_L' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198' bound to instance 'MUXCY_L_I' of component 'MUXCY_L' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:247]
+INFO: [Synth 8-3491] module 'XORCY' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556' bound to instance 'XORCY_I' of component 'XORCY' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:254]
+INFO: [Synth 8-3491] module 'FDRE' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995' bound to instance 'FDRE_I' of component 'FDRE' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:260]
+INFO: [Synth 8-3491] module 'MUXCY_L' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:63198' bound to instance 'MUXCY_L_I' of component 'MUXCY_L' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:247]
+INFO: [Synth 8-3491] module 'XORCY' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:105556' bound to instance 'XORCY_I' of component 'XORCY' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:254]
+INFO: [Synth 8-3491] module 'FDRE' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:26995' bound to instance 'FDRE_I' of component 'FDRE' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:260]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-6157] synthesizing module 'SRL16E' [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218]
+	Parameter INIT bound to: 16'b0000000000000000 
+	Parameter IS_CLK_INVERTED bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'SRL16E' (7#1) [/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-3491] module 'SRL16E' declared at '/tools/Xilinx/Vivado/2020.2/scripts/rt/data/unisim_comp.v:101218' bound to instance 'SRL16E_I' of component 'SRL16E' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:271]
+INFO: [Synth 8-256] done synthesizing module 'SRL_FIFO' (8#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:133]
+INFO: [Synth 8-256] done synthesizing module 'wr_chnl' (9#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:24159]
+WARNING: [Synth 8-6778] Component port with null array found, Will be ignored [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30020]
+INFO: [Synth 8-638] synthesizing module 'rd_chnl' [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:14746]
+	Parameter C_AXI_ADDR_WIDTH bound to: 14 - type: integer 
+	Parameter C_BRAM_ADDR_ADJUST_FACTOR bound to: 4 - type: integer 
+	Parameter C_AXI_DATA_WIDTH bound to: 128 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 16 - type: integer 
+	Parameter C_S_AXI_SUPPORTS_NARROW bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY bound to: 1 - type: integer 
+	Parameter C_RD_CMD_OPTIMIZATION bound to: 0 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4 - type: string 
+	Parameter C_SINGLE_PORT_BRAM bound to: 0 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_WIDTH bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+INFO: [Synth 8-226] default block is never used [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:16131]
+INFO: [Synth 8-256] done synthesizing module 'rd_chnl' (10#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:14746]
+INFO: [Synth 8-256] done synthesizing module 'full_axi' (11#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:29280]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_top' (12#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:30527]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (13#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ipshared/c9f0/hdl/axi_bram_ctrl_v4_1_rfs.vhd:31528]
+INFO: [Synth 8-256] done synthesizing module 'u96v2_sbc_base_axi_bram_ctrl_0_0' (14#1) [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/synth/u96v2_sbc_base_axi_bram_ctrl_0_0.vhd:115]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2649.312 ; gain = 102.809 ; free physical = 4202 ; free virtual = 9125
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2667.125 ; gain = 120.621 ; free physical = 4033 ; free virtual = 8956
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2667.125 ; gain = 120.621 ; free physical = 4033 ; free virtual = 8956
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.09 . Memory (MB): peak = 2679.031 ; gain = 0.000 ; free physical = 3925 ; free virtual = 8848
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0_ooc.xdc] for cell 'U0'
+create_clock: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2821.867 ; gain = 0.000 ; free physical = 3117 ; free virtual = 8041
+Finished Parsing XDC File [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.gen/sources_1/bd/u96v2_sbc_base/ip/u96v2_sbc_base_axi_bram_ctrl_0_0/u96v2_sbc_base_axi_bram_ctrl_0_0_ooc.xdc] for cell 'U0'
+Parsing XDC File [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.runs/u96v2_sbc_base_axi_bram_ctrl_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.runs/u96v2_sbc_base_axi_bram_ctrl_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2821.867 ; gain = 0.000 ; free physical = 3116 ; free virtual = 8040
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 5 instances were transformed.
+  FDR => FDRE: 1 instance 
+  MUXCY_L => MUXCY: 4 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2821.867 ; gain = 0.000 ; free physical = 3106 ; free virtual = 8030
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2821.867 ; gain = 275.363 ; free physical = 3140 ; free virtual = 8064
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xczu3eg-sbva484-1-i
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2821.867 ; gain = 275.363 ; free physical = 3141 ; free virtual = 8066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for U0. (constraint file  /home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.runs/u96v2_sbc_base_axi_bram_ctrl_0_0_synth_1/dont_touch.xdc, line 9).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:38 . Memory (MB): peak = 2821.867 ; gain = 275.363 ; free physical = 3150 ; free virtual = 8074
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'GEN_WDATA_SM_NO_ECC_DUAL_REG_WREADY.wr_data_sm_cs_reg' in module 'wr_chnl'
+INFO: [Synth 8-802] inferred FSM for state register 'GEN_NO_RD_CMD_OPT.GEN_AR_DUAL.rd_addr_sm_cs_reg' in module 'rd_chnl'
+INFO: [Synth 8-802] inferred FSM for state register 'GEN_NO_RD_CMD_OPT.rd_data_sm_cs_reg' in module 'rd_chnl'
+INFO: [Synth 8-802] inferred FSM for state register 'GEN_NO_RD_CMD_OPT.rlast_sm_cs_reg' in module 'rd_chnl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+               w8_awaddr |                              001 |                              001
+            brst_wr_data |                              010 |                              011
+          b2b_w8_wr_data |                              011 |                              100
+             sng_wr_data |                              100 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'GEN_WDATA_SM_NO_ECC_DUAL_REG_WREADY.wr_data_sm_cs_reg' using encoding 'sequential' in module 'wr_chnl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                                0 |                               00
+               ld_araddr |                                1 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.GEN_AR_DUAL.rd_addr_sm_cs_reg' using encoding 'sequential' in module 'rd_chnl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                              000 |                              000
+          w8_throttle_b2 |                              001 |                              101
+             w8_throttle |                              010 |                              010
+        w8_2nd_last_data |                              011 |                              011
+            w8_last_data |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.rlast_sm_cs_reg' using encoding 'sequential' in module 'rd_chnl'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                             0000 |                             0000
+                sng_addr |                             0001 |                             0011
+                sec_addr |                             0010 |                             0100
+               full_pipe |                             0011 |                             0101
+           full_throttle |                             0100 |                             0110
+               last_addr |                             0101 |                             0111
+           last_throttle |                             0110 |                             1000
+               last_data |                             0111 |                             1001
+       last_data_ar_pend |                             1000 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'GEN_NO_RD_CMD_OPT.rd_data_sm_cs_reg' using encoding 'sequential' in module 'rd_chnl'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:32 ; elapsed = 00:00:41 . Memory (MB): peak = 2821.867 ; gain = 275.363 ; free physical = 3157 ; free virtual = 8083
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    9 Bit       Adders := 2     
+	   2 Input    8 Bit       Adders := 3     
+	   2 Input    5 Bit       Adders := 12    
+	   2 Input    4 Bit       Adders := 16    
+	   3 Input    4 Bit       Adders := 2     
+	   2 Input    3 Bit       Adders := 2     
++---XORs : 
+	   2 Input      1 Bit         XORs := 4     
++---Registers : 
+	              128 Bit    Registers := 1     
+	               16 Bit    Registers := 7     
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 5     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 348   
++---Muxes : 
+	   2 Input  128 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 4     
+	   5 Input   10 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 8     
+	   2 Input    8 Bit        Muxes := 5     
+	   8 Input    6 Bit        Muxes := 4     
+	   2 Input    4 Bit        Muxes := 26    
+	   9 Input    4 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 4     
+	   2 Input    3 Bit        Muxes := 11    
+	   4 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 92    
+	   5 Input    1 Bit        Muxes := 15    
+	   3 Input    1 Bit        Muxes := 1     
+	   9 Input    1 Bit        Muxes := 24    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:53 . Memory (MB): peak = 2821.867 ; gain = 275.363 ; free physical = 4550 ; free virtual = 9481
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:11 ; elapsed = 00:01:41 . Memory (MB): peak = 3189.172 ; gain = 642.668 ; free physical = 5538 ; free virtual = 10473
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:16 ; elapsed = 00:01:47 . Memory (MB): peak = 3272.492 ; gain = 725.988 ; free physical = 5418 ; free virtual = 10349
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:17 ; elapsed = 00:01:48 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 6771 ; free virtual = 11702
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:22 ; elapsed = 00:01:54 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5591 ; free virtual = 10522
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:22 ; elapsed = 00:01:54 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5589 ; free virtual = 10520
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5520 ; free virtual = 10452
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5508 ; free virtual = 10440
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5535 ; free virtual = 10466
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5534 ; free virtual = 10466
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY8  |     2|
+|2     |LUT1    |     5|
+|3     |LUT2    |    25|
+|4     |LUT3    |   219|
+|5     |LUT4    |    58|
+|6     |LUT5    |    93|
+|7     |LUT6    |   243|
+|8     |MUXCY_L |     3|
+|9     |MUXF7   |     2|
+|10    |SRL16E  |    16|
+|11    |XORCY   |     4|
+|12    |FDR     |     1|
+|13    |FDRE    |   696|
++------+--------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:22 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.500 ; gain = 733.996 ; free physical = 5525 ; free virtual = 10457
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:11 ; elapsed = 00:01:39 . Memory (MB): peak = 3280.500 ; gain = 579.254 ; free physical = 5493 ; free virtual = 10424
+Synthesis Optimization Complete : Time (s): cpu = 00:01:23 ; elapsed = 00:01:55 . Memory (MB): peak = 3280.508 ; gain = 733.996 ; free physical = 5492 ; free virtual = 10423
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 3280.508 ; gain = 0.000 ; free physical = 5388 ; free virtual = 10320
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3312.352 ; gain = 0.000 ; free physical = 5946 ; free virtual = 10877
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  (CARRY4) => CARRY8: 1 instance 
+  FDR => FDRE: 1 instance 
+
+INFO: [Common 17-83] Releasing license: Synthesis
+93 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:44 ; elapsed = 00:02:18 . Memory (MB): peak = 3312.352 ; gain = 975.352 ; free physical = 6274 ; free virtual = 11205
+INFO: [Common 17-1381] The checkpoint '/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.runs/u96v2_sbc_base_axi_bram_ctrl_0_0_synth_1/u96v2_sbc_base_axi_bram_ctrl_0_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP u96v2_sbc_base_axi_bram_ctrl_0_0, cache-ID = 3273eeedf7aff1f0
+INFO: [Coretcl 2-1174] Renamed 10 cell refs.
+INFO: [Common 17-1381] The checkpoint '/home/training/Projects/bsp_build_tests/test_tag/u96v2_sbc_base/hdl/projects/u96v2_sbc_base_2020_2/u96v2_sbc_base.runs/u96v2_sbc_base_axi_bram_ctrl_0_0_synth_1/u96v2_sbc_base_axi_bram_ctrl_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file u96v2_sbc_base_axi_bram_ctrl_0_0_utilization_synth.rpt -pb u96v2_sbc_base_axi_bram_ctrl_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 27 11:00:40 2021...
