@@ -3,7 +3,7 @@ MPSoC architecture for accelerating drone components and interfacing with ROS2.
 
 The work has been tested on:
 
-- **Host Platform**: Ubuntu 20.,04 LTS
+- **Host Platform**: Ubuntu 20.04 LTS
 - **Target Development Software**: Vivado/Vitis 2020.2 + PetaLinux 2020.2
 - **Target Development Board**: [Ultra96-V2](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-ultra96-v2-g-3074457345638646173/) with [U96 JTAG/UART to USB adapter](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-acc-u96-jtag-3074457345635355958/)
 
@@ -15,7 +15,7 @@ Clone the project:
 git clone https://github.com/DIII-SDU-Group/MPSoC4Drones.git
 ```
 
-After cloning the project, open Vivado and choose `Tools -> Run Tcl Script...` and selecting the `U20U96.tcl` file created earlier. This will regenerate the project.
+After cloning the project, open Vivado and choose `Tools -> Run Tcl Script...` and select the `U20U96.tcl` file created earlier. This will regenerate the project.
 
 The project has the essential units to run Ubuntu 20.04 on the Ultra96V2. However, one can add extra elements to the PL and regenerate the Bitstream. 
 
