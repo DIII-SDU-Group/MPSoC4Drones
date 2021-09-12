@@ -146,3 +146,92 @@ Insert the SD card to the Ultra96V2 and access it using the serial port (Baudrat
 
 P.S. the work is in progress, so, bugs due to different OS or tools versions may arises. We work continuously to upgrading the system to the latest available tools. 
 
+
+
+## Installing ROS2
+
+Steps are taking from ROS2 setup page: https://docs.ros.org/en/foxy/Installation/Ubuntu-Development-Setup.html
+
+#### Add the ROS2 apt repository
+
+Authorize the GPG key with apt like this:
+
+```bash
+sudo apt update && sudo apt install curl gnupg2 lsb-release
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+Then add the repository to your sources list:
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
+Install development ROS tools
+
+```bash
+sudo apt update && sudo apt install -y \
+  build-essential \
+  cmake \
+  git \
+  libbullet-dev \
+  python3-colcon-common-extensions \
+  python3-flake8 \
+  python3-pip \
+  python3-pytest-cov \
+  python3-rosdep \
+  python3-setuptools \
+  python3-vcstool \
+  wget
+# install some pip packages needed for testing
+python3 -m pip install -U \
+  argcomplete \
+  flake8-blind-except \
+  flake8-builtins \
+  flake8-class-newline \
+  flake8-comprehensions \
+  flake8-deprecated \
+  flake8-docstrings \
+  flake8-import-order \
+  flake8-quotes \
+  pytest-repeat \
+  pytest-rerunfailures \
+  pytest
+# install Fast-RTPS dependencies
+sudo apt install --no-install-recommends -y \
+  libasio-dev \
+  libtinyxml2-dev
+# install Cyclone DDS dependencies
+sudo apt install --no-install-recommends -y \
+  libcunit1-dev
+```
+
+Create a workspace and clone all repos:
+
+```bash
+mkdir -p ~/ros2_foxy/src
+cd ~/ros2_foxy
+wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+vcs import src < ros2.repos
+```
+
+Install dependencies using rosdep
+
+```bash
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+```
+
+Build the code:
+
+```bash
+cd ~/ros2_foxy/
+colcon build --symlink-install
+```
+
+Set up your environment by sourcing the following file.
+
+```
+. ~/ros2_foxy/install/local_setup.bash
+```
