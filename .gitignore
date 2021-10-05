@@ -1,0 +1,14 @@
+# Generated folders and files:
+images/
+U20U96/
+vivado_project/U20U96.srcs/*
+vivado_project/U20U96.gen/*
+vivado_project/U20U96.cache/*
+vivado_project/U20U96.runs/*
+vivado_project/U20U96.ip_user_files/*
+vivado_project/ip_upgrade.log
+vivado_project/*.xsa
+vivado_project/*.xpr
+
+.*.swp
+.Xil
