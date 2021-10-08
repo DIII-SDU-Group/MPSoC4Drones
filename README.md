@@ -328,7 +328,13 @@ Finally, we install ROS2 Foxy base:
 sudo apt install ros-foxy-ros-base
 ```
 
-Create a workspace and clone all repos:
+Add the ROS2 source script to `.bashrc`:
+
+```bash
+echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+```
+
+Create a workspace:
 
 ```bash
 mkdir -p ~/ros2/src
@@ -336,7 +342,12 @@ mkdir -p ~/ros2/src
 
 And that's the furthest we can do with `chroot`. Now, the file system is ready.
 
-Quit the qemu session by issuing the `exit` command twice.
+Quit the qemu session by issuing the `exit` command twice:
+
+```bash
+exit
+exit
+```
 
 Perform the following umount commads (very important!):
 
