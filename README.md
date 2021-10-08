@@ -100,13 +100,21 @@ Configure the build with your XSA hardware definition file:
 petalinux-config --get-hw-description ../vivado_project/u96v2_sbc_base_wrapper.xsa
 ```
 
-This command will bring up the hardware system configuration editor. Apply the following settings:
+This command will bring up the hardware system configuration editor. Apply the following settings (all of which are important - neglect might cause failure to boot):
 
 > - In *Subsystem AUTO Hardware Settings > Serial Settings*, all *stdin/stdout* is `PSU_UART1` and the baudrate is 115200 
 > - *Subsystem AUTO Hardware Settings > Advanced bootable images storage Settings > boot image settings > image name* is `BOOT.BIN`
+> - *Subsystem AUTO Hardware Settings > Advanced bootable images storage Settings > boot image settings > image storage media* is `primary sd`
+> - *Subsystem AUTO Hardware Settings > Advanced bootable images storage Settings > u-boot env partition settings > image storage media* is `primary sd`
+> - *Subsystem AUTO Hardware Settings > Advanced bootable images storage Settings > kernel image settings > image storage media* is `primary sd`
+> - *Subsystem AUTO Hardware Settings > Advanced bootable images storage Settings > dtb image settings > image storage media* is `primary sd`
 > - *Subsystem AUTO Hardware Settings > SD/SDIO > Primary SD/SDIO* is `psu_sd_0`
 > - *DTG Settings > MACHINE_NAME* is `avnet-ultra96-rev1`
+> - *Image Packaging Configuration > Root filesystem type* is `EXT4 (SD/eMMC/SATA/USB)`
 > - *Image Packaging Configuration > Copy final images to tftpboot* is unchecked (press n)
+
+WIFI STUFF GOES HERE!
+
 
 Then we are ready to build a bare minimum device tree for the Zynq MPSoC system. Run:
 
