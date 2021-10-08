@@ -322,21 +322,16 @@ sudo apt install --no-install-recommends -y \
   libcunit1-dev
 ```
 
+Finally, we install ROS2 Foxy base:
+
+```bash
+sudo apt install ros-foxy-ros-base
+```
+
 Create a workspace and clone all repos:
 
 ```bash
 mkdir -p ~/ros2/src
-cd ~/ros2
-wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
-vcs import src < ros2.repos
-```
-
-Install dependencies using rosdep:
-
-```bash
-sudo rosdep init
-rosdep update
-rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 ```
 
 And that's the furthest we can do with `chroot`. Now, the file system is ready.
