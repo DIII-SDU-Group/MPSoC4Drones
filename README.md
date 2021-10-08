@@ -71,7 +71,7 @@ When the run is finished, generate the XSA file by
 > 3. Make sure *Hardware* is chosen, then press *Next >*
 > 4. Make sure *Pre-synthesis* is chosen, then tick *Include bitstream*, then press *Next >*
 > 5. Press *Next >*
-> 6. Give your XSA file a name, then press *Next >*
+> 6. Press *Next >*
 > 7. Press *Finish*
 
 After a little processing, the XSA file has been generated.
@@ -97,7 +97,7 @@ cd U20U96_petalinux
 Configure the build with your XSA hardware definition file:
 
 ```bash
-petalinux-config --get-hw-description ../vivado_project/<XSA-file>.xsa
+petalinux-config --get-hw-description ../vivado_project/u96v2_sbc_base_wrapper.xsa
 ```
 
 This command will bring up the hardware system configuration editor. Apply the following settings:
