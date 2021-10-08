@@ -124,10 +124,6 @@ petalinux-build
 
 This will take quite a while (few hours). :)
 
-TO DO: Configuration of file system type? As:
-
-> Check the root filesystem type is EXT (SD/eMMC/QSPI/SATA/USB) and the option for 'Copy final images to  tftpboot' unchecked. That is under the Image Packaging Configuration tab.
-
 #### Packaging
 Once the build is done, a boot image binary (BOOT.BIN) needs to be created from the first stage bootloader, FPGA bitstream, PMU firmware, and u-boot environment. Using the `petalinux-package` command, specify the paths to the bitstream and ELF files. The boot image binary file will be generated in this same directory. This step can be done if the programmable logic design has been changed without changing address specific parts. One simply needs to replace `images/linux/system.bit` with the new bitstream generated from Vivado.
 
