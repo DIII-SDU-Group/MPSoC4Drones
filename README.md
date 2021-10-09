@@ -18,6 +18,14 @@ Everything in this repository is heavily based on the work of others, especially
 Some additional references:
 - [Wi-Fi Connectivity on the Ultra96-V2 in Vivado+PetaLinux 2019.2](https://www.hackster.io/news/wi-fi-connectivity-on-the-ultra96-v2-in-vivado-petalinux-2019-2-493a709b7f25)
 - [Running Ubuntu 18.04 on Ultra96v2 Using Petalinux 2019.2, with Networking](https://highlevel-synthesis.com/2019/12/15/running-ubuntu-on-ultra96v2-using-petalinux-2019-2-with-networking-and-linux-header/)
+- [Tips for Integrating WiFi on the Ultra96-V2](https://www.element14.com/community/groups/fpga-group/blog/2020/01/30/lessons-learned-from-debugging-wifi-access-point-on-ultra96-v2)
+- [Ultra96-PYNQ](https://github.com/Avnet/Ultra96-PYNQ)
+- [ZynqMP-FPGA-Ubuntu20.04-Lima-Ultra96](https://github.com/ikwzm/ZynqMP-FPGA-Ubuntu20.04-Lima-Ultra96)
+- [ZynqMP-FPGA-Ubuntu20.04-Ultra96](https://github.com/ikwzm/ZynqMP-FPGA-Ubuntu20.04-Ultra96)
+- [ZynqMP-FPGA-Linux](https://github.com/ikwzm/ZynqMP-FPGA-Linux)
+- [Ultra96-V2 ultra-hard-story with WiFi of](https://titanwolf.org/Network/Articles/Article?AID=e801481c-6969-425e-8ce2-77c2edf0e63e#gsc.tab=0)
+- [u96v2-wilc-driver](https://github.com/Avnet/u96v2-wilc-driver)
+- [Patching the Linux Kernel with devshell in PetaLinux 2020.2](https://www.centennialsoftwaresolutions.com/post/patching-the-linux-kernel-with-devshell-in-petalinux-2020-2)
 
 ## Getting started
 
@@ -143,9 +151,9 @@ Finally, create a BOOT folder to contain the generated boot files: TODO: Check t
 
 ```bash
 mkdir BOOT
-cp boot.scl BOOT/
-cp image.ub BOOT/
-cp BOOT.BIN BOOT/
+cp images/linux/boot.scr BOOT/
+cp images/linux/image.ub BOOT/
+cp images/linux/BOOT.BIN BOOT/
 ```
 
 Done!
@@ -228,6 +236,22 @@ We then login as the new user in order to not install everything as root:
 su - u96
 ```
 
+> If you as user `u96` experience issues with using the `sudo` command, specifically if you see 
+> ```bash
+> sudo: effective uid is not 0, is /usr/bin/sudo on a file system with the 'nosuid' option set or an NFS file system without root privileges?
+> ```
+> Write `exit` to go back to root user, then execute
+> ```bash
+> mount
+> mount -n -o remount,suid /
+> ```
+> Then change to `u96` user again:
+> ```bash
+> su - u96
+> ```
+> Then you should be good with the `sudo` command again! Let's continue...
+
+
 Now, let's install some software on rootfs:
 
 ```bash
@@ -245,6 +269,7 @@ sudo apt -y install \
   wget \
   apt-utils \
   wpasupplicant \
+  devmem2 \
   nano \
   vim \
   kmod \
