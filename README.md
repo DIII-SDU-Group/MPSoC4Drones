@@ -1,5 +1,5 @@
 # MPSoC4Drones
-Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2, targeted for MPSoC platforms in UAV (drone) applications which requires ROS2 with hardware acceleration. 
+Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2, targeted for the MPSoC platform Ultra96-V2 in UAV (drone) applications which requires ROS2 with hardware acceleration. 
 
 Prerequisites:
 
