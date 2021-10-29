@@ -46,7 +46,7 @@ git clone https://github.com/DIII-SDU-Group/MPSoC4Drones.git
 Enter the cloned directory:
 
 ```bash
-cd MPSoc4Drones/
+cd MPSoC4Drones/
 ```
 
 Now, run the setup script. The setup script will first setup the Vivado project structure host independently, and will then change ownership of all nested folders and files to the current user (a workaround for a bug we experienced with the Vivado project), and will thus prompt for *sudo* password:
