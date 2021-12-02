@@ -1,4 +1,14 @@
-.gitignore~
-..gitignore.un~
+*~
+.*~
+..*~
 
 .*.swp
+
+petalinux/
+hdl/
+bdf/
+meta-avnet/
+
+.git_setup
+.vivado_setup
+.petalinux_setup
