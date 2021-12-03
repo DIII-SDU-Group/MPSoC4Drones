@@ -11,7 +11,7 @@
 set -e
 
 [[ $0 != $BASH_SOURCE ]] && SCRIPTS_DIR=$(realpath $PWD/$BASH_SOURCE | xargs dirname) || SCRIPTS_DIR=$(realpath $0 | xargs dirname)
-source $SCRIPTS_DIR/settings.sh
+source $SCRIPTS_DIR/settings.sh >> /dev/null
 
 ##########################################################
 # Functions
@@ -70,26 +70,29 @@ setup_git()
 	echo
 	
 	git clone $AVNET_BDF_REPO
-	git clone -b $AVNET_REPO_TAG $AVNET_HDL_REPO
-	git clone -b $AVNET_REPO_TAG $AVNET_PETALINUX_REPO
-	git clone -b $AVNET_REPO_TAG $AVNET_META_AVNET_REPO
+	git clone $AVNET_HDL_REPO
+	git clone $AVNET_PETALINUX_REPO
+	git clone $AVNET_META_AVNET_REPO
 
 	echo "Patching Avnet repositories for MPSoC4Drones..."
 	echo
 	
 	cd $REPOSITORY_DIR/hdl
+	git checkout $AVNET_REPO_TAG
 	git apply $PATCHES_DIR/hdl_repo.patch
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
 	git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
 	cd $REPOSITORY_DIR/petalinux
-	#git apply $PATCHES_DIR/petalinux_repo.patch
+	git checkout $AVNET_REPO_TAG
+	git apply $PATCHES_DIR/petalinux_repo.patch
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
 	git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
 	cd $REPOSITORY_DIR/meta-avnet
+	git checkout $AVNET_REPO_TAG
 	git apply $PATCHES_DIR/meta_avnet_repo.patch
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
@@ -98,12 +101,12 @@ setup_git()
 	cd $REPOSITORY_DIR
 	touch .git_setup
 
-	rm -f .vivado_setup .petalinux_setup
+	rm -f .vivado_setup .petalinux_setup .vivado_built .petalinux_configured .petalinux_built
 }
 
 setup_vivado()
 {
-	if [ ! -a $REPOSITORY_DIR/.git_setup ]
+	if [ ! -e $REPOSITORY_DIR/.git_setup ]
 	then
 		echo Can not setup Vivado project before setting up the Git project structure.
 		echo Run mp4d-setup -G to setup Git project structure.
@@ -142,11 +145,16 @@ setup_vivado()
 	./petalinux/scripts/make_u96v2_sbc_mp4d.sh --vivado-create
 
 	touch .vivado_setup
+
+	rm -f .vivado_built .petalinux_configured
+
+	echo Vivado project created at $REPOSITORY_DIR/hdl/projects/u962v2_sbc_mp4d_2020_2/
+	echo
 }
 
 setup_petalinux ()
 {
-	if [ ! -a $REPOSITORY_DIR/.git_setup ]
+	if [ ! -e $REPOSITORY_DIR/.git_setup ]
 	then
 		echo Can not setup PetaLinux project before setting up the Git project structure.
 		echo Run mp4d-setup -G to setup Git project structure.
@@ -185,16 +193,18 @@ setup_petalinux ()
 	./petalinux/scripts/make_u96v2_sbc_mp4d.sh --petalinux-create
 
 	touch .petalinux_setup
+
+	rm -f .petalinux_configured .petalinux_built
 }
 
 ##########################################################
 # Main
 
 # Parse arguments
-ALL="false"
-GIT="false"
-VIVADO="false"
-PETALINUX="false"
+SETUP_ALL="false"
+SETUP_GIT="false"
+SETUP_VIVADO="false"
+SETUP_PETALINUX="false"
 FORCE="false"
 
 while [[ $# -gt 0 ]]; do
@@ -202,19 +212,19 @@ while [[ $# -gt 0 ]]; do
 
 	case $key in
     	-A|--all)
-			ALL="true"
+			SETUP_ALL="true"
       		shift # past value
       		;;
     	-G|--git)
-			GIT="true"
+			SETUP_GIT="true"
       		shift # past value
       		;;
     	-V|--vivado)
-			VIVADO="true"
+			SETUP_VIVADO="true"
       		shift # past value
       		;;
     	-P|--petalinux)
-			PETALINUX="true"
+			SETUP_PETALINUX="true"
       		shift # past value
       		;;
     	-f|--force)
@@ -235,25 +245,25 @@ while [[ $# -gt 0 ]]; do
 done
 
 
-if [ $GIT = "false" ] && [ $VIVADO = "false" ] && [ $PETALINUX = "false" ] || [ $ALL = "true" ]
+if [ $SETUP_GIT = "false" ] && [ $SETUP_VIVADO = "false" ] && [ $SETUP_PETALINUX = "false" ] || [ $SETUP_ALL = "true" ]
 then
-	GIT="true"
-	VIVADO="true"
-	PETALINUX="true"
+	SETUP_GIT="true"
+	SETUP_VIVADO="true"
+	SETUP_PETALINUX="true"
 fi
 
 # Run functionality
-if [ $GIT = "true" ]
+if [ $SETUP_GIT = "true" ]
 then
 	setup_git
 fi
 
-if [ $VIVADO = "true" ]
+if [ $SETUP_VIVADO = "true" ]
 then
 	setup_vivado
 fi
 
-if [ $PETALINUX = "true" ]
+if [ $SETUP_PETALINUX = "true" ]
 then
 	setup_petalinux
 fi

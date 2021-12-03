@@ -4,11 +4,20 @@
 
 .*.swp
 
+*.jou
+*.log
+
 petalinux/
 hdl/
 bdf/
 meta-avnet/
+target/
 
 .git_setup
 .vivado_setup
 .petalinux_setup
+.vivado_built
+.petalinux_setup
+.petalinux_built
+.ubuntu_built
+.ubuntu_modules_imported
