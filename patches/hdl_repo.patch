@@ -1459,7 +1459,7 @@ index 0000000..e90fb91
 +
 diff --git a/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc b/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc
 new file mode 100644
-index 0000000..fe0e37a
+index 0000000..48f6a7d
 --- /dev/null
 +++ b/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc
 @@ -0,0 +1,289 @@
@@ -1648,7 +1648,7 @@ index 0000000..fe0e37a
 +#set_property PACKAGE_PIN E10  [get_ports {MIO35                  }];  # "E10.MIO35"
 +
 +# LPDDR4
-+set_property PACKAGE_PIN AA22 [get_ports {PS_DDR_CAA0            }];  # "AA22.PS_DDR_CAA0"
++#set_property PACKAGE_PIN AA22 [get_ports {PS_DDR_CAA0            }];  # "AA22.PS_DDR_CAA0"
 +#set_property PACKAGE_PIN AB20 [get_ports {PS_DDR_CAA1            }];  # "AB20.PS_DDR_CAA1"
 +#set_property PACKAGE_PIN AB17 [get_ports {PS_DDR_CAA2            }];  # "AB17.PS_DDR_CAA2"
 +#set_property PACKAGE_PIN AB19 [get_ports {PS_DDR_CAA3            }];  # "AB19.PS_DDR_CAA3"
