@@ -1,5 +1,5 @@
 diff --git a/scripts/common.sh b/scripts/common.sh
-index 72d2256..1513016 100755
+index 72d2256..d7294ec 100755
 --- a/scripts/common.sh
 +++ b/scripts/common.sh
 @@ -63,6 +63,7 @@ META_AVNET_BRANCH="2020.2"
@@ -10,6 +10,24 @@ index 72d2256..1513016 100755
  TOOL_VER=$(echo $PETALINUX_VER | sed 's/\./p/g')
  TAG_STAMP=$(cat ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt)
  TAG_STRING=${TOOL_VER}_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${TAG_STAMP}
+@@ -130,7 +131,7 @@ check_git_tag()
+     else
+       echo -e "\nReported hdl tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
+       echo -e "\nThis does not match requested ${TAG_STRING}.  Exiting now.\n"
+-      exit
++      exit 1
+     fi
+       
+     # Verify the petalinux repository is checked out with the correct ${TAG_STRING} tag
+@@ -142,7 +143,7 @@ check_git_tag()
+     else
+       echo -e "\nReported petalinux tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
+       echo -e "\nThis does not match ${TAG_STRING}.  Exiting now.\n"
+-      exit
++      exit 1
+     fi
+   fi
+ }
 @@ -163,16 +164,16 @@ reset_git_branch()
    fi
  }
@@ -53,41 +71,23 @@ index 72d2256..1513016 100755
 -      echo ""
 -    fi
 -  fi
-+    vivado -mode batch -source make_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.tcl -notrace -nolog -nojournal -tclargs create $1 ${HDL_BOARD_NAME} ${HDL_PROJECT_NAME} 
++    vivado -mode batch -source make_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.tcl -notrace -nolog -nojournal -tclargs build $1 ${HDL_BOARD_NAME} ${HDL_PROJECT_NAME} 
  }
  
  configure_cache_path ()
-@@ -286,6 +274,29 @@ create_petalinux_project ()
+@@ -285,6 +273,11 @@ create_petalinux_project ()
+ 
    # Create the hardware definition folder.
    mkdir -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform
- 
-+  # If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
-+  if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
-+  then
-+    # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
-+    # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
-+    echo -e "\nFetch meta-avnet folder\n"
-+    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
-+	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
-+  else
-+    # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
-+    echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
-+    echo -e "\n***WARNING:  This may result in build mismatch!***\n"
-+    echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
-+
-+    read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
-+
-+    echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
-+    git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
-+  fi
 +}
 +
 +configure_petalinux_project()
 +{
++  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
+ 
    # Import the hardware definition files and hardware platform bitstream from
    # implemented system products folder.
-   cd ${HDL_PROJECTS_FOLDER}
-@@ -307,10 +318,7 @@ create_petalinux_project ()
+@@ -307,10 +300,7 @@ create_petalinux_project ()
  
    # Import the hardware description into the PetaLinux project.
    petalinux-config --silentconfig --get-hw-description=./hw_platform/ -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
@@ -98,32 +98,144 @@ index 72d2256..1513016 100755
    if [ -f ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ]
    then
      echo -e "\nPatching PetaLinux project config ...\n"
-@@ -320,25 +328,6 @@ configure_petalinux_project()
-     echo -e "PetaLinux project config is not touched for this build ...\n"
-   fi
- 
--  # If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
--  if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
--  then
--    # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
--    # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
+@@ -325,8 +315,9 @@ configure_petalinux_project()
+   then
+     # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
+     # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
 -    echo -e "\nClone meta-avnet layer and checkout git tag ${TAG_STRING}\n"
 -    git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
--  else
--    # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
--    echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
--    echo -e "\n***WARNING:  This may result in build mismatch!***\n"
--    echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
--
--    read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
--
--    echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
--    git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
--  fi
--
++    echo -e "\nFetch meta-avnet folder\n"
++    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
+   else
+     # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
+     echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
+@@ -338,6 +329,24 @@ configure_petalinux_project()
+     echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
+     git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
+   fi
++  ## If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
++  #if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
++  #then
++  #  # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
++  #  # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
++  #  echo -e "\nClone meta-avnet layer and checkout git tag ${TAG_STRING}\n"
++  #  git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++  #else
++  #  # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
++  #  echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
++  #  echo -e "\n***WARNING:  This may result in build mismatch!***\n"
++  #  echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
++
++  #  read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
++
++  #  echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
++  #  git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
++  #fi
+ 
    if [ "$KEEP_CACHE" = "true" ]
    then
-     configure_cache_path
+@@ -352,8 +361,100 @@ configure_petalinux_project()
+   petalinux-config --silentconfig
+ }
+ 
++#create_petalinux_project ()
++#{
++#  # This function is responsible for creating a PetaLinux project import
++#  # hardware platform specified in HDL_PROJECT_NAME variable
++#  #
++#  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++#
++#  echo -e "\nCreating '$PETALINUX_PROJECT_NAME' Petalinux project ...\n"
++#
++#  # Create the PetaLinux projects folder.
++#  mkdir -p ${PETALINUX_PROJECTS_FOLDER}
++#
++#  # Change to PetaLinux projects folder.
++#  cd ${PETALINUX_PROJECTS_FOLDER}
++#
++#  # Create the PetaLinux project.
++#  petalinux-create --type project --template ${SOC} --name ${PETALINUX_PROJECT_NAME} --force
++#
++#  # Create the hardware definition folder.
++#  mkdir -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform
++#
++#  # If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
++#  if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
++#  then
++#    # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
++#    # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
++#    echo -e "\nFetch meta-avnet folder\n"
++#    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++#	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
++#  else
++#    # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
++#    echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
++#    echo -e "\n***WARNING:  This may result in build mismatch!***\n"
++#    echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
++#
++#    read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
++#
++#    echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
++#    git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
++#  fi
++#}
++#
++#configure_petalinux_project()
++#{
++#  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++#  # Import the hardware definition files and hardware platform bitstream from
++#  # implemented system products folder.
++#  cd ${HDL_PROJECTS_FOLDER}
++#
++#  echo -e "\nImporting hardware definition ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.xsa from HDL project folder ...\n"
++#
++#  cp -f ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.xsa \
++#  ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform/.
++#
++#  echo -e "\nImporting hardware bitstream ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_wrapper.bit from HDL project folder...\n"
++#
++#  cp -f ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.runs/impl_1/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_wrapper.bit \
++#  ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform/system_wrapper.bit
++#
++#  # Change directories to the hardware definition folder for the PetaLinux
++#  # project, at this point the .hdf file must be located in this folder
++#  # for the petalinux-config step to be successful.
++#  cd ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
++#
++#  # Import the hardware description into the PetaLinux project.
++#  petalinux-config --silentconfig --get-hw-description=./hw_platform/ -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
++#
++#  if [ -f ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ]
++#  then
++#    echo -e "\nPatching PetaLinux project config ...\n"
++#    bash ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ${PETALINUX_BOARD_PROJECT} ${PETALINUX_PROJECT_NAME}
++#  else
++#    echo -e "\nWARNING: No board specific PetaLinux project configuration files found, \n"
++#    echo -e "PetaLinux project config is not touched for this build ...\n"
++#  fi
++#
++#  if [ "$KEEP_CACHE" = "true" ]
++#  then
++#    configure_cache_path
++#  fi
++#
++#  if [ "$KEEP_WORK" = "true" ]
++#  then
++#    do_not_rm_work
++#  fi
++#
++#  petalinux-config --silentconfig
++#}
++
+ configure_boot_method ()
+ {
++  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++
++  cd ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
+ 
+   # Change PetaLinux project config to change the boot method
+   echo -e "\nModifying project config for ${BOOT_METHOD} boot support...\n"
 diff --git a/scripts/make_u96v2_sbc_mp4d.sh b/scripts/make_u96v2_sbc_mp4d.sh
 new file mode 100755
 index 0000000..e17c896

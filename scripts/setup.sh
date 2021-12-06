@@ -64,6 +64,7 @@ setup_git()
 		rm -rf $REPOSITORY_DIR/hdl
 		rm -rf $REPOSITORY_DIR/petalinux
 		rm -rf $REPOSITORY_DIR/meta-avnet
+		rm -rf $REPOSITORY_DIR/.git_setup
 	fi
 
 	echo "Cloning Avnet repositories..."
@@ -135,6 +136,7 @@ setup_vivado()
 		echo
 
 		rm -rf $REPOSITORY_DIR/hdl/projects/u96v2_sbc_mp4d_2020_2
+		rm -f $REPOSITORY_DIR/.vivado_setup
 	fi
 
 	cd $REPOSITORY_DIR
@@ -183,6 +185,7 @@ setup_petalinux ()
 		echo
 
 		rm -rf $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2
+		rm -f $REPOSITORY_DIR/.petalinux_setup
 	fi
 
 	cd $REPOSITORY_DIR

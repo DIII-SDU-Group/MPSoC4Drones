@@ -18,6 +18,7 @@ target/
 .petalinux_setup
 .vivado_built
 .petalinux_setup
+.petalinux_configured
 .petalinux_built
 .ubuntu_built
 .ubuntu_modules_imported
