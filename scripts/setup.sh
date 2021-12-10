@@ -184,7 +184,8 @@ setup_petalinux ()
 		echo Removing existing PetaLinux project
 		echo
 
-		rm -rf $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2
+		rm -rf $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2*
+		rm -rf $REPOSITORY_DIR/petalinux/projects/cache
 		rm -f $REPOSITORY_DIR/.petalinux_setup
 	fi
 
