@@ -1969,7 +1969,7 @@ index 0000000..6274667
 +
 diff --git a/scripts/project_scripts/u96v2_sbc_mp4d.tcl b/scripts/project_scripts/u96v2_sbc_mp4d.tcl
 new file mode 100644
-index 0000000..fa93b29
+index 0000000..6f148f6
 --- /dev/null
 +++ b/scripts/project_scripts/u96v2_sbc_mp4d.tcl
 @@ -0,0 +1,207 @@
@@ -2160,7 +2160,7 @@ index 0000000..fa93b29
 +   cd $scripts_folder
 +   update_compile_order -fileset sources_1
 +   update_compile_order -fileset sim_1
-+   save_bd_design
++   #save_bd_design
 +   launch_runs impl_1 -to_step write_bitstream -jobs $numberOfCores
 +   #*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 +   #*- KEEP OUT, do not touch this section unless you know what you are doing! -*
