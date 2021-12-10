@@ -1,5 +1,5 @@
 diff --git a/scripts/common.sh b/scripts/common.sh
-index 72d2256..d7294ec 100755
+index 72d2256..9b4fa9b 100755
 --- a/scripts/common.sh
 +++ b/scripts/common.sh
 @@ -63,6 +63,7 @@ META_AVNET_BRANCH="2020.2"
@@ -98,7 +98,7 @@ index 72d2256..d7294ec 100755
    if [ -f ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ]
    then
      echo -e "\nPatching PetaLinux project config ...\n"
-@@ -325,8 +315,9 @@ configure_petalinux_project()
+@@ -325,8 +315,10 @@ configure_petalinux_project()
    then
      # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
      # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
@@ -106,11 +106,12 @@ index 72d2256..d7294ec 100755
 -    git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
 +    echo -e "\nFetch meta-avnet folder\n"
 +    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++	rm -rf ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
 +	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
    else
      # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
      echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
-@@ -338,6 +329,24 @@ configure_petalinux_project()
+@@ -338,6 +330,24 @@ configure_petalinux_project()
      echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
      git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
    fi
@@ -135,7 +136,7 @@ index 72d2256..d7294ec 100755
  
    if [ "$KEEP_CACHE" = "true" ]
    then
-@@ -352,8 +361,100 @@ configure_petalinux_project()
+@@ -352,8 +362,100 @@ configure_petalinux_project()
    petalinux-config --silentconfig
  }
  
