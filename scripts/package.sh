@@ -71,9 +71,9 @@ package_boot ()
 	rm -f $TARGET_DIR/BOOT/image.ub
 	rm -f $TARGET_DIR/BOOT/BOOT.BIN
 
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d/u96v2_sbc_mp4d_2020_2/images/linux/boot.scr $TARGET_DIR/BOOT/
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d/u96v2_sbc_mp4d_2020_2/images/linux/image.ub $TARGET_DIR/BOOT/
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d/u96v2_sbc_mp4d_2020_2/images/linux/BOOT.BIN $TARGET_DIR/BOOT/
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/boot.scr $TARGET_DIR/BOOT/
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/image.ub $TARGET_DIR/BOOT/
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/BOOT.BIN $TARGET_DIR/BOOT/
 
 	# Done
 	if [ $? -ne 0 ]
@@ -93,7 +93,7 @@ package_boot ()
 # Create image
 create_image() 
 {
-	echo Create image is not implemented :-(
+	echo "Create image is not implemented :-("
 	echo
 }
 
@@ -155,4 +155,4 @@ then
 	create_image
 fi
 
-echo Finished building
+echo Finished packaging
