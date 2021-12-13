@@ -22,3 +22,5 @@ target/
 .petalinux_built
 .ubuntu_built
 .ubuntu_modules_imported
+.boot_files_packaged
+.image_created
