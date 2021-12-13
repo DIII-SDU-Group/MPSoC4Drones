@@ -201,6 +201,7 @@ build_petalinux ()
 
 	touch $REPOSITORY_DIR/.petalinux_built
 	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
+	rm -f $REPOSITORY_DIR/.boot_files_packaged
 
 	echo Finished building PetaLinux project
 }
