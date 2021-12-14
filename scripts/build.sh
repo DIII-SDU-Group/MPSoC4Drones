@@ -295,6 +295,7 @@ ubuntu_import_modules ()
 		echo
 
 		sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/modules
+		sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/firmware/mchp
 		rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
 	fi
 
@@ -309,6 +310,7 @@ ubuntu_import_modules ()
 	tar xf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/rootfs.tar.gz -C $TARGET_DIR/rootfs_petalinux
 
 	sudo cp -r $TARGET_DIR/rootfs_petalinux/lib/modules $TARGET_DIR/rootfs/lib/
+	sudo cp -rp $TARGET_DIR/rootfs_petalinux/lib/firmware/mchp $TARGET_DIR/rootfs/lib/firmware/mchp
 
 	sudo rm -rf $TARGET_DIR/rootfs_petalinux
 

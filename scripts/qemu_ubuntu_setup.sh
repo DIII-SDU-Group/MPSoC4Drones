@@ -66,7 +66,7 @@ apt update
 apt upgrade -y
 
 ## Load wilc module on boot
-#echo "wilc-sdio" > /etc/modules-load.d/wilc-sdio.conf
+echo "wilc-sdio" > /etc/modules-load.d/wilc-sdio.conf
 
 # chown sudo
 chown root:root /usr/bin/sudo 

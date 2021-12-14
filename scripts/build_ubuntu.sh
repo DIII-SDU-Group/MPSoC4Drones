@@ -30,9 +30,6 @@ echo
 
 wget $UBUNTU_20_4_BASE_ROOTFS_URL -O - | tar xpz -C $UBUNTU_ROOTFS_DIR
 
-#sudo chown -R root $UBUNTU_ROOTFS_DIR >> /dev/null
-#sudo chgrp -R root $UBUNTU_ROOTFS_DIR >> /dev/null
-
 # Prepare qemu session
 echo Preparing Qemu session for filesystem setup...
 echo
