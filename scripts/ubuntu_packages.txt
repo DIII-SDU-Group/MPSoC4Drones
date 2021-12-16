@@ -8,7 +8,7 @@ resolvconf
 wget 
 wpasupplicant 
 network-manager
-moserial
+usbutils
 
 devmem2 
 
