@@ -48,6 +48,7 @@ QEMU_UBUNTU_SETUP_SCRIPT=qemu_ubuntu_setup.sh
 ROS_DISTRO_KEY_URL=https://raw.githubusercontent.com/ros/rosdistro/master/ros.key
 ROS2_PACKAGE_URL=http://packages.ros.org/ros2/ubuntu
 
+UBUNTU_HOST_NAME=MPSoC4Drones
 UBUNTU_USER=u96
 UBUNTU_PASSWORD=u96
 

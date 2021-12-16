@@ -49,6 +49,7 @@ echo
 
 mkdir $UBUNTU_ROOTFS_DIR/mp4d_settings
 
+echo $UBUNTU_HOST_NAME > $UBUNTU_ROOTFS_DIR/mp4d_settings/ubuntu_host_name
 echo $UBUNTU_USER > $UBUNTU_ROOTFS_DIR/mp4d_settings/ubuntu_user
 echo $UBUNTU_PASSWORD > $UBUNTU_ROOTFS_DIR/mp4d_settings/ubuntu_password
 echo $ROS_DISTRO_KEY_URL > $UBUNTU_ROOTFS_DIR/mp4d_settings/ros_distro_key_url
