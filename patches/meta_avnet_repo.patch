@@ -1,6 +1,6 @@
 diff --git a/recipes-apps/blinky-init/.gdbinit b/recipes-apps/blinky-init/.gdbinit
 deleted file mode 100644
-index 760896a756bada91c6625fe928d9dfbb17efd8bf..0000000000000000000000000000000000000000
+index 760896a..0000000
 --- a/recipes-apps/blinky-init/.gdbinit
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -9,7 +9,7 @@ index 760896a756bada91c6625fe928d9dfbb17efd8bf..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/blinky-init/README b/recipes-apps/blinky-init/README
 deleted file mode 100644
-index fdb79332851c3c400216c56a4f18dd09be30d000..0000000000000000000000000000000000000000
+index fdb7933..0000000
 --- a/recipes-apps/blinky-init/README
 +++ /dev/null
 @@ -1,31 +0,0 @@
@@ -46,7 +46,7 @@ index fdb79332851c3c400216c56a4f18dd09be30d000..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/blinky-init/blinky-init.bb b/recipes-apps/blinky-init/blinky-init.bb
 deleted file mode 100644
-index 2d757ccf59379eca8600d907908189cd5a063c98..0000000000000000000000000000000000000000
+index 2d757cc..0000000
 --- a/recipes-apps/blinky-init/blinky-init.bb
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -82,7 +82,7 @@ index 2d757ccf59379eca8600d907908189cd5a063c98..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/blinky-init/files/pz/blinky-init b/recipes-apps/blinky-init/files/pz/blinky-init
 deleted file mode 100644
-index 53d950cc611870722ca45923bb2dfb4c2b7b5c52..0000000000000000000000000000000000000000
+index 53d950c..0000000
 --- a/recipes-apps/blinky-init/files/pz/blinky-init
 +++ /dev/null
 @@ -1,100 +0,0 @@
@@ -188,7 +188,7 @@ index 53d950cc611870722ca45923bb2dfb4c2b7b5c52..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/blinky-init/files/uz3eg-iocc/blinky-init b/recipes-apps/blinky-init/files/uz3eg-iocc/blinky-init
 deleted file mode 100644
-index c28fed26e95952e114acbd177d99a6d3ed7933c7..0000000000000000000000000000000000000000
+index c28fed2..0000000
 --- a/recipes-apps/blinky-init/files/uz3eg-iocc/blinky-init
 +++ /dev/null
 @@ -1,100 +0,0 @@
@@ -294,7 +294,7 @@ index c28fed26e95952e114acbd177d99a6d3ed7933c7..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/blinky-init/files/uz3eg-pciec/blinky-init b/recipes-apps/blinky-init/files/uz3eg-pciec/blinky-init
 deleted file mode 100644
-index 79cacd52f2f7dda726116f7b5c36b674ba35c5d6..0000000000000000000000000000000000000000
+index 79cacd5..0000000
 --- a/recipes-apps/blinky-init/files/uz3eg-pciec/blinky-init
 +++ /dev/null
 @@ -1,100 +0,0 @@
@@ -400,7 +400,7 @@ index 79cacd52f2f7dda726116f7b5c36b674ba35c5d6..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/blinky-init/files/uz7ev-evcc/blinky-init b/recipes-apps/blinky-init/files/uz7ev-evcc/blinky-init
 deleted file mode 100644
-index 79cacd52f2f7dda726116f7b5c36b674ba35c5d6..0000000000000000000000000000000000000000
+index 79cacd5..0000000
 --- a/recipes-apps/blinky-init/files/uz7ev-evcc/blinky-init
 +++ /dev/null
 @@ -1,100 +0,0 @@
@@ -506,7 +506,7 @@ index 79cacd52f2f7dda726116f7b5c36b674ba35c5d6..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/blinky/.gdbinit b/recipes-apps/blinky/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/blinky/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -514,7 +514,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/blinky/README b/recipes-apps/blinky/README
 deleted file mode 100644
-index abf1321e3e556781ee1ef60a9b543973c7cd5860..0000000000000000000000000000000000000000
+index abf1321..0000000
 --- a/recipes-apps/blinky/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -567,7 +567,7 @@ index abf1321e3e556781ee1ef60a9b543973c7cd5860..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/blinky/blinky.bb b/recipes-apps/blinky/blinky.bb
 deleted file mode 100644
-index 4e5d956a2f71eaff503359b04376a78aa3bf3952..0000000000000000000000000000000000000000
+index 4e5d956..0000000
 --- a/recipes-apps/blinky/blinky.bb
 +++ /dev/null
 @@ -1,27 +0,0 @@
@@ -600,7 +600,7 @@ index 4e5d956a2f71eaff503359b04376a78aa3bf3952..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/blinky/files/Makefile b/recipes-apps/blinky/files/Makefile
 deleted file mode 100644
-index e2ba54c76b72548a850e4e66556a6589dcb9c2db..0000000000000000000000000000000000000000
+index e2ba54c..0000000
 --- a/recipes-apps/blinky/files/Makefile
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -623,7 +623,7 @@ index e2ba54c76b72548a850e4e66556a6589dcb9c2db..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/blinky/files/pz/linux_ps_led_blink.c b/recipes-apps/blinky/files/pz/linux_ps_led_blink.c
 deleted file mode 100755
-index f8691b43f2a47e05099938b668a06dad409580ef..0000000000000000000000000000000000000000
+index f8691b4..0000000
 --- a/recipes-apps/blinky/files/pz/linux_ps_led_blink.c
 +++ /dev/null
 @@ -1,347 +0,0 @@
@@ -976,7 +976,7 @@ index f8691b43f2a47e05099938b668a06dad409580ef..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/blinky/files/uz/linux_ps_led_blink.c b/recipes-apps/blinky/files/uz/linux_ps_led_blink.c
 deleted file mode 100755
-index 0b8f708ad1121da61e2d8e0f7da27fac4d4024d5..0000000000000000000000000000000000000000
+index 0b8f708..0000000
 --- a/recipes-apps/blinky/files/uz/linux_ps_led_blink.c
 +++ /dev/null
 @@ -1,347 +0,0 @@
@@ -1329,7 +1329,7 @@ index 0b8f708ad1121da61e2d8e0f7da27fac4d4024d5..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/dialog-control/.gdbinit b/recipes-apps/dialog-control/.gdbinit
 deleted file mode 100644
-index 760896a756bada91c6625fe928d9dfbb17efd8bf..0000000000000000000000000000000000000000
+index 760896a..0000000
 --- a/recipes-apps/dialog-control/.gdbinit
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -1338,7 +1338,7 @@ index 760896a756bada91c6625fe928d9dfbb17efd8bf..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/dialog-control/README b/recipes-apps/dialog-control/README
 deleted file mode 100644
-index 55c8212b4484e6ec72d6250fa3f525aa89fc0da2..0000000000000000000000000000000000000000
+index 55c8212..0000000
 --- a/recipes-apps/dialog-control/README
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -1396,7 +1396,7 @@ index 55c8212b4484e6ec72d6250fa3f525aa89fc0da2..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/dialog-control/dialog-control.bb b/recipes-apps/dialog-control/dialog-control.bb
 deleted file mode 100644
-index 88bfe244d68dfc22286364a81118f1de25d9f815..0000000000000000000000000000000000000000
+index 88bfe24..0000000
 --- a/recipes-apps/dialog-control/dialog-control.bb
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -1425,7 +1425,7 @@ index 88bfe244d68dfc22286364a81118f1de25d9f815..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/dialog-control/dialog-control/Makefile b/recipes-apps/dialog-control/dialog-control/Makefile
 deleted file mode 100644
-index d56a6da4ff5e464a2c0e7b8d65dc08d77c9e5b46..0000000000000000000000000000000000000000
+index d56a6da..0000000
 --- a/recipes-apps/dialog-control/dialog-control/Makefile
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -1445,7 +1445,7 @@ index d56a6da4ff5e464a2c0e7b8d65dc08d77c9e5b46..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/dialog-control/dialog-control/dialog-control.cpp b/recipes-apps/dialog-control/dialog-control/dialog-control.cpp
 deleted file mode 100644
-index 152392752383dfe3c7c3bdd605019bc068b9882a..0000000000000000000000000000000000000000
+index 1523927..0000000
 --- a/recipes-apps/dialog-control/dialog-control/dialog-control.cpp
 +++ /dev/null
 @@ -1,1029 +0,0 @@
@@ -2480,7 +2480,7 @@ index 152392752383dfe3c7c3bdd605019bc068b9882a..00000000000000000000000000000000
 -} //main()
 diff --git a/recipes-apps/get-gpio-offsets/.gdbinit b/recipes-apps/get-gpio-offsets/.gdbinit
 deleted file mode 100644
-index 760896a756bada91c6625fe928d9dfbb17efd8bf..0000000000000000000000000000000000000000
+index 760896a..0000000
 --- a/recipes-apps/get-gpio-offsets/.gdbinit
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -2489,7 +2489,7 @@ index 760896a756bada91c6625fe928d9dfbb17efd8bf..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/get-gpio-offsets/README b/recipes-apps/get-gpio-offsets/README
 deleted file mode 100644
-index 1621daccc169c8410734a521e759fb91f6bd52eb..0000000000000000000000000000000000000000
+index 1621dac..0000000
 --- a/recipes-apps/get-gpio-offsets/README
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -2547,7 +2547,7 @@ index 1621daccc169c8410734a521e759fb91f6bd52eb..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/get-gpio-offsets/files/Makefile b/recipes-apps/get-gpio-offsets/files/Makefile
 deleted file mode 100644
-index db06c70633be80624f20cd1c906611d0f10006c1..0000000000000000000000000000000000000000
+index db06c70..0000000
 --- a/recipes-apps/get-gpio-offsets/files/Makefile
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -2567,7 +2567,7 @@ index db06c70633be80624f20cd1c906611d0f10006c1..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/get-gpio-offsets/files/get-gpio-offsets.cpp b/recipes-apps/get-gpio-offsets/files/get-gpio-offsets.cpp
 deleted file mode 100644
-index 4ce03d6dae6a363bb00ef234280357dd7aa5ad53..0000000000000000000000000000000000000000
+index 4ce03d6..0000000
 --- a/recipes-apps/get-gpio-offsets/files/get-gpio-offsets.cpp
 +++ /dev/null
 @@ -1,179 +0,0 @@
@@ -2752,7 +2752,7 @@ index 4ce03d6dae6a363bb00ef234280357dd7aa5ad53..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/get-gpio-offsets/get-gpio-offsets.bb b/recipes-apps/get-gpio-offsets/get-gpio-offsets.bb
 deleted file mode 100644
-index 50d99416b17d9213e3a66e4a8efb8ed7e258ba18..0000000000000000000000000000000000000000
+index 50d9941..0000000
 --- a/recipes-apps/get-gpio-offsets/get-gpio-offsets.bb
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -2781,7 +2781,7 @@ index 50d99416b17d9213e3a66e4a8efb8ed7e258ba18..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/gpio-demo/files/Makefile b/recipes-apps/gpio-demo/files/Makefile
 deleted file mode 100644
-index 9106be1bd52d21feeacf9530b23aaa06bc87417b..0000000000000000000000000000000000000000
+index 9106be1..0000000
 --- a/recipes-apps/gpio-demo/files/Makefile
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -2801,7 +2801,7 @@ index 9106be1bd52d21feeacf9530b23aaa06bc87417b..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/gpio-demo/files/gpio-demo.c b/recipes-apps/gpio-demo/files/gpio-demo.c
 deleted file mode 100644
-index 4456768e70f14a7519e043c21b78ebb6caa96f8d..0000000000000000000000000000000000000000
+index 4456768..0000000
 --- a/recipes-apps/gpio-demo/files/gpio-demo.c
 +++ /dev/null
 @@ -1,359 +0,0 @@
@@ -3166,7 +3166,7 @@ index 4456768e70f14a7519e043c21b78ebb6caa96f8d..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/gpio-demo/gpio-demo.bb b/recipes-apps/gpio-demo/gpio-demo.bb
 deleted file mode 100644
-index cb5b431dbb7c9cb88c9c1b320fc3dbc3437c4063..0000000000000000000000000000000000000000
+index cb5b431..0000000
 --- a/recipes-apps/gpio-demo/gpio-demo.bb
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -3195,7 +3195,7 @@ index cb5b431dbb7c9cb88c9c1b320fc3dbc3437c4063..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/i2csensor/.gdbinit b/recipes-apps/i2csensor/.gdbinit
 deleted file mode 100644
-index 760896a756bada91c6625fe928d9dfbb17efd8bf..0000000000000000000000000000000000000000
+index 760896a..0000000
 --- a/recipes-apps/i2csensor/.gdbinit
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -3204,7 +3204,7 @@ index 760896a756bada91c6625fe928d9dfbb17efd8bf..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/i2csensor/README b/recipes-apps/i2csensor/README
 deleted file mode 100644
-index a93e20bca4d940f178e25665aa63ccd64e93b2fd..0000000000000000000000000000000000000000
+index a93e20b..0000000
 --- a/recipes-apps/i2csensor/README
 +++ /dev/null
 @@ -1,52 +0,0 @@
@@ -3262,7 +3262,7 @@ index a93e20bca4d940f178e25665aa63ccd64e93b2fd..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/i2csensor/i2csensor.bb b/recipes-apps/i2csensor/i2csensor.bb
 deleted file mode 100644
-index c11e2a7901d1f156d90eb934cf0de6f3d1c2ec61..0000000000000000000000000000000000000000
+index c11e2a7..0000000
 --- a/recipes-apps/i2csensor/i2csensor.bb
 +++ /dev/null
 @@ -1,23 +0,0 @@
@@ -3291,7 +3291,7 @@ index c11e2a7901d1f156d90eb934cf0de6f3d1c2ec61..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/i2csensor/i2csensor/Makefile b/recipes-apps/i2csensor/i2csensor/Makefile
 deleted file mode 100644
-index 5aecaab7d02f17808ddfadfbac2364c72127eb93..0000000000000000000000000000000000000000
+index 5aecaab..0000000
 --- a/recipes-apps/i2csensor/i2csensor/Makefile
 +++ /dev/null
 @@ -1,14 +0,0 @@
@@ -3311,7 +3311,7 @@ index 5aecaab7d02f17808ddfadfbac2364c72127eb93..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/i2csensor/i2csensor/i2csensor.cpp b/recipes-apps/i2csensor/i2csensor/i2csensor.cpp
 deleted file mode 100644
-index 7a142a809efa93a0992276ab36bd17c2fba8be54..0000000000000000000000000000000000000000
+index 7a142a8..0000000
 --- a/recipes-apps/i2csensor/i2csensor/i2csensor.cpp
 +++ /dev/null
 @@ -1,926 +0,0 @@
@@ -4243,7 +4243,7 @@ index 7a142a809efa93a0992276ab36bd17c2fba8be54..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/mac-eeprom-config-init/.gdbinit b/recipes-apps/mac-eeprom-config-init/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/mac-eeprom-config-init/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -4251,7 +4251,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/mac-eeprom-config-init/README b/recipes-apps/mac-eeprom-config-init/README
 deleted file mode 100644
-index 3d724a984d83d987a9367efa5457685434a5ccf6..0000000000000000000000000000000000000000
+index 3d724a9..0000000
 --- a/recipes-apps/mac-eeprom-config-init/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -4304,7 +4304,7 @@ index 3d724a984d83d987a9367efa5457685434a5ccf6..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/mac-eeprom-config-init/files/pz/mac-eeprom-config-init b/recipes-apps/mac-eeprom-config-init/files/pz/mac-eeprom-config-init
 deleted file mode 100644
-index 9dd8b351896674b0eb698821a896bb5b8e3bb1e1..0000000000000000000000000000000000000000
+index 9dd8b35..0000000
 --- a/recipes-apps/mac-eeprom-config-init/files/pz/mac-eeprom-config-init
 +++ /dev/null
 @@ -1,105 +0,0 @@
@@ -4415,7 +4415,7 @@ index 9dd8b351896674b0eb698821a896bb5b8e3bb1e1..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/mac-eeprom-config-init/files/uz/mac-eeprom-config-init b/recipes-apps/mac-eeprom-config-init/files/uz/mac-eeprom-config-init
 deleted file mode 100644
-index 34ba05a48e018d23df3e9efed2e2498be29cf3f6..0000000000000000000000000000000000000000
+index 34ba05a..0000000
 --- a/recipes-apps/mac-eeprom-config-init/files/uz/mac-eeprom-config-init
 +++ /dev/null
 @@ -1,106 +0,0 @@
@@ -4527,7 +4527,7 @@ index 34ba05a48e018d23df3e9efed2e2498be29cf3f6..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-hdmi/mac-eeprom-config-init b/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-hdmi/mac-eeprom-config-init
 deleted file mode 100644
-index faa36509b77a7b9b15ffe772262b07b8380d2279..0000000000000000000000000000000000000000
+index faa3650..0000000
 --- a/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-hdmi/mac-eeprom-config-init
 +++ /dev/null
 @@ -1,103 +0,0 @@
@@ -4636,7 +4636,7 @@ index faa36509b77a7b9b15ffe772262b07b8380d2279..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-quadcam-h/mac-eeprom-config-init b/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-quadcam-h/mac-eeprom-config-init
 deleted file mode 100644
-index 6365f2753d959ad9f736e5669a9f4a1bc824f944..0000000000000000000000000000000000000000
+index 6365f27..0000000
 --- a/recipes-apps/mac-eeprom-config-init/files/uz7ev-evcc-quadcam-h/mac-eeprom-config-init
 +++ /dev/null
 @@ -1,103 +0,0 @@
@@ -4745,7 +4745,7 @@ index 6365f2753d959ad9f736e5669a9f4a1bc824f944..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/mac-eeprom-config-init/mac-eeprom-config-init.bb b/recipes-apps/mac-eeprom-config-init/mac-eeprom-config-init.bb
 deleted file mode 100644
-index da382eb7c00668d1008981865a1c486faf8e464c..0000000000000000000000000000000000000000
+index da382eb..0000000
 --- a/recipes-apps/mac-eeprom-config-init/mac-eeprom-config-init.bb
 +++ /dev/null
 @@ -1,30 +0,0 @@
@@ -4781,7 +4781,7 @@ index da382eb7c00668d1008981865a1c486faf8e464c..00000000000000000000000000000000
 -FILES_${PN} += "${sysconfdir}/*"
 diff --git a/recipes-apps/mac-eeprom-config/.gdbinit b/recipes-apps/mac-eeprom-config/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/mac-eeprom-config/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -4789,7 +4789,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/mac-eeprom-config/README b/recipes-apps/mac-eeprom-config/README
 deleted file mode 100644
-index f8d5edbb15c4f6f17cfb2fc7959370742434c717..0000000000000000000000000000000000000000
+index f8d5edb..0000000
 --- a/recipes-apps/mac-eeprom-config/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -4842,7 +4842,7 @@ index f8d5edbb15c4f6f17cfb2fc7959370742434c717..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/mac-eeprom-config/files/mac_eeprom_config.sh b/recipes-apps/mac-eeprom-config/files/mac_eeprom_config.sh
 deleted file mode 100644
-index 27e655e6c553f8a69fcea2455fa30749d27f10a5..0000000000000000000000000000000000000000
+index 27e655e..0000000
 --- a/recipes-apps/mac-eeprom-config/files/mac_eeprom_config.sh
 +++ /dev/null
 @@ -1,188 +0,0 @@
@@ -5036,7 +5036,7 @@ index 27e655e6c553f8a69fcea2455fa30749d27f10a5..00000000000000000000000000000000
 -exit ${IIC_EEPROM_MAC_RESULT}
 diff --git a/recipes-apps/mac-eeprom-config/mac-eeprom-config.bb b/recipes-apps/mac-eeprom-config/mac-eeprom-config.bb
 deleted file mode 100644
-index 53be6acca801aa2b97b21c46fa42d040a01c6c1c..0000000000000000000000000000000000000000
+index 53be6ac..0000000
 --- a/recipes-apps/mac-eeprom-config/mac-eeprom-config.bb
 +++ /dev/null
 @@ -1,21 +0,0 @@
@@ -5063,7 +5063,7 @@ index 53be6acca801aa2b97b21c46fa42d040a01c6c1c..00000000000000000000000000000000
 -               "
 diff --git a/recipes-apps/performance-tests/files/drive-test.sh b/recipes-apps/performance-tests/files/drive-test.sh
 deleted file mode 100644
-index f0e21746304b78a972026378afa330b5d134d96a..0000000000000000000000000000000000000000
+index f0e2174..0000000
 --- a/recipes-apps/performance-tests/files/drive-test.sh
 +++ /dev/null
 @@ -1,250 +0,0 @@
@@ -5319,7 +5319,7 @@ index f0e21746304b78a972026378afa330b5d134d96a..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/performance-tests/files/network-test.sh b/recipes-apps/performance-tests/files/network-test.sh
 deleted file mode 100644
-index bf2ce7a38dc01fc12aec0b10963ae154b651c233..0000000000000000000000000000000000000000
+index bf2ce7a..0000000
 --- a/recipes-apps/performance-tests/files/network-test.sh
 +++ /dev/null
 @@ -1,210 +0,0 @@
@@ -5535,7 +5535,7 @@ index bf2ce7a38dc01fc12aec0b10963ae154b651c233..00000000000000000000000000000000
 -fi
 diff --git a/recipes-apps/performance-tests/files/sd-test.sh b/recipes-apps/performance-tests/files/sd-test.sh
 deleted file mode 100644
-index 6407b398328229a6e78495a3f57a07626e8ae1d7..0000000000000000000000000000000000000000
+index 6407b39..0000000
 --- a/recipes-apps/performance-tests/files/sd-test.sh
 +++ /dev/null
 @@ -1,428 +0,0 @@
@@ -5969,7 +5969,7 @@ index 6407b398328229a6e78495a3f57a07626e8ae1d7..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/performance-tests/performance-tests.bb b/recipes-apps/performance-tests/performance-tests.bb
 deleted file mode 100644
-index 8b7cf5ed0ad820e3026b417898400e3c7ca3c16c..0000000000000000000000000000000000000000
+index 8b7cf5e..0000000
 --- a/recipes-apps/performance-tests/performance-tests.bb
 +++ /dev/null
 @@ -1,27 +0,0 @@
@@ -6002,7 +6002,7 @@ index 8b7cf5ed0ad820e3026b417898400e3c7ca3c16c..00000000000000000000000000000000
 -               "
 diff --git a/recipes-apps/python-webserver-init/.gdbinit b/recipes-apps/python-webserver-init/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/python-webserver-init/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -6010,7 +6010,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/python-webserver-init/README b/recipes-apps/python-webserver-init/README
 deleted file mode 100644
-index 5cd160c32359b23e8ae2248f15e48a39904fd6c4..0000000000000000000000000000000000000000
+index 5cd160c..0000000
 --- a/recipes-apps/python-webserver-init/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -6063,7 +6063,7 @@ index 5cd160c32359b23e8ae2248f15e48a39904fd6c4..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/python-webserver-init/files/python-webserver-init b/recipes-apps/python-webserver-init/files/python-webserver-init
 deleted file mode 100644
-index d691ca23a989011ae449d480385ea11f556f577c..0000000000000000000000000000000000000000
+index d691ca2..0000000
 --- a/recipes-apps/python-webserver-init/files/python-webserver-init
 +++ /dev/null
 @@ -1,88 +0,0 @@
@@ -6157,7 +6157,7 @@ index d691ca23a989011ae449d480385ea11f556f577c..00000000000000000000000000000000
 -exit $?
 diff --git a/recipes-apps/python-webserver-init/python-webserver-init.bb b/recipes-apps/python-webserver-init/python-webserver-init.bb
 deleted file mode 100644
-index 119f8bbb533cbe31ae174c083c523e5e14a79b89..0000000000000000000000000000000000000000
+index 119f8bb..0000000
 --- a/recipes-apps/python-webserver-init/python-webserver-init.bb
 +++ /dev/null
 @@ -1,29 +0,0 @@
@@ -6192,7 +6192,7 @@ index 119f8bbb533cbe31ae174c083c523e5e14a79b89..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/cgi.py b/recipes-apps/python-webserver/files/cgi.py
 deleted file mode 100644
-index ad7e9d94c0632c921a11640e9a35b01af0a5c680..0000000000000000000000000000000000000000
+index ad7e9d9..0000000
 --- a/recipes-apps/python-webserver/files/cgi.py
 +++ /dev/null
 @@ -1,1077 +0,0 @@
@@ -7275,7 +7275,7 @@ index ad7e9d94c0632c921a11640e9a35b01af0a5c680..00000000000000000000000000000000
 -    test()
 diff --git a/recipes-apps/python-webserver/files/css/main.css b/recipes-apps/python-webserver/files/css/main.css
 deleted file mode 100644
-index cd442c1e82b993a9264f28b27ea2b5608d7ee660..0000000000000000000000000000000000000000
+index cd442c1..0000000
 --- a/recipes-apps/python-webserver/files/css/main.css
 +++ /dev/null
 @@ -1,18 +0,0 @@
@@ -7299,7 +7299,7 @@ index cd442c1e82b993a9264f28b27ea2b5608d7ee660..00000000000000000000000000000000
 -b.rtop b.r4, b.rbottom b.r4{margin: 0 1px; height: 2px}
 diff --git a/recipes-apps/python-webserver/files/html/sata_results.html b/recipes-apps/python-webserver/files/html/sata_results.html
 deleted file mode 100644
-index 8a1110957d5d0a5c899b41918bedac34fb4dc5bd..0000000000000000000000000000000000000000
+index 8a11109..0000000
 --- a/recipes-apps/python-webserver/files/html/sata_results.html
 +++ /dev/null
 @@ -1,5 +0,0 @@
@@ -7310,7 +7310,7 @@ index 8a1110957d5d0a5c899b41918bedac34fb4dc5bd..00000000000000000000000000000000
 -</body></html>
 diff --git a/recipes-apps/python-webserver/files/html/usb3_results.html b/recipes-apps/python-webserver/files/html/usb3_results.html
 deleted file mode 100644
-index 002e9285a3a75a5e1a9961817d38ca89512a7e5e..0000000000000000000000000000000000000000
+index 002e928..0000000
 --- a/recipes-apps/python-webserver/files/html/usb3_results.html
 +++ /dev/null
 @@ -1,5 +0,0 @@
@@ -7321,15 +7321,15 @@ index 002e9285a3a75a5e1a9961817d38ca89512a7e5e..00000000000000000000000000000000
 -</body></html>
 diff --git a/recipes-apps/python-webserver/files/images/Avnet_logo_tagline_rgb.png b/recipes-apps/python-webserver/files/images/Avnet_logo_tagline_rgb.png
 deleted file mode 100644
-index bf5ae35de6d9d5529736e61c7381cf1d2d228806..0000000000000000000000000000000000000000
+index bf5ae35..0000000
 Binary files a/recipes-apps/python-webserver/files/images/Avnet_logo_tagline_rgb.png and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/images/favicon.ico b/recipes-apps/python-webserver/files/images/favicon.ico
 deleted file mode 100644
-index 4dd6ac2b9df684322c702237bb7397a4584ec61d..0000000000000000000000000000000000000000
+index 4dd6ac2..0000000
 Binary files a/recipes-apps/python-webserver/files/images/favicon.ico and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/launch_server.sh b/recipes-apps/python-webserver/files/launch_server.sh
 deleted file mode 100644
-index 9b52e36b29b79b3e736f6cfa4a281d0ec0001ab5..0000000000000000000000000000000000000000
+index 9b52e36..0000000
 --- a/recipes-apps/python-webserver/files/launch_server.sh
 +++ /dev/null
 @@ -1,65 +0,0 @@
@@ -7400,19 +7400,19 @@ index 9b52e36b29b79b3e736f6cfa4a281d0ec0001ab5..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/pdfs/Delkin_Devices_Product_Line.pdf b/recipes-apps/python-webserver/files/pdfs/Delkin_Devices_Product_Line.pdf
 deleted file mode 100755
-index cb1e9864a87b80458e1d0570293309eacc1f6747..0000000000000000000000000000000000000000
+index cb1e986..0000000
 Binary files a/recipes-apps/python-webserver/files/pdfs/Delkin_Devices_Product_Line.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/pz/images/board.jpg b/recipes-apps/python-webserver/files/pz/images/board.jpg
 deleted file mode 100755
-index e3c0c10dfc81df07989b66c9240c880e207d4e8e..0000000000000000000000000000000000000000
+index e3c0c10..0000000
 Binary files a/recipes-apps/python-webserver/files/pz/images/board.jpg and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/pz/images/picozed.png b/recipes-apps/python-webserver/files/pz/images/picozed.png
 deleted file mode 100644
-index 60adcfe9a99e9d05261ec9d22a1db4d8d30f9da4..0000000000000000000000000000000000000000
+index 60adcfe..0000000
 Binary files a/recipes-apps/python-webserver/files/pz/images/picozed.png and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/pz/index.html b/recipes-apps/python-webserver/files/pz/index.html
 deleted file mode 100644
-index 05bf63c9456e3aadf49cf4abe44c031b607ccea8..0000000000000000000000000000000000000000
+index 05bf63c..0000000
 --- a/recipes-apps/python-webserver/files/pz/index.html
 +++ /dev/null
 @@ -1,77 +0,0 @@
@@ -7495,15 +7495,15 @@ index 05bf63c9456e3aadf49cf4abe44c031b607ccea8..00000000000000000000000000000000
 -</html>
 diff --git a/recipes-apps/python-webserver/files/pz/pdfs/5048-PB-PDP-AES-Z7PZ-SOM-G-V2.pdf b/recipes-apps/python-webserver/files/pz/pdfs/5048-PB-PDP-AES-Z7PZ-SOM-G-V2.pdf
 deleted file mode 100644
-index 42464240441808c11afc7fc65969d024104cc86a..0000000000000000000000000000000000000000
+index 4246424..0000000
 Binary files a/recipes-apps/python-webserver/files/pz/pdfs/5048-PB-PDP-AES-Z7PZ-SOM-G-V2.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/pz/pdfs/PB-AES-PZCC-FMC-V2-G-V1.pdf b/recipes-apps/python-webserver/files/pz/pdfs/PB-AES-PZCC-FMC-V2-G-V1.pdf
 deleted file mode 100644
-index 397be9165f5887d7bed28013f0b2af22dcc60969..0000000000000000000000000000000000000000
+index 397be91..0000000
 Binary files a/recipes-apps/python-webserver/files/pz/pdfs/PB-AES-PZCC-FMC-V2-G-V1.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/pz/server.py b/recipes-apps/python-webserver/files/pz/server.py
 deleted file mode 100644
-index 05421a61014b9928f403f4b9483663d5b083a1b8..0000000000000000000000000000000000000000
+index 05421a6..0000000
 --- a/recipes-apps/python-webserver/files/pz/server.py
 +++ /dev/null
 @@ -1,173 +0,0 @@
@@ -7682,7 +7682,7 @@ index 05421a61014b9928f403f4b9483663d5b083a1b8..00000000000000000000000000000000
 -httpd.serve_forever()
 diff --git a/recipes-apps/python-webserver/files/pz/setup_gpio.sh b/recipes-apps/python-webserver/files/pz/setup_gpio.sh
 deleted file mode 100644
-index 999d2896600b68d7679e84b8e0cf6b508b18c28f..0000000000000000000000000000000000000000
+index 999d289..0000000
 --- a/recipes-apps/python-webserver/files/pz/setup_gpio.sh
 +++ /dev/null
 @@ -1,159 +0,0 @@
@@ -7847,7 +7847,7 @@ index 999d2896600b68d7679e84b8e0cf6b508b18c28f..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/pz/unexport_gpio.sh b/recipes-apps/python-webserver/files/pz/unexport_gpio.sh
 deleted file mode 100644
-index e169be1574d16b7af001bd315a47b7d677b0883c..0000000000000000000000000000000000000000
+index e169be1..0000000
 --- a/recipes-apps/python-webserver/files/pz/unexport_gpio.sh
 +++ /dev/null
 @@ -1,135 +0,0 @@
@@ -7988,7 +7988,7 @@ index e169be1574d16b7af001bd315a47b7d677b0883c..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/stop_server.sh b/recipes-apps/python-webserver/files/stop_server.sh
 deleted file mode 100644
-index b432c79a1ce02718d952986f38387bf22248f8dc..0000000000000000000000000000000000000000
+index b432c79..0000000
 --- a/recipes-apps/python-webserver/files/stop_server.sh
 +++ /dev/null
 @@ -1,61 +0,0 @@
@@ -8055,11 +8055,11 @@ index b432c79a1ce02718d952986f38387bf22248f8dc..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/uz/images/ultrazed.png b/recipes-apps/python-webserver/files/uz/images/ultrazed.png
 deleted file mode 100644
-index d64586883cfface9319670d40939b3fe5202fb5c..0000000000000000000000000000000000000000
+index d645868..0000000
 Binary files a/recipes-apps/python-webserver/files/uz/images/ultrazed.png and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz/server.py b/recipes-apps/python-webserver/files/uz/server.py
 deleted file mode 100644
-index 73ac65cef6552ddf490c1bac1deeef46a50f17a1..0000000000000000000000000000000000000000
+index 73ac65c..0000000
 --- a/recipes-apps/python-webserver/files/uz/server.py
 +++ /dev/null
 @@ -1,162 +0,0 @@
@@ -8227,7 +8227,7 @@ index 73ac65cef6552ddf490c1bac1deeef46a50f17a1..00000000000000000000000000000000
 -httpd.serve_forever()
 diff --git a/recipes-apps/python-webserver/files/uz/setup_gpio.sh b/recipes-apps/python-webserver/files/uz/setup_gpio.sh
 deleted file mode 100644
-index a750b5a70d9999beeba4fe0d5de106763f841c25..0000000000000000000000000000000000000000
+index a750b5a..0000000
 --- a/recipes-apps/python-webserver/files/uz/setup_gpio.sh
 +++ /dev/null
 @@ -1,145 +0,0 @@
@@ -8378,7 +8378,7 @@ index a750b5a70d9999beeba4fe0d5de106763f841c25..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/uz/unexport_gpio.sh b/recipes-apps/python-webserver/files/uz/unexport_gpio.sh
 deleted file mode 100644
-index 3cf5fb5f6fdac50c1c19367f04931995e3b66c27..0000000000000000000000000000000000000000
+index 3cf5fb5..0000000
 --- a/recipes-apps/python-webserver/files/uz/unexport_gpio.sh
 +++ /dev/null
 @@ -1,122 +0,0 @@
@@ -8506,11 +8506,11 @@ index 3cf5fb5f6fdac50c1c19367f04931995e3b66c27..00000000000000000000000000000000
 -
 diff --git a/recipes-apps/python-webserver/files/uz3eg-iocc/images/board.jpg b/recipes-apps/python-webserver/files/uz3eg-iocc/images/board.jpg
 deleted file mode 100644
-index d6d7e9b10f72257f330eebe168dd8aaaa2c9cd12..0000000000000000000000000000000000000000
+index d6d7e9b..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-iocc/images/board.jpg and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz3eg-iocc/index.html b/recipes-apps/python-webserver/files/uz3eg-iocc/index.html
 deleted file mode 100644
-index ab33b734715b265775dec018fe5ece8f95da8d71..0000000000000000000000000000000000000000
+index ab33b73..0000000
 --- a/recipes-apps/python-webserver/files/uz3eg-iocc/index.html
 +++ /dev/null
 @@ -1,88 +0,0 @@
@@ -8604,19 +8604,19 @@ index ab33b734715b265775dec018fe5ece8f95da8d71..00000000000000000000000000000000
 -</html>
 diff --git a/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf b/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf
 deleted file mode 100644
-index 2f979189201fecf2fa7896d6f0ab4574d3810433..0000000000000000000000000000000000000000
+index 2f97918..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5080-PB-AES-ZU-IOCC-G-V2e.pdf b/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5080-PB-AES-ZU-IOCC-G-V2e.pdf
 deleted file mode 100644
-index 765d60062c1830c5878bbc02a2e78bad7f5c5f4c..0000000000000000000000000000000000000000
+index 765d600..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-iocc/pdfs/5080-PB-AES-ZU-IOCC-G-V2e.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz3eg-pciec/images/board.jpg b/recipes-apps/python-webserver/files/uz3eg-pciec/images/board.jpg
 deleted file mode 100755
-index 5314a4a6abfdf34d66b4764ec92e797eb302d8e2..0000000000000000000000000000000000000000
+index 5314a4a..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-pciec/images/board.jpg and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz3eg-pciec/index.html b/recipes-apps/python-webserver/files/uz3eg-pciec/index.html
 deleted file mode 100644
-index e3e0b8ab54e5e7d88acd0e6d274f92161afd171f..0000000000000000000000000000000000000000
+index e3e0b8a..0000000
 --- a/recipes-apps/python-webserver/files/uz3eg-pciec/index.html
 +++ /dev/null
 @@ -1,88 +0,0 @@
@@ -8710,19 +8710,19 @@ index e3e0b8ab54e5e7d88acd0e6d274f92161afd171f..00000000000000000000000000000000
 -</html>
 diff --git a/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf b/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf
 deleted file mode 100644
-index 2f979189201fecf2fa7896d6f0ab4574d3810433..0000000000000000000000000000000000000000
+index 2f97918..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5043-PB-AES-ZU3EG-1-SOM-G-V3.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5081-PB-AES-ZU-PCIECC-G-V2d.pdf b/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5081-PB-AES-ZU-PCIECC-G-V2d.pdf
 deleted file mode 100644
-index 029de1d73826fadb6963d092f7cde0e47c36f594..0000000000000000000000000000000000000000
+index 029de1d..0000000
 Binary files a/recipes-apps/python-webserver/files/uz3eg-pciec/pdfs/5081-PB-AES-ZU-PCIECC-G-V2d.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz7ev-evcc/images/board.jpg b/recipes-apps/python-webserver/files/uz7ev-evcc/images/board.jpg
 deleted file mode 100644
-index 49be9142c7dbb3e192ef2a9f99c1f28ac9c5a4e0..0000000000000000000000000000000000000000
+index 49be914..0000000
 Binary files a/recipes-apps/python-webserver/files/uz7ev-evcc/images/board.jpg and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz7ev-evcc/index.html b/recipes-apps/python-webserver/files/uz7ev-evcc/index.html
 deleted file mode 100644
-index c62039fde21b85642fc529e8e6f04f19b20f2248..0000000000000000000000000000000000000000
+index c62039f..0000000
 --- a/recipes-apps/python-webserver/files/uz7ev-evcc/index.html
 +++ /dev/null
 @@ -1,88 +0,0 @@
@@ -8816,19 +8816,19 @@ index c62039fde21b85642fc529e8e6f04f19b20f2248..00000000000000000000000000000000
 -</html>
 diff --git a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-som-v1.pdf b/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-som-v1.pdf
 deleted file mode 100644
-index f25a6960b7f9c815bf0a220af71c5e9463958dd5..0000000000000000000000000000000000000000
+index f25a696..0000000
 Binary files a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-som-v1.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-starter-kit-v1.pdf b/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-starter-kit-v1.pdf
 deleted file mode 100644
-index cac0968656c8d05da8f04f32458505e0ab7c6d02..0000000000000000000000000000000000000000
+index cac0968..0000000
 Binary files a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/5342-pb-ultrazed-ev-starter-kit-v1.pdf and /dev/null differ
 diff --git a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/board.jpg b/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/board.jpg
 deleted file mode 100644
-index 49be9142c7dbb3e192ef2a9f99c1f28ac9c5a4e0..0000000000000000000000000000000000000000
+index 49be914..0000000
 Binary files a/recipes-apps/python-webserver/files/uz7ev-evcc/pdfs/board.jpg and /dev/null differ
 diff --git a/recipes-apps/python-webserver/python-webserver.bb b/recipes-apps/python-webserver/python-webserver.bb
 deleted file mode 100644
-index 341ea88f490e0104f3aa9c97d9084bb1f22ce192..0000000000000000000000000000000000000000
+index 341ea88..0000000
 --- a/recipes-apps/python-webserver/python-webserver.bb
 +++ /dev/null
 @@ -1,141 +0,0 @@
@@ -8976,7 +8976,7 @@ index 341ea88f490e0104f3aa9c97d9084bb1f22ce192..00000000000000000000000000000000
 \ No newline at end of file
 diff --git a/recipes-apps/user-led-test/.gdbinit b/recipes-apps/user-led-test/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/user-led-test/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -8984,7 +8984,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/user-led-test/README b/recipes-apps/user-led-test/README
 deleted file mode 100644
-index 94f51db5d310aff3f4c01a3f1902f84c5078396f..0000000000000000000000000000000000000000
+index 94f51db..0000000
 --- a/recipes-apps/user-led-test/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -9037,7 +9037,7 @@ index 94f51db5d310aff3f4c01a3f1902f84c5078396f..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/user-led-test/files/Makefile b/recipes-apps/user-led-test/files/Makefile
 deleted file mode 100644
-index 67088a5b73a0a81a4f3a646a918ef572326319ee..0000000000000000000000000000000000000000
+index 67088a5..0000000
 --- a/recipes-apps/user-led-test/files/Makefile
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -9060,7 +9060,7 @@ index 67088a5b73a0a81a4f3a646a918ef572326319ee..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/user-led-test/files/linux_user_led_test.c b/recipes-apps/user-led-test/files/linux_user_led_test.c
 deleted file mode 100755
-index 643cce1d25a0acc68e55d1499357ccad5c458516..0000000000000000000000000000000000000000
+index 643cce1..0000000
 --- a/recipes-apps/user-led-test/files/linux_user_led_test.c
 +++ /dev/null
 @@ -1,1437 +0,0 @@
@@ -10503,7 +10503,7 @@ index 643cce1d25a0acc68e55d1499357ccad5c458516..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/user-led-test/user-led-test.bb b/recipes-apps/user-led-test/user-led-test.bb
 deleted file mode 100644
-index 8ea24e95fbd402b5b7db818cdddf154fb9b35183..0000000000000000000000000000000000000000
+index 8ea24e9..0000000
 --- a/recipes-apps/user-led-test/user-led-test.bb
 +++ /dev/null
 @@ -1,27 +0,0 @@
@@ -10536,7 +10536,7 @@ index 8ea24e95fbd402b5b7db818cdddf154fb9b35183..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/user-switch-test/.gdbinit b/recipes-apps/user-switch-test/.gdbinit
 deleted file mode 100644
-index d59fb8d90efb393c83d35becbecddcfa493a5e67..0000000000000000000000000000000000000000
+index d59fb8d..0000000
 --- a/recipes-apps/user-switch-test/.gdbinit
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -10544,7 +10544,7 @@ index d59fb8d90efb393c83d35becbecddcfa493a5e67..00000000000000000000000000000000
 -source plnx_gdbinit
 diff --git a/recipes-apps/user-switch-test/README b/recipes-apps/user-switch-test/README
 deleted file mode 100644
-index 53ae55a209e564d7fbcfcdeeed574114e35a894c..0000000000000000000000000000000000000000
+index 53ae55a..0000000
 --- a/recipes-apps/user-switch-test/README
 +++ /dev/null
 @@ -1,47 +0,0 @@
@@ -10597,7 +10597,7 @@ index 53ae55a209e564d7fbcfcdeeed574114e35a894c..00000000000000000000000000000000
 -See ${PETALINUX}/components/rootfs/targetroot-inst.sh for details and more options.
 diff --git a/recipes-apps/user-switch-test/files/Makefile b/recipes-apps/user-switch-test/files/Makefile
 deleted file mode 100644
-index 3b565fc0664c3797b695a602a2a246051fd46d2d..0000000000000000000000000000000000000000
+index 3b565fc..0000000
 --- a/recipes-apps/user-switch-test/files/Makefile
 +++ /dev/null
 @@ -1,17 +0,0 @@
@@ -10620,7 +10620,7 @@ index 3b565fc0664c3797b695a602a2a246051fd46d2d..00000000000000000000000000000000
 -	-rm -f $(APP) *.elf *.gdb *.o
 diff --git a/recipes-apps/user-switch-test/files/linux_user_switch_test.c b/recipes-apps/user-switch-test/files/linux_user_switch_test.c
 deleted file mode 100755
-index 2863288188585433cb7f8b0f56ea997bc784cfb1..0000000000000000000000000000000000000000
+index 2863288..0000000
 --- a/recipes-apps/user-switch-test/files/linux_user_switch_test.c
 +++ /dev/null
 @@ -1,744 +0,0 @@
@@ -11370,7 +11370,7 @@ index 2863288188585433cb7f8b0f56ea997bc784cfb1..00000000000000000000000000000000
 -}
 diff --git a/recipes-apps/user-switch-test/user-switch-test.bb b/recipes-apps/user-switch-test/user-switch-test.bb
 deleted file mode 100644
-index b0eb9b1caf79065a2f723456f3695dda4f158da9..0000000000000000000000000000000000000000
+index b0eb9b1..0000000
 --- a/recipes-apps/user-switch-test/user-switch-test.bb
 +++ /dev/null
 @@ -1,27 +0,0 @@
@@ -11402,10 +11402,15 @@ index b0eb9b1caf79065a2f723456f3695dda4f158da9..00000000000000000000000000000000
 -	     install -m 0755 user-switch-test ${D}/home/root
 -}
 diff --git a/recipes-bsp/device-tree/files/u96v2-sbc/system-bsp.dtsi b/recipes-bsp/device-tree/files/u96v2-sbc/system-bsp.dtsi
-index d80b316c7e1d70607834d801f34cd3d0b58bce7c..e0cccb39125dd5ea183724864f6d4b5376b2f004 100644
+index d80b316..d91c588 100644
 --- a/recipes-bsp/device-tree/files/u96v2-sbc/system-bsp.dtsi
 +++ b/recipes-bsp/device-tree/files/u96v2-sbc/system-bsp.dtsi
-@@ -32,31 +32,31 @@
+@@ -28,35 +28,35 @@
+ 
+ &amba_pl {
+    // Remove definitions auto-generated by device tree generator
+-   /delete-node/interrupt-controller@a0090000; // axi_intc_0
++   ///delete-node/interrupt-controller@a0010000; // axi_intc_0
  };
  
  &amba {
@@ -11438,12 +11443,12 @@ index d80b316c7e1d70607834d801f34cd3d0b58bce7c..e0cccb39125dd5ea183724864f6d4b53
 +	//	#interrupt-cells = <2>;
 +	//	compatible = "xlnx,xps-intc-1.00.a";
 +	//	interrupt-controller;
-+	//	reg = <0x0 0xA0090000 0x0 0x1000>;
++	//	reg = <0x0 0xA0010000 0x0 0x1000>;
 +	//	xlnx,kind-of-intr = <0x0>;
 +	//	xlnx,num-intr-inputs = <0x20>;
 +	//	interrupt-parent = <&gic>;
-+	//	// connected at PS interrupt offset [6] (89+6=95) 
-+	//	interrupts = <0 95 4>;
++	//	// connected at PS interrupt offset [6] (89+1=90) 
++	//	interrupts = <0 90 4>;
 +	//};
 +
 +	//zyxclmm_drm {
@@ -11464,7 +11469,7 @@ index d80b316c7e1d70607834d801f34cd3d0b58bce7c..e0cccb39125dd5ea183724864f6d4b53
  &uart0 {
 diff --git a/recipes-connectivity/connman/connman_%.bbappend b/recipes-connectivity/connman/connman_%.bbappend
 deleted file mode 100644
-index 2892bb0619a37de2e0d73c9b0ff9cd2bcead48fa..0000000000000000000000000000000000000000
+index 2892bb0..0000000
 --- a/recipes-connectivity/connman/connman_%.bbappend
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -11481,7 +11486,7 @@ index 2892bb0619a37de2e0d73c9b0ff9cd2bcead48fa..00000000000000000000000000000000
 -FILES_${PN} += "${sysconfdir}/main.conf"
 diff --git a/recipes-connectivity/connman/files/main.conf b/recipes-connectivity/connman/files/main.conf
 deleted file mode 100644
-index cb6e9d05b28e56e9f22b6311f349c79c4f8e4675..0000000000000000000000000000000000000000
+index cb6e9d0..0000000
 --- a/recipes-connectivity/connman/files/main.conf
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -11489,7 +11494,7 @@ index cb6e9d05b28e56e9f22b6311f349c79c4f8e4675..00000000000000000000000000000000
 -NetworkInterfaceBlacklist=p2p
 diff --git a/recipes-connectivity/wpa-supplicant/files/wpa-supplicant.sh b/recipes-connectivity/wpa-supplicant/files/wpa-supplicant.sh
 deleted file mode 100644
-index 586fe35fa6e26fb5004d41ca6b0e0851b22dadad..0000000000000000000000000000000000000000
+index 586fe35..0000000
 --- a/recipes-connectivity/wpa-supplicant/files/wpa-supplicant.sh
 +++ /dev/null
 @@ -1,90 +0,0 @@
@@ -11585,7 +11590,7 @@ index 586fe35fa6e26fb5004d41ca6b0e0851b22dadad..00000000000000000000000000000000
 -exit 0
 diff --git a/recipes-connectivity/wpa-supplicant/files/wpa_supplicant.conf-sane b/recipes-connectivity/wpa-supplicant/files/wpa_supplicant.conf-sane
 deleted file mode 100644
-index 458a56b9c4e76f121578b899cbe53090b1f19ab1..0000000000000000000000000000000000000000
+index 458a56b..0000000
 --- a/recipes-connectivity/wpa-supplicant/files/wpa_supplicant.conf-sane
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -11594,7 +11599,7 @@ index 458a56b9c4e76f121578b899cbe53090b1f19ab1..00000000000000000000000000000000
 -update_config=1
 diff --git a/recipes-connectivity/wpa-supplicant/wpa-supplicant_%.bbappend b/recipes-connectivity/wpa-supplicant/wpa-supplicant_%.bbappend
 deleted file mode 100644
-index 295288b563843a9e822eea8dcec544b36542bdd3..0000000000000000000000000000000000000000
+index 295288b..0000000
 --- a/recipes-connectivity/wpa-supplicant/wpa-supplicant_%.bbappend
 +++ /dev/null
 @@ -1,5 +0,0 @@
@@ -11605,7 +11610,7 @@ index 295288b563843a9e822eea8dcec544b36542bdd3..00000000000000000000000000000000
 -}
 diff --git a/recipes-core/base-files/base-files_%.bbappend b/recipes-core/base-files/base-files_%.bbappend
 deleted file mode 100644
-index b964cfd053378da35a3f32b1083d443bb07c7077..0000000000000000000000000000000000000000
+index b964cfd..0000000
 --- a/recipes-core/base-files/base-files_%.bbappend
 +++ /dev/null
 @@ -1,8 +0,0 @@
@@ -11619,7 +11624,7 @@ index b964cfd053378da35a3f32b1083d443bb07c7077..00000000000000000000000000000000
 -}
 diff --git a/recipes-core/busybox/busybox/ftpd.cfg b/recipes-core/busybox/busybox/ftpd.cfg
 deleted file mode 100644
-index 6b9437c65a06e7b8ed37c71b2a33d41eccd7503f..0000000000000000000000000000000000000000
+index 6b9437c..0000000
 --- a/recipes-core/busybox/busybox/ftpd.cfg
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -11628,7 +11633,7 @@ index 6b9437c65a06e7b8ed37c71b2a33d41eccd7503f..00000000000000000000000000000000
 -CONFIG_FEATURE_FTPD_ACCEPT_BROKEN_LIST=y
 diff --git a/recipes-core/busybox/busybox_1.%.bbappend b/recipes-core/busybox/busybox_1.%.bbappend
 deleted file mode 100644
-index e86bd111fb2ea887cdcdf8e5c33397784ae3ebc6..0000000000000000000000000000000000000000
+index e86bd11..0000000
 --- a/recipes-core/busybox/busybox_1.%.bbappend
 +++ /dev/null
 @@ -1,2 +0,0 @@
@@ -11636,7 +11641,7 @@ index e86bd111fb2ea887cdcdf8e5c33397784ae3ebc6..00000000000000000000000000000000
 -FILESEXTRAPATHS_prepend := "${THISDIR}/busybox:"
 diff --git a/recipes-core/busybox/files/inetd.conf b/recipes-core/busybox/files/inetd.conf
 deleted file mode 100644
-index 2287c8f6909cf8a0949f16d2aa0c2439f8fcefbe..0000000000000000000000000000000000000000
+index 2287c8f..0000000
 --- a/recipes-core/busybox/files/inetd.conf
 +++ /dev/null
 @@ -1,22 +0,0 @@
@@ -11663,7 +11668,7 @@ index 2287c8f6909cf8a0949f16d2aa0c2439f8fcefbe..00000000000000000000000000000000
 -telnet	stream	tcp	nowait	root	telnetd	telnetd -i
 -ftp	stream	tcp	nowait	root	ftpd	ftpd -w
 diff --git a/recipes-core/images/avnet-image-full.inc b/recipes-core/images/avnet-image-full.inc
-index e735b2265b4fca4879bdc95a99a015270ad67cdb..cf9324a7954f0dad20d85623e262337caf805863 100644
+index e735b22..cf9324a 100644
 --- a/recipes-core/images/avnet-image-full.inc
 +++ b/recipes-core/images/avnet-image-full.inc
 @@ -3,231 +3,43 @@ require recipes-core/images/petalinux-image-common.inc
@@ -11900,7 +11905,7 @@ index e735b2265b4fca4879bdc95a99a015270ad67cdb..cf9324a7954f0dad20d85623e262337c
  
 diff --git a/recipes-core/init-ifupdown/files/interfaces b/recipes-core/init-ifupdown/files/interfaces
 deleted file mode 100644
-index 28336f30eaeca2bc6ef7fffa144c55b96628aa08..0000000000000000000000000000000000000000
+index 28336f3..0000000
 --- a/recipes-core/init-ifupdown/files/interfaces
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -11917,7 +11922,7 @@ index 28336f30eaeca2bc6ef7fffa144c55b96628aa08..00000000000000000000000000000000
 -	wpa-conf /etc/wpa_supplicant.conf
 diff --git a/recipes-core/init-ifupdown/init-ifupdown_%.bbappend b/recipes-core/init-ifupdown/init-ifupdown_%.bbappend
 deleted file mode 100644
-index a30ad6fd6a2cc8731565668654878245c4ad1a4d..0000000000000000000000000000000000000000
+index a30ad6f..0000000
 --- a/recipes-core/init-ifupdown/init-ifupdown_%.bbappend
 +++ /dev/null
 @@ -1,3 +0,0 @@
@@ -11926,7 +11931,7 @@ index a30ad6fd6a2cc8731565668654878245c4ad1a4d..00000000000000000000000000000000
 -INITSCRIPT_PARAMS_u96v2-sbc = "start 03 2 3 4 5 . stop 80 0 6 1 ."
 diff --git a/recipes-graphics/xorg-xserver/xserver-xf86-config/uz7ev-evcc-hdmi/xorg.conf b/recipes-graphics/xorg-xserver/xserver-xf86-config/uz7ev-evcc-hdmi/xorg.conf
 deleted file mode 100644
-index 568069ac70733f2a50bdc0f3ecd8e1b1ba2113d2..0000000000000000000000000000000000000000
+index 568069a..0000000
 --- a/recipes-graphics/xorg-xserver/xserver-xf86-config/uz7ev-evcc-hdmi/xorg.conf
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -11969,7 +11974,7 @@ index 568069ac70733f2a50bdc0f3ecd8e1b1ba2113d2..00000000000000000000000000000000
 -EndSection
 diff --git a/recipes-graphics/xorg-xserver/xserver-xf86-config/zynqmp/xorg.conf b/recipes-graphics/xorg-xserver/xserver-xf86-config/zynqmp/xorg.conf
 deleted file mode 100644
-index 1f23fb5f24fd090ffcbf5bab9c18770656345d6e..0000000000000000000000000000000000000000
+index 1f23fb5..0000000
 --- a/recipes-graphics/xorg-xserver/xserver-xf86-config/zynqmp/xorg.conf
 +++ /dev/null
 @@ -1,37 +0,0 @@
@@ -12013,14 +12018,33 @@ index 1f23fb5f24fd090ffcbf5bab9c18770656345d6e..00000000000000000000000000000000
 \ No newline at end of file
 diff --git a/recipes-graphics/xorg-xserver/xserver-xf86-config_%.bbappend b/recipes-graphics/xorg-xserver/xserver-xf86-config_%.bbappend
 deleted file mode 100644
-index 72d991c7e590bcac43dd2ab6da2de898cd36f829..0000000000000000000000000000000000000000
+index 72d991c..0000000
 --- a/recipes-graphics/xorg-xserver/xserver-xf86-config_%.bbappend
 +++ /dev/null
 @@ -1 +0,0 @@
 -FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
+diff --git a/recipes-kernel/linux/files/u96v2-sbc/bsp.cfg b/recipes-kernel/linux/files/u96v2-sbc/bsp.cfg
+index 66422b2..990299a 100644
+--- a/recipes-kernel/linux/files/u96v2-sbc/bsp.cfg
++++ b/recipes-kernel/linux/files/u96v2-sbc/bsp.cfg
+@@ -4,6 +4,8 @@
+ #
+ CONFIG_USB_NET_DRIVERS=y
+ CONFIG_USB=y
++CONFIG_USB_SERIAL=y
++CONFIG_USB_SERIAL_FTDI_SIO=y
+ CONFIG_USB_GADGET=y
+ CONFIG_USB_GADGET_VBUS_DRAW=2
+ CONFIG_USB_GADGET_STORAGE_NUM_BUFFERS=2
+@@ -61,3 +63,5 @@ CONFIG_SPI_SPIDEV=y
+ #
+ CONFIG_NF_TPROXY_IPV4=m
+ CONFIG_NF_TPROXY_IPV6=m
++
++CONFIG_SERIAL_OF_PLATFORM=y
 diff --git a/recipes-multimedia/pulseaudio-service/files/pulseaudio.service b/recipes-multimedia/pulseaudio-service/files/pulseaudio.service
 deleted file mode 100644
-index 6c5820b3f40d8cbcf85e591aff5bb36b79de65ea..0000000000000000000000000000000000000000
+index 6c5820b..0000000
 --- a/recipes-multimedia/pulseaudio-service/files/pulseaudio.service
 +++ /dev/null
 @@ -1,11 +0,0 @@
@@ -12037,7 +12061,7 @@ index 6c5820b3f40d8cbcf85e591aff5bb36b79de65ea..00000000000000000000000000000000
 -WantedBy=multi-user.target
 diff --git a/recipes-multimedia/pulseaudio-service/pulseaudio-service_1.0.bb b/recipes-multimedia/pulseaudio-service/pulseaudio-service_1.0.bb
 deleted file mode 100644
-index 9af3fc7dc5d7499ef4d6db4ec5389e6076be160e..0000000000000000000000000000000000000000
+index 9af3fc7..0000000
 --- a/recipes-multimedia/pulseaudio-service/pulseaudio-service_1.0.bb
 +++ /dev/null
 @@ -1,28 +0,0 @@
@@ -12071,7 +12095,7 @@ index 9af3fc7dc5d7499ef4d6db4ec5389e6076be160e..00000000000000000000000000000000
 -}
 diff --git a/recipes-multimedia/pulseaudio/files/system.pa b/recipes-multimedia/pulseaudio/files/system.pa
 deleted file mode 100644
-index ba43ccc73a09857b59d79335734e503b735fcc5d..0000000000000000000000000000000000000000
+index ba43ccc..0000000
 --- a/recipes-multimedia/pulseaudio/files/system.pa
 +++ /dev/null
 @@ -1,64 +0,0 @@
@@ -12141,7 +12165,7 @@ index ba43ccc73a09857b59d79335734e503b735fcc5d..00000000000000000000000000000000
 -load-module module-position-event-sounds
 diff --git a/recipes-multimedia/pulseaudio/pulseaudio_%.bbappend b/recipes-multimedia/pulseaudio/pulseaudio_%.bbappend
 deleted file mode 100644
-index 58caebb1f0e88a6ea906ce0e1e745ba1ada4b13f..0000000000000000000000000000000000000000
+index 58caebb..0000000
 --- a/recipes-multimedia/pulseaudio/pulseaudio_%.bbappend
 +++ /dev/null
 @@ -1,12 +0,0 @@
@@ -12159,7 +12183,7 @@ index 58caebb1f0e88a6ea906ce0e1e745ba1ada4b13f..00000000000000000000000000000000
 -}
 diff --git a/recipes-support/opencv/opencv_%.bbappend b/recipes-support/opencv/opencv_%.bbappend
 deleted file mode 100644
-index 8e72ebaabf6e6de843de2e1f6ba8e74dbfccf734..0000000000000000000000000000000000000000
+index 8e72eba..0000000
 --- a/recipes-support/opencv/opencv_%.bbappend
 +++ /dev/null
 @@ -1,2 +0,0 @@
