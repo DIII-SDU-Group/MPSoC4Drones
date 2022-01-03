@@ -12,9 +12,9 @@ source $SCRIPTS_DIR/settings.sh >> /dev/null
 trap unmount_qemu INT
 
 function unmount_qemu() {
-	sudo umount $UBUNTU_ROOTFS_DIR/dev >> /dev/null
-	sudo umount $UBUNTU_ROOTFS_DIR/proc >> /dev/null
-	sudo umount $UBUNTU_ROOTFS_DIR/sys >> /dev/null
+	sudo umount -fl $UBUNTU_ROOTFS_DIR/dev >> /dev/null
+	sudo umount -fl $UBUNTU_ROOTFS_DIR/proc >> /dev/null
+	sudo umount -fl $UBUNTU_ROOTFS_DIR/sys >> /dev/null
 
 	exit
 }
