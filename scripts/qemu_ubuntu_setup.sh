@@ -59,8 +59,29 @@ sudo apt install -y ros-foxy-ros-base
 
 echo "source /opt/ros/foxy/setup.bash" >> /home/$UBUNTU_USER/.bashrc
 
+su - $UBUNTU_USER -c "mkdir -p ~/ros2_ws/src"
+
+# Prepare for ROS2 cross-compilation
+su - $UBUNTU_USER -c "cd ~/ros2_ws/ && git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1 src/ros2/cross_compile"
+
 # Create ros2_ws folder in specified user's home dir
 su - $UBUNTU_USER -c "mkdir -p ~/ros2_ws/src"
+
+# Install PX4 dependencies
+apt install -y python3-colcon-common-extensions ros-foxy-eigen3-cmake-module 
+pip3 install -U empy pyros-genmsg setuptools
+
+# Install Fast-RTPS-Gen
+echo "export PATH=$PATH:/opt/gradle/gradle-6.3/bin" >> /home/$UBUNTU_USER/.bashrc
+
+su - $UBUNTU_USER -c "git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen"
+su - $UBUNTU_USER -c "cd ~/Fast-RTPS-Gen && /opt/gradle/gradle-6.3/bin/gradle assemble"
+cd /home/$UBUNTU_USER/Fast-RTPS-Gen/ && /opt/gradle/gradle-6.3/bin/gradle install && cd /
+
+# Get PX4 ROS packages
+cd /home/$UBUNTU_USER/ros2_ws/src/
+su - $UBUNTU_USER -c "cd ~/ros2_ws/src/ && git clone https://github.com/PX4/px4_ros_com.git"
+su - $UBUNTU_USER -c "cd ~/ros2_ws/src/ && git clone https://github.com/PX4/px4_msgs.git"
 
 # Final update and upgrade
 apt update
@@ -69,7 +90,11 @@ apt upgrade -y
 ## Load wilc module on boot
 echo "wilc-sdio" > /etc/modules-load.d/wilc-sdio.conf
 
-# chown sudo
-chown root:root /usr/bin/sudo 
+# chown
+chown -R root:root / 2> /dev/null
+chwon -R u96:u96 /home/u96
+
+# sudo
 chmod 4755 /usr/bin/sudo 
+
 
