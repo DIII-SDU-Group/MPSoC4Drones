@@ -183,6 +183,8 @@ build_petalinux ()
 		echo
 	fi
 
+	rm -rf $UBUNTU_BOOT_DIR
+
 	echo Building PetaLinux project. This will take a while.
 
 	# Remove build state
@@ -198,6 +200,13 @@ build_petalinux ()
 	# Run Avnet scripts
 	$REPOSITORY_DIR/petalinux/scripts/make_u96v2_sbc_mp4d.sh --petalinux-build
 
+	# Move boot files
+	mkdir $UBUNTU_BOOT_DIR
+
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/boot.scr $UBUNTU_BOOT_DIR
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/image.ub $UBUNTU_BOOT_DIR
+	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/BOOT.BIN $UBUNTU_BOOT_DIR
+
 	# Done
 	if [ $? -ne 0 ]
 	then
@@ -208,7 +217,6 @@ build_petalinux ()
 
 	touch $REPOSITORY_DIR/.petalinux_built
 	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-	rm -f $REPOSITORY_DIR/.boot_files_packaged
 
 	echo Finished building PetaLinux project
 }
