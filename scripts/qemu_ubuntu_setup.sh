@@ -92,7 +92,10 @@ echo "wilc-sdio" > /etc/modules-load.d/wilc-sdio.conf
 
 # chown
 chown -R root:root / 2> /dev/null
-chwon -R u96:u96 /home/u96
+chown -R u96:u96 /home/u96
+
+# dialout
+adduser $UBUNTU_USER dialout
 
 # sudo
 chmod 4755 /usr/bin/sudo 
