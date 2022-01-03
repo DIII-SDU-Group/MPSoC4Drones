@@ -159,7 +159,7 @@ build_petalinux ()
 	if [ ! -e $REPOSITORY_DIR/.petalinux_configured ]
 	then
 		echo Can not build PetaLinux project before it has been configured.
-		echo Run mp4d-build --petalinux-config to configure petalinux project and import latest hardware.
+		echo Run mp4d-build --petalinux-config to configure PetaLinux project and import latest hardware.
 		exit 1
 	fi
 
@@ -217,6 +217,8 @@ build_petalinux ()
 
 	touch $REPOSITORY_DIR/.petalinux_built
 	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
+	rm -f $REPOSITORY_DIR/.boot_packaged
+	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
 
 	echo Finished building PetaLinux project
 }
@@ -272,6 +274,8 @@ build_ubuntu ()
 
 	touch $REPOSITORY_DIR/.ubuntu_built
 	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
+	rm -f $REPOSITORY_DIR/.rootfs_packaged
+	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
 
 	echo Finished bulding Ubuntu rootfs
 	echo
@@ -331,6 +335,7 @@ ubuntu_import_modules ()
 
 	# Done
 	touch $REPOSITORY_DIR/.ubuntu_modules_imported
+	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
 
 	echo Imported kernel modules to Ubuntu
 	echo
