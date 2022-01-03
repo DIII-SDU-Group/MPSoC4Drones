@@ -19,7 +19,7 @@ Help()
 {
 	echo "Package the MPSoC4Drones build products."
 	echo 
-	echo "Syntax: m4d-package [-A|B|I|f|h]"
+	echo "Syntax: m4d-package [-A|B|f|h]"
 	echo "options:"
 	echo "-A, --all		package boot files and rootfs onto the sd card partitions"
 	echo "-B, --boot		package the boot files onto the sd card BOOT partition"

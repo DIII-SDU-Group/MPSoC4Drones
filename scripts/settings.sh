@@ -66,5 +66,5 @@ echo
 echo "Available commands:"
 echo "	mp4d-setup  [-A|G|V|P|f|h]"
 echo "	mp4d-build  [-A|V|P|U|f|h]"
-echo "	m4d-package [-A|B|I|f|h]"
+echo "	m4d-package [-A|B|f|h]"
 echo
