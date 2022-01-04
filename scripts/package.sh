@@ -142,6 +142,11 @@ package_rootfs ()
 
 	# Copy rootfs
 	sudo cp -rp $UBUNTU_ROOTFS_DIR/* $ROOTFS_DIR
+	
+	# Sync
+	echo Synchronizing, this might take a while...
+	echo
+	sync
 
 	# Done
 	touch $REPOSITORY_DIR/.rootfs_packaged
