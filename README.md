@@ -27,6 +27,32 @@ The work uses:
 - **Target Middleware**: [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html)
 - **Target Development Board**: Avnet [Ultra96-V2](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-ultra96-v2-g-3074457345638646173/) with Avnet [U96 JTAG/UART to USB adapter](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-acc-u96-jtag-3074457345635355958/)
 
+## Table of contents
+
+- [MPSoC4Drones](#mpsoc4drones)
+  * [Features](#features)
+  * [Getting started](#getting-started)
+    + [The Toolchain at a glance](#the-toolchain-at-a-glance)
+    + [Environment setup](#environment-setup)
+    + [Toolchain execution](#toolchain-execution)
+    + [SD card setup](#sd-card-setup)
+    + [Flight controller configuration](#flight-controller-configuration)
+    + [First boot](#first-boot)
+    + [Connect to the Ultra96-V2 using SSH](#connect-to-the-ultra96-v2-using-ssh)
+    + [Testing ROS2 and PX4 communication](#testing-ros2-and-px4-communication)
+  * [Development with MPSoC4Drones](#development-with-mpsoc4drones)
+    + [The framework](#the-framework)
+      - [mp4d-setup](#mp4d-setup)
+      - [mp4d-build](#mp4d-build)
+      - [mp4d-package](#mp4d-package)
+    + [The toolchain](#the-toolchain)
+    + [Development cases](#development-cases)
+      - [Modifying the FPGA design without changes to memory mapping](#modifying-the-fpga-design-without-changes-to-memory-mapping)
+      - [Modifying the FPGA design with changes to memory mapping](#modifying-the-fpga-design-with-changes-to-memory-mapping)
+      - [Adding packages to the Ubuntu build](#adding-packages-to-the-ubuntu-build)
+      - [Changing the Ubuntu host name, user name, or password](#changing-the-ubuntu-host-name-user-name-or-password)
+  * [Acknowledgements](#acknowledgements)
+
 ## Features
 This work aims to provide an easy-to-use framework for integration projects targeting the Ultra96-V2 board. The framework facilitates integration of FPGA programmable logic design with well-established tools in the UAV research community.
 
