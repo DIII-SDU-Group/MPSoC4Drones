@@ -1469,7 +1469,7 @@ index f07795b..4c88d8a 100644
 +   after 1000
  }
 diff --git a/scripts/make.tcl b/scripts/make.tcl
-index 63dfa9c..154b050 100755
+index 63dfa9c..60a890f 100755
 --- a/scripts/make.tcl
 +++ b/scripts/make.tcl
 @@ -119,8 +119,6 @@ proc numberOfCPUs {} {
@@ -1521,7 +1521,7 @@ index 63dfa9c..154b050 100755
     # check for BOARD parameter
     if {[string match -nocase "board=*" [lindex $argv $i]]} {
        set board [string range [lindex $argv $i] 6 end]
-@@ -281,6 +305,21 @@ puts $build_params
+@@ -281,6 +305,19 @@ puts $build_params
  unset printmessage
  unset ranonce
  
@@ -1530,20 +1530,18 @@ index 63dfa9c..154b050 100755
 +  return -code ok
 +}
 +
++set numberOfCores [numberOfCPUs]
++
 +if {[info exists jobs]} {
-+	if [$jobs > numberOfCPUs] {
-+		set numberOfCores [numberOfCPUs] 
-+	} else {
-+		set numberOfCores [$jobs]
++	if {$jobs < $numberOfCores} {
++		set numberOfCores $jobs
 +	}
-+} else {
-+	set numberOfCores [numberOfCPUs]
 +}
 +
  #version check
  set version [version -short]
  if {[string match -nocase "yes" $version_override]} {
-@@ -403,12 +442,12 @@ switch -nocase $board {
+@@ -403,12 +440,12 @@ switch -nocase $board {
     minized_sbc                -
     mz7010_som                 -
     mz7020_som                 {puts " Setting Up Project ${board}_${project}..."
