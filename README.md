@@ -242,7 +242,7 @@ The `mp4d-build` command builds the project in the five following steps:
 1. _Build step 1_: **Building the Vivado project hardware specification**.  
 This step runs synthesis and implementation on the Vivado project contained in the `hdl/projects/u96v2_sbc_mp4d_2020_2/` folder. The build utilizes the patched versions of the Avnet hdl build scripts. The design bitstream is generated and the hardware specification .xsa file is exported. This step requires that _setup step 2_ has been executed.
 2. _Build step 2_: **Configuring the PetaLinux project**.  
-This step configures the PetaLinux project for build, imports the generated hardware specification, and imports the Avnet meta-layers. This step requires that _setup step 3._ and _build step 1_ have been executed.
+This step configures the PetaLinux project for build, imports the generated hardware specification, and imports the Avnet meta-layers. This step requires that _setup step 3_ and _build step 1_ have been executed.
 3. _Build step 3_: **Building the PetaLinux project**  
 This step builds the PetaLinux project contained in the `petalinux/projects/u96v2_sbc_mp4d_2020_2/` folder, including the boot loader and the kernel. The boot files are stored in the directory `target/BOOT/`. This step requires that _build step 2_ has been executed.
 4. _Build step 4_: **Building the Ubuntu root filesystem**  
