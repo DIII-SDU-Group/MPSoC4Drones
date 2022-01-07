@@ -47,6 +47,9 @@ usermod -aG sudo $UBUNTU_USER
 # Install all other specified packages
 xargs -r -a /mp4d_settings/ubuntu_packages.txt apt -y install
 
+# Install PYNQ
+pip3 install pynq
+
 # Prepare for ROS2 Foxy installation
 apt update 
 curl -sSL $(cat /mp4d_settings/ros_distro_key_url) -o /usr/share/keyrings/ros-archive-keyring.gpg
