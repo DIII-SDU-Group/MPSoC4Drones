@@ -22,14 +22,14 @@ echo
 
 if [ $0 == $BASH_SOURCE ] || [ ${BASH_SOURCE:0:1} = "/" ]
 then
-	SCRIPTS_DIR=$(realpath $0 | xargs dirname)
+    SCRIPTS_DIR=$(realpath $0 | xargs dirname)
 else
-	SCRIPTS_DIR=$(realpath $PWD/$BASH_SOURCE | xargs dirname) || SCRIPTS_DIR=$(realpath $0 | xargs dirname)
+    SCRIPTS_DIR=$(realpath $PWD/$BASH_SOURCE | xargs dirname) || SCRIPTS_DIR=$(realpath $0 | xargs dirname)
 fi
 
 REPOSITORY_DIR=$SCRIPTS_DIR/..
 PATCHES_DIR=$REPOSITORY_DIR/patches
-VIVADO_DIR=$REPOSITORY_DIR/vivado
+HDL_DIR=$REPOSITORY_DIR/hdl
 PETALINUX_DIR=$REPOSITORY_DIR/petalinux
 TARGET_DIR=$REPOSITORY_DIR/target
 UBUNTU_ROOTFS_DIR=$TARGET_DIR/rootfs
