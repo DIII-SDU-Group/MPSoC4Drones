@@ -70,13 +70,15 @@ The framework lets you
 This section gives a quick introduction on how to get started with MPSoC4Drones.
 
 ### The Toolchain at a glance
-The toolchain consists of the following three steps:
+The toolchain consists of the following four steps:
 1. **Setup**  
-Setting up the project structure. In this step, the relevant Avnet repositories are cloned and patched, the Vivado project is generated, and the PetaLinux project is created.
-3. **Build**  
+Setting up the project structure. In this step, the relevant repositories (from Avnet and PYNQ) are cloned and patched, the Vivado project is generated, and the PetaLinux project is created.
+2. **Build**  
 Bulding the individual project components. This step contains the building process of the Vivado project, the PetaLinux project, and the Ubuntu root filesystem.
-5. **Packaging**  
+3. **Packaging**  
 Packaging the build products. This step covers packaging the build products onto a prepared SD card as well as creating an image for SD card flashing.
+4. **Commitment**  
+Committing the changes made to the individual parts of the project back to the project setup scripts, such that the project can be revision controlled in another git repository. 
 
 ### Environment setup
 
@@ -284,9 +286,32 @@ The `-A`, `--all` option will overrule the above options and issue all steps reg
 - The `--rootfs-dir ROOTFS_DIR` argument can be used to specify the rootfs partition mount point `ROOTFS_DIR`. Setting this argument will overwrite the ROOTFS partition mount point derived from `MOUNT_DIR`. As such, `ROOTFS_DIR` defaults to `MOUNT_DIR/rootfs/`.
 - For any step, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previously packaged build products on the SD card without prompting the user for yes/no.
 
+#### `mp4d-commit`
+The `mp4d-commit` command commits changes made to the project in the following steps:
+1. _Commitment step 1_: **Committing changes made to the Vivado project**.  
+This step modifies the setup scripts such that the design changes applied to the initial Vivado project is preserved through running the setup scripts again. This is achieved by adding any source design files and IPs to the patch that is applied to the Avnet hdl repository in _setup step 1_. Additionally, the tcl script which generates the block design is updated to reflect the resulting design. Finally, the constraints file is updated to preserve changes. The updated patch file _hdl_repo.patch_ is committed to git.
+
+2. _Commitment step 2_: **Committing changes made to the meta-avnet layers**.  
+In this step, changes applied to the meta-avnet layers in the `meta-avnet/` folder for the PetaLinux build is similarly pushed back to the patch which is applied to the Avnet meta-avnet repository in _setup step 1_. Any modification made in the `meta-avnet/` folder is preserved. The updated patch file `patches/meta-avnet\_repo.patch` is committed to git.
+
+3. _Commitment step 3_: **Committing changes made to the Ubuntu rootfs setup-scripts**. This step simply commits changes made to the Ubuntu build scripts, `scripts/qemu_ubuntu_setup.sh` and `scripts/ubuntu_packages.sh`, to git. Though the functionality is trivial, the step is included to keep consistency in the framework.
+
+4. _Commitment step 4_: **Cleaning the project**. This steps removes all of the generated files and folders in the project. Specifically, the step will remove all files listed on the `.gitignore`. Only to be executed after having committed all changes to be kept through the above commitment steps, the functionality in this final step of the framework workflow prepares the project for distribution and versioning on git.
+
+The command has the following options:
+- Calling `mp4d-commit` will issue _commitment step 1_, _2_, and _3_.
+- Calling `mp4d-commit -A`, or `mp4d-commit --all` will issue the same three steps but will add any changes to the commit. Should only be used if the fundamental scripts are changed.
+- Calling `mp4d-commit` with one or more of the following options will issue the respective steps:
+  - `-V`, `--vivado` for _commitment step 1_,
+  - `-M`, `--meta-avnet` for _commitment step 2_, and
+  - `-U`, `--ubuntu` for _commitment step 3_.
+The `-A`, `--all` option will overrule the above options and issue all steps regardless.
+- Adding the `--clean` option will issue _commitment step 4_. The user will be prompted if the project should really be cleaned, as this operation deletes data.
+- Adding the `-f`, `--force` option with the `--clean` optino will clean the project without prompting the user.
+
 ### The toolchain
 ![Toolchain image](figures/MPSoC4Drones_toolchain.png)
-The above figure visualizes the the toolchain workflow. The red rectangles are the _setup_ steps, the yellow rectangles are the _build_ steps, and the green rectangles are the _packaging_ steps. The dotted arrows indicate the precedence of the steps, i.e. traversing the arrows backwards indicates which previous steps are necessary for executing a given step. The grey circles indicate development actions by the user, and the arrows from the grey circles to the development steps indicate the necessary build entry points after/when having taken a given development action.
+The above figure visualizes the the toolchain workflow. The red rectangles are the _setup_ steps, the yellow rectangles are the _build_ steps, and the green rectangles are the _packaging_ steps. Additionally, the blue rectangles are the _commitment_ steps. The dotted arrows indicate the precedence of the steps, i.e. traversing the arrows backwards indicates which previous steps are necessary for executing a given step. The grey circles indicate development actions by the user, and the arrows from the grey circles to the development steps indicate the necessary build entry points after/when having taken a given development action.
 
 ### Development cases
 In this section, various development scenarios are given as general examples and it is described how the scenarios are built within the MPSoC4Drones framework.
