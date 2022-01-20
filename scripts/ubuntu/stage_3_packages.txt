@@ -1,3 +1,4 @@
+sl
 ifupdown 
 net-tools 
 ethtool 
