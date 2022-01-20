@@ -235,16 +235,6 @@ build_petalinux ()
 	# Build again
 	petalinux-build -c avnet-image-full -p $PETALINUX_PROJECT_DIR
 
-	# Export boot files
-	echo Exporting boot files
-	echo
-
-	mkdir $UBUNTU_BOOT_DIR
-
-	cp $PETALINUX_PROJECT_DIR/images/linux/boot.scr $UBUNTU_BOOT_DIR
-	cp $PETALINUX_PROJECT_DIR/images/linux/image.ub $UBUNTU_BOOT_DIR
-	cp $PETALINUX_PROJECT_DIR/images/linux/BOOT.BIN $UBUNTU_BOOT_DIR
-
 	# Build zocl
 	petalinux-build -c zocl -p $PETALINUX_PROJECT_DIR
 
@@ -260,6 +250,23 @@ build_petalinux ()
 
 	sudo rm -rf $TARGET_DIR/rootfs_petalinux
 
+	# Package boot files
+	petalinux-package --boot --fsbl $PETALINUX_DIR/projects/$AVNET_PROJECT_NAME/images/linux/zynqmp_fsbl.elf --fpga $PETALINUX_DIR/projects/$AVNET_PROJECT_NAME/images/linux/system.bit --uboot --force -p $PETALINUX_DIR/projects/$AVNET_PROJECT_NAME
+
+	# Export boot files
+	echo Exporting boot files
+	echo
+
+	mkdir -p $UBUNTU_BOOT_DIR
+
+	rm -rf $UBUNTU_BOOT_DIR/images/linux/boot.scr 
+	rm -rf $UBUNTU_BOOT_DIR/images/linux/image.ub 
+	rm -rf $UBUNTU_BOOT_DIR/images/linux/BOOT.BIN 
+
+	cp $PETALINUX_PROJECT_DIR/images/linux/boot.scr $UBUNTU_BOOT_DIR
+	cp $PETALINUX_PROJECT_DIR/images/linux/image.ub $UBUNTU_BOOT_DIR
+	cp $PETALINUX_PROJECT_DIR/images/linux/BOOT.BIN $UBUNTU_BOOT_DIR
+
 	# Done
 	if [ $? -ne 0 ]
 	then
@@ -270,7 +277,6 @@ build_petalinux ()
 
 	touch $REPOSITORY_DIR/.petalinux_built
 	rm -f $REPOSITORY_DIR/.boot_packaged
-	rm -f $REPOSITORY_DIR/.ubuntu_built
 
 	echo Finished building PetaLinux project
 }

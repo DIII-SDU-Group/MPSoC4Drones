@@ -79,9 +79,13 @@ package_boot ()
 	# Remove
 	rm -f $REPOSITORY_DIR/.boot_packaged
 
+	echo Removing existing boot files...
+	echo
 	rm -f $BOOT_DIR/boot.scr $BOOT_DIR/image.ub $BOOT_DIR/BOOT.BIN
 
 	# Copy boot files
+	echo Copying boot files...
+	echo
 	cp $UBUNTU_BOOT_DIR/boot.scr $BOOT_DIR
 	cp $UBUNTU_BOOT_DIR/image.ub $BOOT_DIR
 	cp $UBUNTU_BOOT_DIR/BOOT.BIN $BOOT_DIR
@@ -135,9 +139,13 @@ package_rootfs ()
 	# Remove
 	rm -f $REPOSITORY_DIR/.rootfs_packaged
 
+	echo Removing existing rootfs...
+	echo
 	sudo rm -rf $ROOTFS_DIR/*
 
 	# Copy rootfs
+	echo Copying rootfs...
+	echo
 	sudo cp -rp $UBUNTU_ROOTFS_DIR/* $ROOTFS_DIR
 	
 	# Sync

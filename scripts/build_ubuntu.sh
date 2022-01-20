@@ -138,7 +138,7 @@ sudo mkdir -p $UBUNTU_ROOTFS_DIR/lib/modules/$LINUX_VERSION/
 sudo cp -r --no-preserve=ownership $MODULES_DIR/tmp/lib/modules/$LINUX_VERSION/* $UBUNTU_ROOTFS_DIR/lib/modules/$LINUX_VERSION/
 sudo cp -f $PETALINUX_PROJECT_DIR/build/tmp/sysroots-components/$BOARD/wilc/lib/modules/$LINUX_VERSION/extra/* $UBUNTU_ROOTFS_DIR/usr/lib/modules/$LINUX_VERSION/extra/
 
-# Extract kernel headers
+# Extract kernel headers and run depmod
 mount_qemu
 rpm2cpio $KERNEL_DEVSRC_DIR/*.rpm | sudo chroot $TARGET_DIR/rootfs cpio -id
 sudo cp -r $UBUNTU_ROOTFS_DIR/lib/modules/$LINUX_VERSION/* \

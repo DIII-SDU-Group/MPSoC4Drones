@@ -6,8 +6,6 @@ g++
 gcc 
 gdb 
 git 
-gnuplot 
-graphviz 
 libboost-dev 
 libboost-filesystem-dev 
 libboost-program-options-dev 
@@ -31,7 +29,6 @@ ocl-icd-libopencl1
 opencl-headers 
 ocl-icd-opencl-dev 
 perl 
-pciutils 
 pkg-config 
 protobuf-compiler 
 sphinx-common 
@@ -46,6 +43,5 @@ python3-pip
 python3-sphinx 
 python3-sphinx-rtd-theme 
 python3-breathe 
-linux-headers-5.11.0-46-generic
 gcc-9
 g++-9
