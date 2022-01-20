@@ -1,28 +1,27 @@
 *~
 .*~
 ..*~
+**/.*~
 
 .*.swp
 
 *.jou
 *.log
+.Xil
 
 petalinux/
 hdl/
 bdf/
 meta-avnet/
 target/
+PYNQ/
 
 .git_setup
 .vivado_setup
 .petalinux_setup
 .vivado_built
-.petalinux_setup
 .petalinux_configured
 .petalinux_built
 .ubuntu_built
-.ubuntu_modules_imported
 .boot_packaged
-.kernel_modules_packaged
 .rootfs_packaged
-.boot_files_packaged

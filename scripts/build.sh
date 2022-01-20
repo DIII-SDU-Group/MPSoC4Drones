@@ -28,9 +28,8 @@ Help()
 	echo "--vivado-jobs	N	number of jobs N for Vivado to use for hardware build"
 	echo "--petalinux-config	configure or re-configure PetaLinux project, import hardware specification"
 	echo "-P, --petalinux		build or re-build full PetaLinux project outputs"
-	echo "-U, --ubuntu		build or re-build full Ubuntu rootfs - requires sudo" 
-	echo "--ubuntu-import-modules"
-	echo "			import PetaLinux kernel modules to Ubuntu rootfs"
+	echo "-U, --ubuntu		build or re-build full Ubuntu rootfs or update kernel in rootfs, "
+	echo "			use with -f to force a full rebuild" 
 	echo "-f, --force		overwrite existing work without prompting"
 	echo
 	echo "-h, --help		show this message"
@@ -76,9 +75,9 @@ build_vivado ()
 	# Run Avnet Vivado build scripts
 	if [ -z $VIVADO_JOBS ] 
 	then
-		$REPOSITORY_DIR/petalinux/scripts/make_u96v2_sbc_mp4d.sh --vivado-build
+		$REPOSITORY_DIR/petalinux/scripts/make_${BOARD}_${PROJECT}.sh --vivado-build
 	else
-		$REPOSITORY_DIR/petalinux/scripts/make_u96v2_sbc_mp4d.sh --vivado-build --vivado-jobs $VIVADO_JOBS
+		$REPOSITORY_DIR/petalinux/scripts/make_${BOARD}_${PROJECT}.sh --vivado-build --vivado-jobs $VIVADO_JOBS
 	fi
 
 	# Done
@@ -132,8 +131,11 @@ configure_petalinux ()
 	# Remove build state
 	rm -f $REPOSITORY_DIR/.petalinux_configured
 
+	# Increase user watch (bug workaround)
+	sudo sysctl -n -w fs.inotify.max_user_watches=524288
+
 	# Run Avnet scripts
-	$REPOSITORY_DIR/petalinux/scripts/make_u96v2_sbc_mp4d.sh --petalinux-configure
+	$REPOSITORY_DIR/petalinux/scripts/make_${BOARD}_${PROJECT}.sh --petalinux-configure
 
 	# Done
 	if [ $? -ne 0 ]
@@ -184,6 +186,8 @@ build_petalinux ()
 	fi
 
 	rm -rf $UBUNTU_BOOT_DIR
+	rm -rf $MODULES_DIR
+	rm -rf $KERNEL_DEVSRC_DIR
 
 	echo Building PetaLinux project. This will take a while.
 
@@ -191,24 +195,70 @@ build_petalinux ()
 	rm -f $REPOSITORY_DIR/.petalinux_built
 
 	# Workaround fix for libmetal openamp build bug
-	if [ -d $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-echo-testd/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd ]
+	if [ -d $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd ]
 	then
-		cp -rf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-echo-testd/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-echo-testd/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd.new 2> /dev/null
 
-		cp -rf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-mat-muld/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-mat-muld/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld.new 2> /dev/null
 
-		cp -rf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-rpc-demo/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/build/tmp/work/u96v2_sbc-xilinx-linux/openamp-fw-rpc-demo/2020.2+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo.new 2> /dev/null
 	fi
 
-	# Run Avnet scripts
-	$REPOSITORY_DIR/petalinux/scripts/make_u96v2_sbc_mp4d.sh --petalinux-build
+	# Increase user watch (bug workaround)
+	sudo sysctl -n -w fs.inotify.max_user_watches=524288
 
-	# Move boot files
+	# Run Avnet scripts
+	echo Running Avnet build scripts...
+	echo
+
+	$REPOSITORY_DIR/petalinux/scripts/make_${BOARD}_${PROJECT}.sh --petalinux-build
+
+	# Export modules
+	echo Exporting modules...
+	echo
+
+	mkdir $MODULES_DIR
+
+	cp -f $PETALINUX_PROJECT_DIR/build/tmp/deploy/images/*/modules--*.tgz \
+		$MODULES_DIR
+
+	# Build and export kernel devsrc
+	echo Building and exporting kernel devsrc
+	echo
+
+	mkdir $KERNEL_DEVSRC_DIR
+
+	petalinux-build -c kernel-devsrc -p $PETALINUX_PROJECT_DIR
+	cp -f $PETALINUX_PROJECT_DIR/build/tmp/deploy/rpm/$BOARD/kernel-devsrc-1.0-r0.*.rpm \
+		$KERNEL_DEVSRC_DIR
+
+	# Build again
+	petalinux-build -c avnet-image-full -p $PETALINUX_PROJECT_DIR
+
+	# Export boot files
+	echo Exporting boot files
+	echo
+
 	mkdir $UBUNTU_BOOT_DIR
 
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/boot.scr $UBUNTU_BOOT_DIR
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/image.ub $UBUNTU_BOOT_DIR
-	cp $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/BOOT.BIN $UBUNTU_BOOT_DIR
+	cp $PETALINUX_PROJECT_DIR/images/linux/boot.scr $UBUNTU_BOOT_DIR
+	cp $PETALINUX_PROJECT_DIR/images/linux/image.ub $UBUNTU_BOOT_DIR
+	cp $PETALINUX_PROJECT_DIR/images/linux/BOOT.BIN $UBUNTU_BOOT_DIR
+
+	# Build zocl
+	petalinux-build -c zocl -p $PETALINUX_PROJECT_DIR
+
+	# Export modules firmware
+	sudo rm -rf $TARGET_DIR/rootfs_petalinux
+	sudo rm -rf $TARGET_DIR/firmware
+
+	mkdir $TARGET_DIR/rootfs_petalinux
+	mkdir $TARGET_DIR/firmware
+
+	tar xf $PETALINUX_DIR/projects/$AVNET_PROJECT_NAME/images/linux/rootfs.tar.gz -C $TARGET_DIR/rootfs_petalinux
+	sudo cp -rp $TARGET_DIR/rootfs_petalinux/lib/firmware/mchp $TARGET_DIR/firmware
+
+	sudo rm -rf $TARGET_DIR/rootfs_petalinux
 
 	# Done
 	if [ $? -ne 0 ]
@@ -219,9 +269,8 @@ build_petalinux ()
 	fi
 
 	touch $REPOSITORY_DIR/.petalinux_built
-	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
 	rm -f $REPOSITORY_DIR/.boot_packaged
-	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
+	rm -f $REPOSITORY_DIR/.ubuntu_built
 
 	echo Finished building PetaLinux project
 }
@@ -231,41 +280,44 @@ build_ubuntu ()
 {
 	cd $REPOSITORY_DIR
 
-	# No conditions
+	# Check that conditions are met
+	if [ ! -e $REPOSITORY_DIR/.petalinux_built ]
+	then
+		echo Can not build Ubuntu before PetaLinux project has been built.
+		echo Run mp4d-build -P to build PetaLinux project.
+		exit 1
+	fi
+
+	UPDATE_KERNEL=
 
 	# Check if has already been built
-	if [ -a $UBUNTU_ROOTFS_DIR ] || [ -e $REPOSITORY_DIR/.ubuntu_built ]
+	if [ -e $REPOSITORY_DIR/.ubuntu_built ]
 	then
 		if [ $FORCE = "false" ]
 		then
-			echo Ubuntu rootfs has already been built. Contents will be overwritten.
-			while true; do
-				read -p "Continue (Y/n)? " yn
-				case $yn in
-					[Yy]* ) echo ; break;;
-					[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
-					* ) echo "Please answer (Y/n)" ;;
-				esac
-			done
+			echo Ubuntu rootfs has already been built. Will only update kernel.
+			echo To force a full rebuild, use the -f option.
+
+			UPDATE_KERNEL="--update-kernel"
+		else
+			echo Removing existing Ubuntu rootfs...
+			echo
+
+			sudo rm -rf $UBUNTU_ROOTFS_DIR
 		fi
-
-		echo Removing existing Ubuntu rootfs...
-		echo
-
-		sudo rm -rf $UBUNTU_ROOTFS_DIR
 	fi
 
 	# Remove build state
 	rm -f $REPOSITORY_DIR/.ubuntu_built
 
+	# Increase user watch (bug workaround)
+	sudo sysctl -n -w fs.inotify.max_user_watches=524288
+
 	# Mkdir
 	mkdir -p $UBUNTU_ROOTFS_DIR
 
-	echo Building Ubuntu rootfs, will take a while...
-	echo
-
 	# Run Ubuntu build script
-	$SCRIPTS_DIR/build_ubuntu.sh
+	$SCRIPTS_DIR/build_ubuntu.sh $UPDATE_KERNEL
 
 	# Done
 	if [ $? -ne 0 ]
@@ -276,71 +328,9 @@ build_ubuntu ()
 	fi
 
 	touch $REPOSITORY_DIR/.ubuntu_built
-	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
 	rm -f $REPOSITORY_DIR/.rootfs_packaged
-	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
 
 	echo Finished bulding Ubuntu rootfs
-	echo
-}
-
-# Ubuntu import modules
-ubuntu_import_modules ()
-{
-	cd $REPOSITORY_DIR
-
-	# Check that conditions are met
-	if [ ! -e $REPOSITORY_DIR/.petalinux_built ] || [ ! -e $REPOSITORY_DIR/.ubuntu_built ]
-	then
-		echo Can not import kernel modules from PetaLinux to Ubuntu before both have been built.
-		echo Run mp4d-build -P to build PetaLinux and mp4d-build -U to build Ubuntu.
-		exit 1
-	fi
-
-	# Check if has already been imported
-	if [ -e $REPOSITORY_DIR/.ubuntu_modules_imported ]
-	then
-		if [ $FORCE = "false" ]
-		then
-			echo Kernel modules has already been imported to Ubuntu rootfs from PetaLinux. Imported modules will be overwritten.
-			while true; do
-				read -p "Continue (Y/n)? " yn
-				case $yn in
-					[Yy]* ) echo ; break;;
-					[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
-					* ) echo "Please answer (Y/n)" ;;
-				esac
-			done
-		fi
-
-		echo Removing existing kernel modules...
-		echo
-
-		sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/modules
-		sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/firmware/mchp
-		rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-	fi
-
-	echo Importing kernel modules...
-	echo
-
-	# Remove build state
-	rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-
-	# Temporarily extract PetaLinux rootfs
-	mkdir $TARGET_DIR/rootfs_petalinux
-	tar xf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/rootfs.tar.gz -C $TARGET_DIR/rootfs_petalinux
-
-	sudo cp -r $TARGET_DIR/rootfs_petalinux/lib/modules $TARGET_DIR/rootfs/lib/
-	sudo cp -rp $TARGET_DIR/rootfs_petalinux/lib/firmware/mchp $TARGET_DIR/rootfs/lib/firmware/mchp
-
-	sudo rm -rf $TARGET_DIR/rootfs_petalinux
-
-	# Done
-	touch $REPOSITORY_DIR/.ubuntu_modules_imported
-	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
-
-	echo Imported kernel modules to Ubuntu
 	echo
 }
 
@@ -354,7 +344,6 @@ VIVADO_JOBS=
 CONFIG_PETALINUX="false"
 BUILD_PETALINUX="false"
 BUILD_UBUNTU="false"
-UBUNTU_IMPORT_MODULES="false"
 FORCE="false"
 
 while [[ $# -gt 0 ]]; do
@@ -386,10 +375,6 @@ while [[ $# -gt 0 ]]; do
 			BUILD_UBUNTU="true"
       		shift # past value
       		;;
-    	--ubuntu-import-modules)
-			UBUNTU_IMPORT_MODULES="true"
-      		shift # past value
-      		;;
     	-f|--force)
 			FORCE="true"
       		shift # past value
@@ -407,13 +392,12 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
-if [ $BUILD_VIVADO = "false" ] && [ $CONFIG_PETALINUX = "false" ] && [ $BUILD_PETALINUX = "false" ] && [ $BUILD_UBUNTU = "false" ] && [ $UBUNTU_IMPORT_MODULES = "false" ] || [ $BUILD_ALL = "true" ]
+if [ $BUILD_VIVADO = "false" ] && [ $CONFIG_PETALINUX = "false" ] && [ $BUILD_PETALINUX = "false" ] && [ $BUILD_UBUNTU = "false" ] || [ $BUILD_ALL = "true" ]
 then
 	BUILD_VIVADO="true"
 	CONFIG_PETALINUX="true"
 	BUILD_PETALINUX="true"
 	BUILD_UBUNTU="true"
-	UBUNTU_IMPORT_MODULES="true"
 fi
 
 # Run functionality
@@ -435,11 +419,6 @@ fi
 if [ $BUILD_UBUNTU = "true" ]
 then
 	build_ubuntu
-fi
-
-if [ $UBUNTU_IMPORT_MODULES = "true" ]
-then
-	ubuntu_import_modules
 fi
 
 echo Finished building

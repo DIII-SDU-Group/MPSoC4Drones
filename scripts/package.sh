@@ -4,7 +4,6 @@
 # Options can be specified to
 #	1)	package the boot files to the BOOT partition;
 #	2)	package the rootfs to the rootfs partition; or
-#	3)	package the kernel modules to the rootfs partition, maintaining any modifications to the rootfs.
 
 set -e
 
@@ -24,8 +23,6 @@ Help()
 	echo "-A, --all		package boot files and rootfs onto the sd card partitions"
 	echo "-B, --boot		package the boot files onto the sd card BOOT partition"
 	echo "--rootfs		package the root filesystem onto the sd card rootfs partition"
-	echo "--kernel-modules	only package kernel-modules into an already packaged rootfs sd card partition"
-	echo "			without overwriting rootfs"
 	echo "--mount-dir MOUNT_DIR	MOUNT_DIR specifies the directory containing the \"BOOT\" and \"rootfs\" mount points,"
 	echo "			MOUNT_DIR/BOOT and MOUNT_DIR/rootfs. Defaults to /media/$USER"
 	echo "--boot-dir BOOT_DIR	BOOT_DIR specifies the full BOOT partition mount point path. "
@@ -101,10 +98,10 @@ package_rootfs ()
 	cd $REPOSITORY_DIR
 
 	# Check that conditions are met
-	if [ ! -e $REPOSITORY_DIR/.ubuntu_built ] || [ ! -e $REPOSITORY_DIR/.ubuntu_modules_imported ]
+	if [ ! -e $REPOSITORY_DIR/.ubuntu_built ]
 	then
-		echo Can not package rootfs before Ubuntu has been built and kernel modules have been imported.
-		echo Run mp4d-build -U --ubuntu-import-modules to build Ubuntu and import PetaLinux kernel modules.
+		echo Can not package rootfs before Ubuntu has been built.
+		echo Run mp4d-build -U to build Ubuntu.
 		exit 1
 	fi
 
@@ -154,76 +151,6 @@ package_rootfs ()
 	echo Successfully packaged rootfs
 }
 
-# Package kernel modules
-package_kernel_modules ()
-{
-	cd $REPOSITORY_DIR
-
-	# Check that conditions are met
-	if [ ! -e $REPOSITORY_DIR/.ubuntu_built ] || [ ! -e $REPOSITORY_DIR/.ubuntu_modules_imported ]
-	then
-		echo Can not package kernel modules before Ubuntu has been built and kernel modules have been imported.
-		echo Run mp4d-build -U --ubuntu-import-modules to build Ubuntu and import PetaLinux kernel modules.
-		exit 1
-	fi
-
-	if [ ! -e $REPOSITORY_DIR/.rootfs_packaged ]
-	then
-		echo Can not package kernel modules before rootfs has been packaged.
-		echo Run mp4d-package --rootfs to package rootfs.
-		exit 1
-	fi
-
-	if [ ! -d $ROOTFS_DIR ]
-	then
-		echo rootfs mount point $ROOTFS_DIR does not exist or is not a directory.
-		echo Specfiy another rootfs mount point with the --rootfs-dir ROOTFS_DIR argument.
-		exit 1
-	fi
-
-	if [ ! -d $ROOTFS_DIR/lib/modules ] || [ ! -d $ROOTFS_DIR/lib/firmware ]
-	then
-		echo Kernel modules and firmware folders not found in specified existing rootfs.
-		echo The rootfs contained in the specified mount point $ROOTFS_DIR might be broken.
-		exit 1
-	fi
-
-	# Check if has already been packaged
-	if [ -e $REPOSITORY_DIR/.kernel_modules_packaged ]
-	then
-		if [ $FORCE = "false" ]
-		then
-			echo Kernel modules have already been packaged.
-			while true; do
-				read -p "Continue (Y/n)? " yn
-				case $yn in
-					[Yy]* ) echo ; break;;
-					[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
-					* ) echo "Please answer (Y/n)" ;;
-				esac
-			done
-		fi
-
-		echo Will overwrite existing packaged kernel modules.
-		echo
-	fi
-
-	# Remove
-	rm -f $REPOSITORY_DIR/.kernel_modules_packaged
-
-	sudo rm -rf $ROOTFS_DIR/lib/modules
-	sudo rm -rf $ROOTFS_DIR/lib/firmware/mchp
-
-	# Copy
-	sudo cp -rp $UBUNTU_ROOTFS_DIR/lib/modules $ROOTFS_DIR/lib/modules
-	sudo cp -rp $UBUNTU_ROOTFS_DIR/lib/firmware/mchp $ROOTFS_DIR/lib/firmware/mchp
-
-	# Done
-	touch $REPOSITORY_DIR/.kernel_modules_packaged
-
-	echo Successfully packaged kernel modules
-}
-
 ## Create image
 #create_image() 
 #{
@@ -258,10 +185,6 @@ while [[ $# -gt 0 ]]; do
       		;;
     	--rootfs)
 			PACKAGE_ROOTFS="true"
-      		shift # past value
-      		;;
-    	--kernel-modules)
-			PACKAGE_KERNEL_MODULES="true"
       		shift # past value
       		;;
     	--mount-dir)
