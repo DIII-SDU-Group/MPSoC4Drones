@@ -79,20 +79,6 @@ commit_vivado ()
 	echo
     find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \;
 
-	# IPs
-	echo Updating IPs...
-	echo
-	project_ips=$( ls $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/ip/ )
-	for ip in $project_ips
-	do
-		if [ -f $HDL_DIR/ip/$ip ]; then
-			rm -r $HDL_DIR/ip/$ip
-		fi
-
-		cp -r $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/ip/$ip $HDL_DIR/ip/
-		cp -f $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.gen/sources_1/bd/${BOARD}_${PROJECT}/ip/$ip/*.xml $HDL_DIR/ip/$ip/
-	done
-
     # Changes to constraints
 	echo Updating changes made to constraints file ${BOARD}_${PROJECT}.xdc...
 	echo
