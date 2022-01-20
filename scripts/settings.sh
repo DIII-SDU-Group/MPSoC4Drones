@@ -81,6 +81,7 @@ UBUNTU_PASSWORD=mp4d
 alias mp4d-setup=$SCRIPTS_DIR/setup.sh
 alias mp4d-build=$SCRIPTS_DIR/build.sh
 alias mp4d-package=$SCRIPTS_DIR/package.sh
+alias mp4d-commit=$SCRIPTS_DIR/commit.sh
 
 ##########################################################
 echo "Tools sourced."
@@ -89,4 +90,5 @@ echo "Available commands:"
 echo "	mp4d-setup  [-A|G|V|P|f|h]"
 echo "	mp4d-build  [-A|V|P|U|f|h]"
 echo "	m4d-package [-A|B|f|h]"
+echo "	mp4d-commit [-A|V|M|U|f|h]"
 echo

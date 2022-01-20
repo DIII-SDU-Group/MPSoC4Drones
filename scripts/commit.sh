@@ -27,6 +27,8 @@ Help()
     echo "-V, --vivado		commit changes made to the Vivado project and hdl repo"
     echo "-M, --meta-avnet	commit changes made to the meta-avnet layers"
     echo "-U, --ubuntu		commit changes made to the Ubuntu setup" 
+	echo "--clean			cleans the project, will remove uncommitted files"
+	echo "-f, --force		will not prompt the user before cleaning project"
     echo
     echo "-h, --help		show this message"
     echo
@@ -45,21 +47,63 @@ commit_vivado ()
         exit 1
     fi
 
+	echo Comitting changes to Vivado project...
+	echo
     cd $HDL_DIR
 
+	echo Checking for VHDL source file conflicts...
+	echo
+	cp_srcs=
+	project_srcs=$( find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd )
+	for src in $project_srcs
+	do
+		f=$( basename -- $src )
+
+		if [ -f $HDL_DIR/src/$f ]; then
+			echo A conflicting VHDL source file was found. File $f exists both in
+			echo $src 
+			echo and
+			echo $HDL_DIR/src/$f
+			echo
+			echo Please remove the file you don\'t need before comitting.
+			echo
+
+			exit 1
+		else
+			cp_srcs="$cp_srcs $f"
+		fi
+	done
+
+    # Changes to HDL sources
+	echo Retrieving VHDL source files...
+	echo
+    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \;
+
+	# IPs
+	echo Updating IPs...
+	echo
+	project_ips=$( ls $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/ip/ )
+	for ip in $project_ips
+	do
+		if [ -f $HDL_DIR/ip/$ip ]; then
+			rm -r $HDL_DIR/ip/$ip
+		fi
+
+		cp -r $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/ip/$ip $HDL_DIR/ip/
+		cp -f $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.gen/sources_1/bd/${BOARD}_${PROJECT}/ip/$ip/*.xml $HDL_DIR/ip/$ip/
+	done
+
     # Changes to constraints
+	echo Updating changes made to constraints file ${BOARD}_${PROJECT}.xdc...
+	echo
     rm -f $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
     cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
 
     # Changes to block design
+	echo Exporting block design as tcl script...
+	echo
     rm -f $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl \ 
-        -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr \
-        $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd \
-        $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-
-    # Changes to HDL sources
-    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \
+    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
 
 	# Enter HDL repo
 	cd $HDL_DIR
@@ -80,11 +124,15 @@ commit_vivado ()
     git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
     git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
+	# Remove source files that were moved to src
+	cd $HDL_DIR/src
+	rm -f $cp_srcs
 
     # Commit changes to patch 
     cd $REPOSITORY_DIR
 	git commit -m "Updated Vivado project, automatic commit" $PATCHES_DIR/hdl_repo.patch
 
+	# Finished
     echo Finished committing Vivado project changes
     echo
 }
@@ -102,26 +150,40 @@ commit_meta_avnet ()
         exit 1
     fi
 
+	echo Comitting changes to meta-avnet...
+	echo
+
     # Add files
+	echo Adding files...
+	echo
+
     cd $REPOSITORY_DIR/meta-avnet/
 
-    git add $REPOSITORY_DIR/meta-avnet/recipes-bsp/device-tree/files/$BOARD/system-bsp.dtsi
-    git add $REPOSITORY_DIR/meta-avnet/recipes-kernel/linux/files/$BOARD/*.cfg
+    git add $REPOSITORY_DIR/meta-avnet/recipes-bsp/device-tree/files/u96v2-sbc/system-bsp.dtsi
+    git add $REPOSITORY_DIR/meta-avnet/recipes-kernel/linux/files/u96v2-sbc/*.cfg
 
     if [ $ALL = "true" ]; then
         git add -A
     fi
 
     # Update patch
+	echo Updating patch...
+	echo
+
     git commit -m "Updating patch"
     git tag -f $DIII_REPO_TAG
     git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/meta_avnet_repo.patch
     git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
-    # Finished
-    cd $REPOSITORY_DIR
+    # Commit changes to patch
+	echo Committing changes to patch...
+	echo
 
-    echo Finished configuring PetaLinux project
+    cd $REPOSITORY_DIR
+	git commit -m "Updated meta-avnet, automatic commit" $PATCHES_DIR/meta_avnet_repo.patch
+
+	# Finished
+    echo Finished committing meta-avnet changes
     echo
 }
 
@@ -130,73 +192,44 @@ commit_ubuntu ()
 {
     cd $REPOSITORY_DIR
 
-	git add $SCRIPTS_DIR/ubuntu/*
+	echo Committing changes to Ubuntu setup scripts...
+	echo
 
-    if [ $ALL = "true" ]; then
-        git add -A
-    fi
+	git commit -m "Updated Ubuntu setup scripts, automatic commit" $SCRIPTS_DIR/ubuntu/*
 
-	# 
-
-    echo Finished building PetaLinux project
+    echo Finished comitting Ubuntu setup scripts changes
     echo
 }
 
 # Build Ubuntu
-build_ubuntu () 
+clean_project () 
 {
     cd $REPOSITORY_DIR
 
-    # No conditions
+	if [ $FORCE = "false" ]
+	then
+		echo This action will clean the entire MPSoC4Drones project by deleting
+		echo all generated outputs, build products, and uncommitted files.
+		while true; do
+			read -p "Are you sure you want to continue (Y/n)? " yn
+			case $yn in
+				[Yy]* ) echo ; break;;
+				[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
+				* ) echo "Please answer (Y/n)" ;;
+			esac
+		done
+	fi
 
-    # Check if has already been built
-    if [ -a $UBUNTU_ROOTFS_DIR ] || [ -e $REPOSITORY_DIR/.ubuntu_built ]
-    then
-        if [ $FORCE = "false" ]
-        then
-            echo Ubuntu rootfs has already been built. Contents will be overwritten.
-            while true; do
-                read -p "Continue (Y/n)? " yn
-                case $yn in
-                    [Yy]* ) echo ; break;;
-                    [Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
-                    * ) echo "Please answer (Y/n)" ;;
-                esac
-            done
-        fi
+	echo Cleaning project...
+	echo
 
-        echo Removing existing Ubuntu rootfs...
-        echo
+	sudo git clean -f 
+	sudo git clean -f -d
+	sudo git clean -f -x
 
-        sudo rm -rf $UBUNTU_ROOTFS_DIR
-    fi
+	sudo rm -rf bdf hdl meta-avnet petalinux PYNQ target
 
-    # Remove build state
-    rm -f $REPOSITORY_DIR/.ubuntu_built
-
-    # Mkdir
-    mkdir -p $UBUNTU_ROOTFS_DIR
-
-    echo Building Ubuntu rootfs, will take a while...
-    echo
-
-    # Run Ubuntu build script
-    $SCRIPTS_DIR/build_ubuntu.sh
-
-    # Done
-    if [ $? -ne 0 ]
-    then
-        echo Failed.
-        echo
-        exit 1
-    fi
-
-    touch $REPOSITORY_DIR/.ubuntu_built
-    rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-    rm -f $REPOSITORY_DIR/.rootfs_packaged
-    rm -f $REPOSITORY_DIR/.kernel_modules_packaged
-
-    echo Finished bulding Ubuntu rootfs
+    echo Finished cleaning project
     echo
 }
 
@@ -204,13 +237,11 @@ build_ubuntu ()
 # Main
 
 # Parse arguments
-BUILD_ALL="false"
-BUILD_VIVADO="false"
-VIVADO_JOBS=
-CONFIG_PETALINUX="false"
-BUILD_PETALINUX="false"
-BUILD_UBUNTU="false"
-UBUNTU_IMPORT_MODULES="false"
+ALL="false"
+COMMIT_VIVADO="false"
+COMMIT_META_AVNET="false"
+COMMIT_UBUNTU="false"
+CLEAN="false"
 FORCE="false"
 
 while [[ $# -gt 0 ]]; do
@@ -218,32 +249,23 @@ while [[ $# -gt 0 ]]; do
 
     case $key in
         -A|--all)
-            BUILD_ALL="true"
+            COMMIT_ALL="true"
             shift # past value
             ;;
         -V|--vivado)
-            BUILD_VIVADO="true"
+            COMMIT_VIVADO="true"
             shift # past value
             ;;
-        --vivado-jobs)
-            VIVADO_JOBS=$2
-            shift # past value
-            shift # past argument
-            ;;
-        --petalinux-config)
-            CONFIG_PETALINUX="true"
-            shift # past value
-            ;;
-        -P|--petalinux)
-            BUILD_PETALINUX="true"
+        -M|--meta-avnet)
+            COMMIT_META_AVNET="true"
             shift # past value
             ;;
         -U|--ubuntu)
-            BUILD_UBUNTU="true"
+            COMMIT_UBUNTU="true"
             shift # past value
             ;;
-        --ubuntu-import-modules)
-            UBUNTU_IMPORT_MODULES="true"
+        --clean)
+            CLEAN="true"
             shift # past value
             ;;
         -f|--force)
@@ -263,39 +285,32 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-if [ $BUILD_VIVADO = "false" ] && [ $CONFIG_PETALINUX = "false" ] && [ $BUILD_PETALINUX = "false" ] && [ $BUILD_UBUNTU = "false" ] && [ $UBUNTU_IMPORT_MODULES = "false" ] || [ $BUILD_ALL = "true" ]
+if [ $COMMIT_VIVADO = "false" ] && [ $COMMIT_META_AVNET = "false" ] && [ $COMMIT_UBUNTU = "false" ] && [ $CLEAN = "false" ] || [ $ALL = "true" ]
 then
-    BUILD_VIVADO="true"
-    CONFIG_PETALINUX="true"
-    BUILD_PETALINUX="true"
-    BUILD_UBUNTU="true"
-    UBUNTU_IMPORT_MODULES="true"
+	COMMIT_VIVADO="true"
+	COMMIT_META_AVNET="true"
+	COMMIT_UBUNTU="true"
 fi
 
 # Run functionality
-if [ $BUILD_VIVADO = "true" ]
+if [ $COMMIT_VIVADO = "true" ]
 then
-    build_vivado
+    commit_vivado
 fi
 
-if [ $CONFIG_PETALINUX = "true" ]
+if [ $COMMIT_META_AVNET = "true" ]
 then
-    configure_petalinux
+    commit_meta_avnet
 fi
 
-if [ $BUILD_PETALINUX = "true" ]
+if [ $COMMIT_UBUNTU = "true" ]
 then
-    build_petalinux
+    commit_ubuntu
 fi
 
-if [ $BUILD_UBUNTU = "true" ]
+if [ $CLEAN = "true" ]
 then
-    build_ubuntu
+    clean_project
 fi
 
-if [ $UBUNTU_IMPORT_MODULES = "true" ]
-then
-    ubuntu_import_modules
-fi
-
-echo Finished building
+echo Finished commit
