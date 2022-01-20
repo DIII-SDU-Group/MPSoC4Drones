@@ -47,6 +47,9 @@ cd /home/$UBUNTU_USER/ros2_ws/src/
 su - $UBUNTU_USER -c "cd ~/ros2_ws/src/ && git clone https://github.com/PX4/px4_ros_com.git"
 su - $UBUNTU_USER -c "cd ~/ros2_ws/src/ && git clone https://github.com/PX4/px4_msgs.git"
 
+# Sudo workaround
+chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
+
 # Final update and upgrade
 apt update
 apt upgrade -y
