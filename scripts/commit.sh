@@ -61,6 +61,9 @@ commit_vivado ()
     # Changes to HDL sources
     find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \
 
+	# Enter HDL repo
+	cd $HDL_DIR
+
     # Git add
     git add $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
     git add $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
@@ -77,8 +80,10 @@ commit_vivado ()
     git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
     git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
-    # Finished 
+
+    # Commit changes to patch 
     cd $REPOSITORY_DIR
+	git commit -m "Updated Vivado project, automatic commit" $PATCHES_DIR/hdl_repo.patch
 
     echo Finished committing Vivado project changes
     echo
@@ -125,8 +130,13 @@ commit_ubuntu ()
 {
     cd $REPOSITORY_DIR
 
-    # Commit changes made to scripts
-    # Commit all if ALL=true
+	git add $SCRIPTS_DIR/ubuntu/*
+
+    if [ $ALL = "true" ]; then
+        git add -A
+    fi
+
+	# 
 
     echo Finished building PetaLinux project
     echo
