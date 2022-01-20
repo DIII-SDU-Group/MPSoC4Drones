@@ -1,8 +1,6 @@
 #!/bin/bash
 #
-# This script build the Ubuntu 20.04 rootfs to the directory 
-# specified in the first argument and install packages specified
-# in file supplied by second argument.
+# This script build the Ubuntu 20.04 rootfs
 
 #set -x
 
@@ -18,8 +16,6 @@ function unmount_qemu() {
 	sudo umount -fl $UBUNTU_ROOTFS_DIR/proc 2> /dev/null
 	sudo umount -fl $UBUNTU_ROOTFS_DIR/sys 2> /dev/null
 	sudo umount -fl ${UBUNTU_ROOTFS_DIR}$XILINX_TOOLS_DIR 2> /dev/null
-
-	#exit
 }
 
 function mount_qemu() {
