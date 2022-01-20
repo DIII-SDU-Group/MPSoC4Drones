@@ -122,7 +122,7 @@ commit_vivado ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m $MSG $PATCHES_DIR/hdl_repo.patch
+	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch
 
 	# Finished
     echo Finished committing Vivado project changes
@@ -177,7 +177,7 @@ commit_meta_avnet ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m $MSG $PATCHES_DIR/meta_avnet_repo.patch
+	git commit -m "$MSG" $PATCHES_DIR/meta_avnet_repo.patch
 
 	# Finished
     echo Finished committing meta-avnet changes
@@ -197,7 +197,7 @@ commit_ubuntu ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m $MSG $SCRIPTS_DIR/ubuntu/*
+	git commit -m "$MSG" $SCRIPTS_DIR/ubuntu/*
 
     echo Finished comitting Ubuntu setup scripts changes
     echo
