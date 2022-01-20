@@ -215,6 +215,16 @@ clean_project ()
 
 	sudo rm -rf bdf hdl meta-avnet petalinux PYNQ target
 
+	rm -f .git_setup \
+	.vivado_setup \
+	.petalinux_setup \
+	.vivado_built \
+	.petalinux_configured \
+	.petalinux_built \
+	.ubuntu_built \
+	.boot_packaged \
+	.rootfs_packaged
+
     echo Finished cleaning project
     echo
 }
