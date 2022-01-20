@@ -48,22 +48,22 @@ commit_vivado ()
     cd $HDL_DIR
 
     # Changes to constraints
-    rm -f $HDL_DIR/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc
-    cp $HDL_DIR/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.srcs/constrs_1/imports/mp4d/u96v2_sbc_mp4d.xdc $HDL_DIR/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc
+    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
+    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
 
     # Changes to block design
-    rm -f $HDL_DIR/boards/u96v2_sbc/mp4d/bd.tcl
+    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
     vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl \ 
-        -tclargs $HDL_DIR/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.xpr \
-        $HDL_DIR/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.srcs/sources_1/bd/u96v2_sbc_mp4d/u96v2_sbc_mp4d.bd \
-        $HDL_DIR/boards/u96v2_sbc/mp4d/bd.tcl
+        -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr \
+        $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd \
+        $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
 
     # Changes to HDL sources
-    find $HDL_DIR/projects/u96v2_sbc_mp4d_2020_2/u96v2_sbc_mp4d.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \
+    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \
 
     # Git add
-    git add $HDL_DIR/boards/u96v2_sbc/mp4d/u96v2_sbc_mp4d.xdc
-    git add $HDL_DIR/boards/u96v2_sbc/mp4d/bd.tcl
+    git add $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
+    git add $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
     git add $HDL_DIR/ip/*
     git add $HDL_DIR/src/*
 
@@ -100,8 +100,8 @@ commit_meta_avnet ()
     # Add files
     cd $REPOSITORY_DIR/meta-avnet/
 
-    git add $REPOSITORY_DIR/meta-avnet/recipes-bsp/device-tree/files/u96v2_sbc/system-bsp.dtsi
-    git add $REPOSITORY_DIR/meta-avnet/recipes-kernel/linux/files/u96v2_sbc/*.cfg
+    git add $REPOSITORY_DIR/meta-avnet/recipes-bsp/device-tree/files/$BOARD/system-bsp.dtsi
+    git add $REPOSITORY_DIR/meta-avnet/recipes-kernel/linux/files/$BOARD/*.cfg
 
     if [ $ALL = "true" ]; then
         git add -A
@@ -187,66 +187,6 @@ build_ubuntu ()
     rm -f $REPOSITORY_DIR/.kernel_modules_packaged
 
     echo Finished bulding Ubuntu rootfs
-    echo
-}
-
-# Ubuntu import modules
-ubuntu_import_modules ()
-{
-    cd $REPOSITORY_DIR
-
-    # Check that conditions are met
-    if [ ! -e $REPOSITORY_DIR/.petalinux_built ] || [ ! -e $REPOSITORY_DIR/.ubuntu_built ]
-    then
-        echo Can not import kernel modules from PetaLinux to Ubuntu before both have been built.
-        echo Run mp4d-build -P to build PetaLinux and mp4d-build -U to build Ubuntu.
-        exit 1
-    fi
-
-    # Check if has already been imported
-    if [ -e $REPOSITORY_DIR/.ubuntu_modules_imported ]
-    then
-        if [ $FORCE = "false" ]
-        then
-            echo Kernel modules has already been imported to Ubuntu rootfs from PetaLinux. Imported modules will be overwritten.
-            while true; do
-                read -p "Continue (Y/n)? " yn
-                case $yn in
-                    [Yy]* ) echo ; break;;
-                    [Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
-                    * ) echo "Please answer (Y/n)" ;;
-                esac
-            done
-        fi
-
-        echo Removing existing kernel modules...
-        echo
-
-        sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/modules
-        sudo rm -rf $UBUNTU_ROOTFS_DIR/lib/firmware/mchp
-        rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-    fi
-
-    echo Importing kernel modules...
-    echo
-
-    # Remove build state
-    rm -f $REPOSITORY_DIR/.ubuntu_modules_imported
-
-    # Temporarily extract PetaLinux rootfs
-    mkdir $TARGET_DIR/rootfs_petalinux
-    tar xf $PETALINUX_DIR/projects/u96v2_sbc_mp4d_2020_2/images/linux/rootfs.tar.gz -C $TARGET_DIR/rootfs_petalinux
-
-    sudo cp -r $TARGET_DIR/rootfs_petalinux/lib/modules $TARGET_DIR/rootfs/lib/
-    sudo cp -rp $TARGET_DIR/rootfs_petalinux/lib/firmware/mchp $TARGET_DIR/rootfs/lib/firmware/mchp
-
-    sudo rm -rf $TARGET_DIR/rootfs_petalinux
-
-    # Done
-    touch $REPOSITORY_DIR/.ubuntu_modules_imported
-    rm -f $REPOSITORY_DIR/.kernel_modules_packaged
-
-    echo Imported kernel modules to Ubuntu
     echo
 }
 
