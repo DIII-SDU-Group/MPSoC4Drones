@@ -41,7 +41,7 @@ setup_git()
 	echo "Setting up Avnet git and build scripts..."
 	echo
 
-	if [ -a $REPOSITORY_DIR/bdf ] || [ -a $REPOSITORY_DIR/hdl ] || [ -a $REPOSITORY_DIR/petalinux ] || [ -a $REPOSITORY_DIR/meta-avnet ]
+	if [ -a $REPOSITORY_DIR/bdf ] || [ -a $REPOSITORY_DIR/hdl ] || [ -a $REPOSITORY_DIR/petalinux ] || [ -a $REPOSITORY_DIR/meta-avnet ] || [ -a $REPOSITORY_DIR/PYNQ ]
 	then
 		if [ $FORCE = "false" ]
 		then
@@ -57,25 +57,27 @@ setup_git()
 			done
 		fi
 
-		echo Removing existing Avnet repositories
+		echo Removing existing repositories
 		echo
 
 		rm -rf $REPOSITORY_DIR/bdf
 		rm -rf $REPOSITORY_DIR/hdl
 		rm -rf $REPOSITORY_DIR/petalinux
 		rm -rf $REPOSITORY_DIR/meta-avnet
+		rm -rf $REPOSITORY_DIR/PYNQ
 		rm -rf $REPOSITORY_DIR/.git_setup
 	fi
 
-	echo "Cloning Avnet repositories..."
+	echo "Cloning repositories..."
 	echo
 	
 	git clone $AVNET_BDF_REPO
 	git clone $AVNET_HDL_REPO
 	git clone $AVNET_PETALINUX_REPO
 	git clone $AVNET_META_AVNET_REPO
+	git clone $PYNQ_REPO
 
-	echo "Patching Avnet repositories for MPSoC4Drones..."
+	echo "Patching repositories for MPSoC4Drones..."
 	echo
 	
 	cd $REPOSITORY_DIR/hdl
@@ -94,10 +96,17 @@ setup_git()
 
 	cd $REPOSITORY_DIR/meta-avnet
 	git checkout $AVNET_REPO_TAG
-	git apply $PATCHES_DIR/meta_avnet_repo.patch
+	git apply --reject $PATCHES_DIR/meta_avnet_repo.patch 
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
 	git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+
+	cd $REPOSITORY_DIR/PYNQ
+	git checkout $PYNQ_TAG
+	git apply --reject $PATCHES_DIR/PYNQ_repo.patch 
+	git add -A && git commit -m "MPSoC4Drones"
+	git tag -f $DIII_REPO_TAG HEAD
+	git checkout $PYNQ_TAG && git checkout $DIII_REPO_TAG
 
 	cd $REPOSITORY_DIR
 	touch .git_setup
@@ -114,10 +123,10 @@ setup_vivado()
 		exit 1
 	fi
 
-	echo Setting up Vivado project in $REPOSITORY_DIR/hdl/projects/u96v2_sbc_mp4d_2020_2/ ...
+	echo Setting up Vivado project in $VIVADO_PROJECT_DIR/ ...
 	echo
 
-	if [ -a $REPOSITORY_DIR/hdl/projects/u96v2_sbc_mp4d_2020_2 ] 
+	if [ -a $VIVADO_PROJECT_DIR ] 
 	then
 		if [ $FORCE = "false" ]
 		then
@@ -135,7 +144,7 @@ setup_vivado()
 		echo Removing existing Vivado project
 		echo
 
-		rm -rf $REPOSITORY_DIR/hdl/projects/u96v2_sbc_mp4d_2020_2
+		rm -rf $VIVADO_PROJECT_DIR
 		rm -f $REPOSITORY_DIR/.vivado_setup
 	fi
 
@@ -144,7 +153,7 @@ setup_vivado()
 	echo Running Vivado project creation scripts...
 	echo
 
-	./petalinux/scripts/make_u96v2_sbc_mp4d.sh --vivado-create
+	./petalinux/scripts/make_${BOARD}_${PROJECT}.sh --vivado-create
 
 	touch .vivado_setup
 
@@ -166,7 +175,7 @@ setup_petalinux ()
 	echo Setting up PetaLinux project in $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2/ ...
 	echo
 
-	if [ -a $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2 ] 
+	if [ ! -z $(ls $PETALINUX_DIR/projects/) ] 
 	then
 		if [ $FORCE = "false" ]
 		then
@@ -184,7 +193,7 @@ setup_petalinux ()
 		echo Removing existing PetaLinux project
 		echo
 
-		rm -rf $REPOSITORY_DIR/petalinux/projects/u96v2_sbc_mp4d_2020_2*
+		rm -rf $PETALINUX_PROJECT_DIR
 		rm -rf $REPOSITORY_DIR/petalinux/projects/cache
 		rm -f $REPOSITORY_DIR/.petalinux_setup
 	fi
@@ -194,7 +203,7 @@ setup_petalinux ()
 	echo Running PetaLinux project creation scripts...
 	echo
 
-	./petalinux/scripts/make_u96v2_sbc_mp4d.sh --petalinux-create
+	./petalinux/scripts/make_${BOARD}_${PROJECT}.sh --petalinux-create
 
 	touch .petalinux_setup
 
