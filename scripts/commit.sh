@@ -27,6 +27,7 @@ Help()
     echo "-V, --vivado		commit changes made to the Vivado project and hdl repo"
     echo "-M, --meta-avnet	commit changes made to the meta-avnet layers"
     echo "-U, --ubuntu		commit changes made to the Ubuntu setup" 
+	echo "--msg MSG		add commit message MSG instead of default msg"
 	echo "--clean			cleans the project, will remove uncommitted files"
 	echo "-f, --force		will not prompt the user before cleaning project"
     echo
@@ -116,7 +117,12 @@ commit_vivado ()
 
     # Commit changes to patch 
     cd $REPOSITORY_DIR
-	git commit -m "Updated Vivado project, automatic commit" $PATCHES_DIR/hdl_repo.patch
+	if [ -z "$COMMIT_MSG" ]; then
+		MSG="Updated Vivado project, automatic commit"
+	else
+		MSG=$COMMIT_MSG
+	fi
+	git commit -m $MSG $PATCHES_DIR/hdl_repo.patch
 
 	# Finished
     echo Finished committing Vivado project changes
@@ -166,7 +172,12 @@ commit_meta_avnet ()
 	echo
 
     cd $REPOSITORY_DIR
-	git commit -m "Updated meta-avnet, automatic commit" $PATCHES_DIR/meta_avnet_repo.patch
+	if [ -z "$COMMIT_MSG" ]; then
+		MSG="Updated meta-avnet, automatic commit"
+	else
+		MSG=$COMMIT_MSG
+	fi
+	git commit -m $MSG $PATCHES_DIR/meta_avnet_repo.patch
 
 	# Finished
     echo Finished committing meta-avnet changes
@@ -181,7 +192,12 @@ commit_ubuntu ()
 	echo Committing changes to Ubuntu setup scripts...
 	echo
 
-	git commit -m "Updated Ubuntu setup scripts, automatic commit" $SCRIPTS_DIR/ubuntu/*
+	if [ -z "$COMMIT_MSG" ]; then
+		MSG="Updated Ubuntu setup scripts, automatic commit"
+	else
+		MSG=$COMMIT_MSG
+	fi
+	git commit -m $MSG $SCRIPTS_DIR/ubuntu/*
 
     echo Finished comitting Ubuntu setup scripts changes
     echo
@@ -239,6 +255,7 @@ COMMIT_META_AVNET="false"
 COMMIT_UBUNTU="false"
 CLEAN="false"
 FORCE="false"
+COMMIT_MSG=
 
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -259,6 +276,11 @@ while [[ $# -gt 0 ]]; do
         -U|--ubuntu)
             COMMIT_UBUNTU="true"
             shift # past value
+            ;;
+        --msg)
+            COMMIT_MSG=$2
+            shift # past value
+            shift # past arg
             ;;
         --clean)
             CLEAN="true"
