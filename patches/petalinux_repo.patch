@@ -1,5 +1,36 @@
+diff --git a/scripts/.common.sh.un~ b/scripts/.common.sh.un~
+new file mode 100755
+index 0000000000000000000000000000000000000000..db54ac7d6714b93fc33c75e12db73d6bbd5190e5
+GIT binary patch
+literal 10895
+zcmeI2y-yTD7{+%FP*D*PQ4$GUj8QBoskAUrV>F5%iL`panGn9rd7v#;#=pVD#>!Zk
+zXssspCI&Ue4^WAPg3&|^8+@LZdD&NTT=sS;XOg{{ot>K<p5H#Z@5^5Q@Yvmp<HsiE
+zqulL<_QGPr@uMeRHXYgD_pQ0{`Q>N#$}<mc-MRVb=Y=OOigM?pC_0?aUoDmkqr>Bq
+zH+lvphewC<J%jl|X{@JQn!Hvn4)t6aE{$C;lqz%;qsV>29NpM3U(}9`g|%)`VXkew
+zo=5AWOD}j7CAVD3Cl0yqXmxUL2}P!oL*Zln6)4O_4+TdQ{RSgS?|y*DDV&Owa{2s9
+z{~~rzatXcDf{w@QxbF)vx&_?{=v0YxwS(GPVpY-8k4+2%bdOh~Q~6gM<xz3JUZ+D1
+zZ0@b@2UMy=y4vEg?f+0cwWuJy`%uAU?0>h)Wpr4BSr{<7_qrd@sS@dGQBoc?URB=~
+zbkc^)W-K~L?>++2X`WDSjqD*z>G6J}*EX0X0U*aL8#h2R%A{x}g7(TngY<3|>Yw4+
+z1R8sYQF=Tyx@;py_yT|&6QHReS?Wa4UR!98-pxV%KAu*fv1e9$JT$s&6G!+0fE*K`
+zsUTVE+Mz*u<^Z{~Jgq=u4>3xQhenq*a)d7c$T0z$3X-Kx1nrG=8l-ohq5e6ZR-mzm
+z7^TNUqsum%g#n;E)7sb<o@qvz6wO#kuWF~CWD2#k5r`~WXc~wxYj@bXDrW8j6BFgp
+ziNa8^<SEj2Td-*XQF+J(imFJ4IuXTRmZC-`HBzJxx0;25XrO5H$kY@i_bg8ltBQSk
+zQG5a~{;5W>qoNlFM~bEK;;1(wP1v-268Qv930#5^jVNiGqNKlt#;RgAi}0^SsL^JP
+zMx+V1nN@<QL^6S*5hZO?lvIk04@Fhfmg177I1Bk1x70|HK5WLO1w`dP*@2=elA#tQ
+zl_KC&qUaigqKl(X#-lY-qz|{7g@UM@o9`n+fNF$E(@aFM#d^_Z6%0_jD?St}yhmEe
+zK=c~O;oAq3ej9J0R^Cw1(=FWh1y=_Xoseg$AX(}}S43;ID<ad&MjuAe@H@<(0o<}M
+z=?Yn?Q6@!mO~n0}OdgJfIoDAQal)*WCT%qf1kpgz=#i<Jh+=0oiu%TvM%!uD0%S6I
+zh?9&cX`6{Kb*+U-5z$4v%o2c09(jBMhakuZlcp(3YADM<LK6~uKiq2(VUU~mp{ydJ
+zgLa!Q16R1&rNL3@JF${hRg5GeDR^WZ5JYuxw!yT7MO@+|3%W>u!o*`hCX<JBf@)+e
+zv65cZLw>?3)Y8Te#YU`?G@a0-a6N)Yy3iK>0*aSHKx|b>*^ZU0f_O|2*T+uOoUf*g
+z(L2_LCUh_E&T_|=KOp1+DLMMD#fh_5m039pZ>-YBjdh=OES%)N$Pj$=PJg}s4|`Hb
+Ao&W#<
+
+literal 0
+HcmV?d00001
+
 diff --git a/scripts/common.sh b/scripts/common.sh
-index 72d2256..9b4fa9b 100755
+index 72d2256..3ed71cd 100755
 --- a/scripts/common.sh
 +++ b/scripts/common.sh
 @@ -63,6 +63,7 @@ META_AVNET_BRANCH="2020.2"
@@ -111,7 +142,7 @@ index 72d2256..9b4fa9b 100755
    else
      # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
      echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
-@@ -338,6 +330,24 @@ configure_petalinux_project()
+@@ -338,6 +330,33 @@ configure_petalinux_project()
      echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
      git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
    fi
@@ -133,10 +164,19 @@ index 72d2256..9b4fa9b 100755
 +  #  echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
 +  #  git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
 +  #fi
++
++  # Add meta-xrt from PYNQ
++  cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../PYNQ/sdbuild/boot/meta-pynq/recipes-xrt ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/recipes-xrt
++
++	echo 'CONFIG_xrt=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_xrt-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_zocl=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_opencl-headers-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_opencl-clhpp-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
  
    if [ "$KEEP_CACHE" = "true" ]
    then
-@@ -352,8 +362,100 @@ configure_petalinux_project()
+@@ -352,8 +371,100 @@ configure_petalinux_project()
    petalinux-config --silentconfig
  }
  
@@ -237,6 +277,21 @@ index 72d2256..9b4fa9b 100755
  
    # Change PetaLinux project config to change the boot method
    echo -e "\nModifying project config for ${BOOT_METHOD} boot support...\n"
+@@ -371,6 +482,14 @@ build_bsp ()
+   # Sometimes the build fails because of fetch or setscene issues, so we try another time
+   petalinux-build -c ${PETALINUX_BUILD_IMAGE} || petalinux-build -c ${PETALINUX_BUILD_IMAGE}
+ 
++  ## Additional components build
++  petalinux-build -c bootloader
++  petalinux-build -c u-boot
++  petalinux-build -c kernel
++  petalinux-build -c device-tree
++  petalinux-build -c pmufw
++  petalinux-build -c arm-trusted-firmware
++
+   if [ "$NO_BIT_OPTION" = "yes" ]
+   then
+     # Create boot image which does not contain the bistream image.
 diff --git a/scripts/make_u96v2_sbc_mp4d.sh b/scripts/make_u96v2_sbc_mp4d.sh
 new file mode 100755
 index 0000000..e17c896

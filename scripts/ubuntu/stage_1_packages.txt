@@ -1,0 +1,16 @@
+perl 
+libterm-readline-perl-perl 
+libb-debug-perl 
+liblocale-codes-perl 
+locales 
+dialog 
+make 
+build-essential 
+openssl
+python3
+python3-pip 
+git
+cpio
+apt-utils 
+libc6-armhf-cross
+libsysfs-dev
