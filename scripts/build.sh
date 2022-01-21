@@ -217,7 +217,7 @@ build_petalinux ()
 	echo Exporting modules...
 	echo
 
-	mkdir $MODULES_DIR
+	mkdir -p $MODULES_DIR
 
 	cp -f $PETALINUX_PROJECT_DIR/build/tmp/deploy/images/*/modules--*.tgz \
 		$MODULES_DIR
@@ -226,7 +226,7 @@ build_petalinux ()
 	echo Building and exporting kernel devsrc
 	echo
 
-	mkdir $KERNEL_DEVSRC_DIR
+	mkdir -p $KERNEL_DEVSRC_DIR
 
 	petalinux-build -c kernel-devsrc -p $PETALINUX_PROJECT_DIR
 	cp -f $PETALINUX_PROJECT_DIR/build/tmp/deploy/rpm/$BOARD/kernel-devsrc-1.0-r0.*.rpm \
@@ -242,8 +242,8 @@ build_petalinux ()
 	sudo rm -rf $TARGET_DIR/rootfs_petalinux
 	sudo rm -rf $TARGET_DIR/firmware
 
-	mkdir $TARGET_DIR/rootfs_petalinux
-	mkdir $TARGET_DIR/firmware
+	mkdir -p $TARGET_DIR/rootfs_petalinux
+	mkdir -p $TARGET_DIR/firmware
 
 	tar xf $PETALINUX_DIR/projects/$AVNET_PROJECT_NAME/images/linux/rootfs.tar.gz -C $TARGET_DIR/rootfs_petalinux
 	sudo cp -rp $TARGET_DIR/rootfs_petalinux/lib/firmware/mchp $TARGET_DIR/firmware
