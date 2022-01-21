@@ -314,7 +314,7 @@ The `-A`, `--all` option will overrule the above options and issue all steps reg
 - Adding the `-f`, `--force` option with the `--clean` option will clean the project without prompting the user.
 
 ### The toolchain
-![Toolchain image](figures/MPSoC4Drones_toolchain.png)
+![Toolchain image](.figures/MPSoC4Drones_toolchain.png)
 The above figure visualizes the the toolchain workflow. The red rectangles are the _setup_ steps, the yellow rectangles are the _build_ steps, and the green rectangles are the _packaging_ steps. Additionally, the blue rectangles are the _commitment_ steps. The dotted arrows indicate the precedence of the steps, i.e. traversing the arrows backwards indicates which previous steps are necessary for executing a given step. The grey circles indicate development actions by the user, and the arrows from the grey circles to the development steps indicate the necessary build entry points after/when having taken a given development action.
 
 ### Development cases
