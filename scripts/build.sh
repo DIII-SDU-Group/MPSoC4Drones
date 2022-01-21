@@ -197,11 +197,11 @@ build_petalinux ()
 	# Workaround fix for libmetal openamp build bug
 	if [ -d $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd ]
 	then
-		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-echo-testd/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-echo-testd.new
 
-		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-mat-muld/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-mat-muld.new
 
-		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo.new 2> /dev/null
+		cp -rf $PETALINUX_PROJECT_DIR/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo $PETALINUX_DIR/projects/${AVNET_PROJECT_NAME}/build/tmp/work/${BOARD}-xilinx-linux/openamp-fw-rpc-demo/${TOOLS_VERSION}.${TOOLS_SUB_VERSION}+gitAUTOINC+08b9f4304d-r0/build/openamp-fw-rpc-demo.new
 	fi
 
 	# Increase user watch (bug workaround)
