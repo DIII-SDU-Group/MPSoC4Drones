@@ -89,20 +89,14 @@ Packaging the build products. This step covers packaging the build products onto
 Committing the changes made to the individual parts of the project back to the project setup scripts, such that the project can be revision controlled in another git repository. 
 
 ### Environment setup
-You can initialize you MPSoC4Drones project by copying the MPSoC4Drones repository.
+You can initialize you MPSoC4Drones project by creating a repository based on the MPSoC4Drones template. Simply click the **Use this template** button in this repo!
 
-To copy the MPSoC4Drones repository, you first need to create an empty (no .gitignore, README, license, or anything) repository with name `<name>` on GitHub. Copy the GitHub clone URL of the repository as `<url>`. Then on you host computer, do the following:
+After creating your repository, clone it:
+
 ```bash
-git init <name>
-cd <name>/
-
-git remote add <name> <url>
-git checkout -b master
-git pull --allow-unrelated-histories https://github.com/DIII-SDU-Group/MPSoC4Drones.git
-git push --set-upstream <name> master
+git clone <your repo url>
+cd <your repo name>
 ```
-
-The repo is now copied and set up to track your remote repository.
 
 Source the MPSoC4Drones settings script:
 
