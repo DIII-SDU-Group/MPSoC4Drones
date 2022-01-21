@@ -61,15 +61,25 @@ commit_vivado ()
 		f=$( basename -- $src )
 
 		if [ -f $REPOSITORY_DIR/src/$f ]; then
-			echo A conflicting VHDL source file was found. File $f exists both in
-			echo $src 
-			echo and
-			echo $REPOSITORY_DIR/src/$f
-			echo
-			echo Please remove the file you don\'t need before comitting.
-			echo
-
-			exit 1
+			if [ $FORCE = "false" ]
+			then
+				echo A conflicting VHDL source file was found. File $f exists both in
+				echo $src 
+				echo and
+				echo $REPOSITORY_DIR/src/$f
+				echo Any changes should be made to $src.
+				echo The file $REPOSITORY_DIR/src/$f will be removed.  
+				while true; do
+					read -p "Continue (Y7n)? " yn
+					case $yn in
+						[Yy]* ) rm -f $REPOSITORY_DIR/src/$f; echo ; break;;
+						[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
+						* ) echo "Please answer (Y/n)" ;;
+					esac
+				done
+			else
+				rm -f $REPOSITORY_DIR/src/$f
+			fi
 		else
 			cp_srcs="$cp_srcs $f"
 		fi
@@ -89,7 +99,7 @@ commit_vivado ()
     # Changes to block design
 	echo Exporting block design as tcl script...
 	echo
-    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
+    rm -f $REPOSITORY_DIR/src/bd.tcl
     vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $REPOSITORY_DIR/src/bd.tcl
 
 	# Enter HDL repo
