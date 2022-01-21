@@ -225,7 +225,7 @@ The individual commands and functionalities are explained below.
 
 #### `mp4d-setup`
 The `mp4d-setup` command sets up the project structure in the three following steps:
-1. _Setup step 1_: **Cloning and patching the Avnet repositories**.  
+1. _Setup step 1_: **Cloning and patching repositories**.  
 Avnet provides scripts for building projects for their boards in seperate GitHub repositories which interoperate. Therefore, the general project structure is adopted from Avnet. Additionally, the PYNQ Project repository is cloned as some packages are borrowed and install onto the root filesystem from there. The cloned repositories are the following:
     - the [Avnet *bdf* repository](https://github.com/Avnet/bdf) cloned into the `bdf/` folder. This folder will contain the Avnet provided board definition files for the Ultra96-V2, which is used in Vivado to specify the characteristics of the board.
     - the [Avnet *hdl* repository](https://github.com/Avnet/hdl) cloned into the `hdl/` folder. This folder will contain the Vivado specific scripts for project creation and hardware building. The repository is patched from the original provided by Avnet in order to more flexibly facilitate hardware development in Vivado, and also to define a bare minimum Vivado project necessary for the OS to be able to run. Inside this folder will also be contained the actual Vivado project for the MPSoC4Drones project.
