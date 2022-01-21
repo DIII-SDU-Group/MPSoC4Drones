@@ -60,69 +60,78 @@ commit_vivado ()
 	do
 		f=$( basename -- $src )
 
-		if [ -f $HDL_DIR/src/$f ]; then
-			echo A conflicting VHDL source file was found. File $f exists both in
-			echo $src 
-			echo and
-			echo $HDL_DIR/src/$f
-			echo
-			echo Please remove the file you don\'t need before comitting.
-			echo
-
-			exit 1
-		else
-			cp_srcs="$cp_srcs $f"
+		if [ -f $REPOSITORY_DIR/src/$f ]; then
+			if [ $FORCE = "false" ]
+			then
+				echo A conflicting VHDL source file was found. File $f exists both in
+				echo $src 
+				echo and
+				echo $REPOSITORY_DIR/src/$f
+				echo Any changes should be made to $src.
+				echo The file $REPOSITORY_DIR/src/$f will be removed.  
+				while true; do
+					read -p "Continue (Y7n)? " yn
+					case $yn in
+						[Yy]* ) rm -f $REPOSITORY_DIR/src/$f; echo ; break;;
+						[Nn]* ) echo ; echo "Exiting..." ; echo ; exit;;
+						* ) echo "Please answer (Y/n)" ;;
+					esac
+				done
+			else
+				rm -f $REPOSITORY_DIR/src/$f
+			fi
 		fi
+
+		cp_srcs="$cp_srcs $f"
 	done
 
     # Changes to HDL sources
 	echo Retrieving VHDL source files...
 	echo
-    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \;
+    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $REPOSITORY_DIR/src/ \;
 
     # Changes to constraints
 	echo Updating changes made to constraints file ${BOARD}_${PROJECT}.xdc...
 	echo
-    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
-    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
+    rm -f $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
+    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/src/${BOARD}_${PROJECT}.xdc $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
 
     # Changes to block design
 	echo Exporting block design as tcl script...
 	echo
-    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
+    rm -f $REPOSITORY_DIR/src/bd.tcl
+    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $REPOSITORY_DIR/src/bd.tcl
 
 	# Enter HDL repo
 	cd $HDL_DIR
 
-    # Git add
-    git add $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
-    git add $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-    git add $HDL_DIR/ip/*
-    git add $HDL_DIR/src/*
-
     if [ $ALL = "true" ]; then
         git add -A
+
+		# Update patch
+		echo Updating HDL patch
+		echo
+
+		git commit -m "Updating patch" 2> /dev/null
+		git tag -f $DIII_REPO_TAG 2> /dev/null
+		git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch 2> /dev/null
+		git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG 2> /dev/null
     fi
 
-    # Update patch
-    git commit -m "Updating patch"
-    git tag -f $DIII_REPO_TAG
-    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
-    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+    # Commit changes 
+	echo Comitting changes
+	echo
 
-	# Remove source files that were moved to src
-	cd $HDL_DIR/src
-	rm -f $cp_srcs
-
-    # Commit changes to patch 
     cd $REPOSITORY_DIR
+
+	git add $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/ip/* $REPOSITORY_DIR/src/*
+
 	if [ -z "$COMMIT_MSG" ]; then
 		MSG="Updated Vivado project, automatic commit"
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch
+	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/src/* $REPOSITORY_DIR/ip/*
 
 	# Finished
     echo Finished committing Vivado project changes
@@ -162,10 +171,10 @@ commit_meta_avnet ()
 	echo Updating patch...
 	echo
 
-    git commit -m "Updating patch"
-    git tag -f $DIII_REPO_TAG
-    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/meta_avnet_repo.patch
-    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+    git commit -m "Updating patch" 2> /dev/null
+    git tag -f $DIII_REPO_TAG 2> /dev/null
+    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/meta_avnet_repo.patch 2> /dev/null
+    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG 2> /dev/null
 
     # Commit changes to patch
 	echo Committing changes to patch...
@@ -197,7 +206,16 @@ commit_ubuntu ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m "$MSG" $SCRIPTS_DIR/ubuntu/*
+
+	add_list="$SCRIPTS_DIR/ubuntu/*"
+	
+	if [ $ALL = "true" ]; then
+		add_list="$add_list $SCRIPTS_DIR/build_ubuntu.sh"
+	fi
+
+	git add $add_list
+
+	git commit -m "$MSG" $commit_list 2> /dev/null
 
     echo Finished comitting Ubuntu setup scripts changes
     echo
