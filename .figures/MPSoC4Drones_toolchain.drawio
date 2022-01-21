@@ -1,0 +1,308 @@
+<mxfile host="app.diagrams.net" modified="2022-01-21T09:04:34.725Z" agent="5.0 (X11)" etag="dM2bDxgARYL2865irBjY" version="16.2.4" type="github">
+  <diagram id="SMfrYUlnAr-MEdaYNNwm" name="Page-1">
+    <mxGraphModel dx="1422" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-6" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fontSize=11;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="380" y="480" width="640" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-28" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fontSize=11;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="380" y="200" width="560" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-29" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fontSize=11;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="940" y="200" width="320" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-27" value="" style="rounded=1;whiteSpace=wrap;html=1;shadow=1;fontSize=11;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;opacity=50;" parent="1" vertex="1">
+          <mxGeometry x="60" y="200" width="320" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-1" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Setup step 1&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Cloning and patching repositories&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="80" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-2" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Setup step 2&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Setting up the Vivado project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="240" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-3" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Setup step 3&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Setting up the PetaLinux project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="240" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-4" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;endFill=0;startArrow=classic;startFill=1;" parent="1" source="vjmVWytXciBGpejQjLzy-2" target="vjmVWytXciBGpejQjLzy-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="190" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-6" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;startArrow=classic;startFill=1;endFill=0;" parent="1" source="vjmVWytXciBGpejQjLzy-3" target="vjmVWytXciBGpejQjLzy-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="400" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-7" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Build step 1&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Building the Vivado project hardware specification&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="400" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-9" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;endFill=0;startArrow=classic;startFill=1;" parent="1" source="vjmVWytXciBGpejQjLzy-7" target="vjmVWytXciBGpejQjLzy-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-11" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Build step 2&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Configuring the PetaLinux project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="480" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-12" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;endFill=0;startArrow=classic;startFill=1;" parent="1" source="vjmVWytXciBGpejQjLzy-11" target="vjmVWytXciBGpejQjLzy-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-13" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;endFill=0;startArrow=classic;startFill=1;" parent="1" source="vjmVWytXciBGpejQjLzy-11" target="vjmVWytXciBGpejQjLzy-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="460" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-14" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Build step 3&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Building the PetaLinux project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="640" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-15" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;startArrow=classic;startFill=1;endFill=0;" parent="1" source="vjmVWytXciBGpejQjLzy-14" target="vjmVWytXciBGpejQjLzy-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="590" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-17" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Build step 4&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Building the Ubuntu root filesystem&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="800" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-18" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;startArrow=classic;startFill=1;endFill=0;" parent="1" source="vjmVWytXciBGpejQjLzy-17" target="vjmVWytXciBGpejQjLzy-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="800" y="280" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-20" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Package step 1&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Packaging boot files onto SD card BOOT partition&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="960" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-21" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;startArrow=classic;startFill=1;endFill=0;" parent="1" source="vjmVWytXciBGpejQjLzy-20" target="vjmVWytXciBGpejQjLzy-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="860" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-22" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Package step 2&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Packaging root filesystem onto SD card rootfs partition&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="960" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-23" value="" style="curved=1;endArrow=none;html=1;rounded=0;fontSize=11;startArrow=classic;startFill=1;endFill=0;" parent="1" source="vjmVWytXciBGpejQjLzy-22" target="vjmVWytXciBGpejQjLzy-17" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="290" as="sourcePoint" />
+            <mxPoint x="180" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="900" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-24" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Package step 3&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;&lt;strong&gt;Creating a bootable image&lt;/strong&gt;&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="1120" y="310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-30" value="Setup" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=1;fontSize=11;opacity=50;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="190" y="200" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-31" value="Build" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="640" y="205" width="40" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-33" value="Packaging" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="1065" y="205" width="70" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-35" value="&lt;font color=&quot;#000000&quot;&gt;&lt;i&gt;&lt;b&gt;First run&lt;br&gt;&lt;/b&gt;&lt;/i&gt;&lt;/font&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;" parent="1" vertex="1">
+          <mxGeometry x="70" y="170" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-36" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-35" target="vjmVWytXciBGpejQjLzy-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="100" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-37" value="&lt;b&gt;&lt;i&gt;Reset Vivado project&lt;br&gt;&lt;/i&gt;&lt;/b&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="240" y="150" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-38" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-37" target="vjmVWytXciBGpejQjLzy-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="280" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-39" value="&lt;b&gt;&lt;i&gt;Reset PetaLinux project&lt;br&gt;&lt;/i&gt;&lt;/b&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="140" y="440" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-40" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-39" target="vjmVWytXciBGpejQjLzy-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="290" y="480" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-41" value="&lt;i&gt;&lt;b&gt;Modifications to Vivado project&lt;br&gt;&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="390" y="150" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-42" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-41" target="vjmVWytXciBGpejQjLzy-7" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-43" value="&lt;i&gt;&lt;b&gt;Modifications to PetaLinux project&lt;br&gt;&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="690" y="145" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-44" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-43" target="vjmVWytXciBGpejQjLzy-14" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="740" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-45" value="&lt;i&gt;&lt;b&gt;Modifications to Ubuntu setup &lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="640" y="392" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-46" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-45" target="vjmVWytXciBGpejQjLzy-17" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="700" y="430" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="780" y="422" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-47" value="&lt;i&gt;&lt;b&gt;Modifications to meta-avnet&lt;br&gt;&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="440" y="450" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="vjmVWytXciBGpejQjLzy-49" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="vjmVWytXciBGpejQjLzy-47" target="vjmVWytXciBGpejQjLzy-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="10" y="300" as="sourcePoint" />
+            <mxPoint x="60" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="490" y="430" />
+              <mxPoint x="520" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-7" value="Commitment" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=11;fontStyle=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="660" y="620" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-8" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Commitment step 1&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Committing changes to the Vivado project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="400" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-9" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Commitment&lt;/i&gt;&lt;/font&gt; step 2&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Committing changes to&lt;/b&gt; &lt;b&gt;meta-avnet&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="560" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-11" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Commitment&lt;/i&gt;&lt;/font&gt; step 4&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Committing changes to&lt;/b&gt; &lt;b&gt;Ubuntu rootfs build&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="720" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-12" value="&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;i&gt;Commitment&lt;/i&gt;&lt;/font&gt; step 5&lt;/i&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 11px&quot;&gt;&lt;font style=&quot;font-size: 11px&quot;&gt;&lt;b&gt;Clean project&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;gradientColor=#7ea6e0;strokeColor=#6c8ebf;shadow=1;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="880" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-14" value="&lt;i&gt;&lt;b&gt;Commit programmable logic design&lt;br&gt;&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="470" y="610" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-15" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="VbYkwKfHO2UC7nRZSYcZ-14" target="VbYkwKfHO2UC7nRZSYcZ-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440.0000000000002" y="220" as="sourcePoint" />
+            <mxPoint x="450.0000000000002" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="440" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-16" value="&lt;i&gt;&lt;b&gt;Commit &lt;br&gt;meta-avnet configuration&lt;br&gt;&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="710" y="460" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-17" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="VbYkwKfHO2UC7nRZSYcZ-16" target="VbYkwKfHO2UC7nRZSYcZ-9" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440.0000000000002" y="220" as="sourcePoint" />
+            <mxPoint x="450.0000000000002" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="670" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-18" value="&lt;i&gt;&lt;b&gt;Commit &lt;br&gt;Ubuntu rootfs setup&lt;/b&gt;&lt;/i&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="845" y="610" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-19" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="VbYkwKfHO2UC7nRZSYcZ-18" target="VbYkwKfHO2UC7nRZSYcZ-11" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440.0000000000002" y="220" as="sourcePoint" />
+            <mxPoint x="450.0000000000002" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="820" y="630" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-20" value="&lt;b&gt;Remove all products&lt;br&gt;&lt;/b&gt;" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;shadow=1;fontSize=11;gradientColor=#b3b3b3;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="970" y="450" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VbYkwKfHO2UC7nRZSYcZ-21" value="" style="curved=1;endArrow=classic;html=1;rounded=0;fontSize=11;dashed=1;" parent="1" source="VbYkwKfHO2UC7nRZSYcZ-20" target="VbYkwKfHO2UC7nRZSYcZ-12" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440.0000000000002" y="220" as="sourcePoint" />
+            <mxPoint x="450.0000000000002" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="940" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WRJUUMvq7UBPzjXYE5wn-2" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="vjmVWytXciBGpejQjLzy-20" target="vjmVWytXciBGpejQjLzy-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1300" y="220" as="sourcePoint" />
+            <mxPoint x="1350" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1160" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WRJUUMvq7UBPzjXYE5wn-3" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="vjmVWytXciBGpejQjLzy-22" target="vjmVWytXciBGpejQjLzy-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1300" y="220" as="sourcePoint" />
+            <mxPoint x="1350" y="170" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1160" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
