@@ -84,7 +84,7 @@ commit_vivado ()
 	echo Updating changes made to constraints file ${BOARD}_${PROJECT}.xdc...
 	echo
     rm -f $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
-    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
+    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/src/${BOARD}_${PROJECT}.xdc $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
 
     # Changes to block design
 	echo Exporting block design as tcl script...
