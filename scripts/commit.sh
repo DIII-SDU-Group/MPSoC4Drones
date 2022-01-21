@@ -107,15 +107,21 @@ commit_vivado ()
 
     if [ $ALL = "true" ]; then
         git add -A
+
+		# Update patch
+		echo Updating HDL patch
+		echo
+
+		git commit -m "Updating patch" 2> /dev/null
+		git tag -f $DIII_REPO_TAG 2> /dev/null
+		git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch 2> /dev/null
+		git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG 2> /dev/null
     fi
 
-    # Update patch
-    git commit -m "Updating patch"
-    git tag -f $DIII_REPO_TAG
-    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
-    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
-
     # Commit changes 
+	echo Comitting changes
+	echo
+
     cd $REPOSITORY_DIR
 
 	git add $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/ip/* $REPOSITORY_DIR/src/*
@@ -165,10 +171,10 @@ commit_meta_avnet ()
 	echo Updating patch...
 	echo
 
-    git commit -m "Updating patch"
-    git tag -f $DIII_REPO_TAG
-    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/meta_avnet_repo.patch
-    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+    git commit -m "Updating patch" 2> /dev/null
+    git tag -f $DIII_REPO_TAG 2> /dev/null
+    git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/meta_avnet_repo.patch 2> /dev/null
+    git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG 2> /dev/null
 
     # Commit changes to patch
 	echo Committing changes to patch...
@@ -209,7 +215,7 @@ commit_ubuntu ()
 
 	git add $add_list
 
-	git commit -m "$MSG" $commit_list
+	git commit -m "$MSG" $commit_list 2> /dev/null
 
     echo Finished comitting Ubuntu setup scripts changes
     echo
