@@ -115,14 +115,17 @@ commit_vivado ()
     git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
     git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
-    # Commit changes to patch 
+    # Commit changes 
     cd $REPOSITORY_DIR
+
+	git add $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/ip/* $REPOSITORY_DIR/src/*
+
 	if [ -z "$COMMIT_MSG" ]; then
 		MSG="Updated Vivado project, automatic commit"
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/src/*
+	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/src/* $REPOSITORY_DIR/ip/*
 
 	# Finished
     echo Finished committing Vivado project changes
@@ -197,7 +200,16 @@ commit_ubuntu ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m "$MSG" $SCRIPTS_DIR/ubuntu/*
+
+	add_list="$SCRIPTS_DIR/ubuntu/*"
+	
+	if [ $ALL = "true" ]; then
+		add_list="$add_list $SCRIPTS_DIR/build_ubuntu.sh"
+	fi
+
+	git add $add_list
+
+	git commit -m "$MSG" $commit_list
 
     echo Finished comitting Ubuntu setup scripts changes
     echo
