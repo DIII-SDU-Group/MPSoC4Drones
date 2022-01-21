@@ -13,7 +13,7 @@
 
 🄶🄸🅃🄷🅄🄱.🄲🄾🄼/🄳🄸🄸🄸-🅂🄳🅄-🄶🅁🄾🅄🄿
 
-MPSoC project framework for UAV research applications targeting the Ultra96-V2 as UAV companion computer with external PX4 powered flight controller. Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2. The framework is a wrapper of existing tools for embedded development probvided by Xilinx as well as scripts provided by Avnet for building projects for the Ultra96-V2.
+MPSoC project framework for UAV research applications targeting the Ultra96-V2 as UAV companion computer with external PX4 powered flight controller. Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2. The framework is a wrapper of existing tools for embedded development provided by Xilinx as well as scripts provided by Avnet for building projects for the Ultra96-V2.
 
 Prerequisites:
 
