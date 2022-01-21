@@ -60,11 +60,11 @@ commit_vivado ()
 	do
 		f=$( basename -- $src )
 
-		if [ -f $HDL_DIR/src/$f ]; then
+		if [ -f $REPOSITORY_DIR/src/$f ]; then
 			echo A conflicting VHDL source file was found. File $f exists both in
 			echo $src 
 			echo and
-			echo $HDL_DIR/src/$f
+			echo $REPOSITORY_DIR/src/$f
 			echo
 			echo Please remove the file you don\'t need before comitting.
 			echo
@@ -78,28 +78,22 @@ commit_vivado ()
     # Changes to HDL sources
 	echo Retrieving VHDL source files...
 	echo
-    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $HDL_DIR/src/ \;
+    find $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1 -name *.vhd -exec cp -f {} $REPOSITORY_DIR/src/ \;
 
     # Changes to constraints
 	echo Updating changes made to constraints file ${BOARD}_${PROJECT}.xdc...
 	echo
-    rm -f $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
-    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
+    rm -f $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
+    cp $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/constrs_1/imports/$PROJECT/${BOARD}_${PROJECT}.xdc $REPOSITORY_DIR/src/${BOARD}_${PROJECT}.xdc
 
     # Changes to block design
 	echo Exporting block design as tcl script...
 	echo
     rm -f $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
+    vivado -mode batch -source $SCRIPTS_DIR/export_bd.tcl -tclargs $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.xpr $VIVADO_PROJECT_DIR/${BOARD}_${PROJECT}.srcs/sources_1/bd/${BOARD}_${PROJECT}/${BOARD}_${PROJECT}.bd $REPOSITORY_DIR/src/bd.tcl
 
 	# Enter HDL repo
 	cd $HDL_DIR
-
-    # Git add
-    git add $HDL_DIR/boards/$BOARD/$PROJECT/${BOARD}_${PROJECT}.xdc
-    git add $HDL_DIR/boards/$BOARD/$PROJECT/bd.tcl
-    git add $HDL_DIR/ip/*
-    git add $HDL_DIR/src/*
 
     if [ $ALL = "true" ]; then
         git add -A
@@ -111,10 +105,6 @@ commit_vivado ()
     git diff --binary $AVNET_REPO_TAG $DIII_REPO_TAG > $PATCHES_DIR/hdl_repo.patch
     git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
 
-	# Remove source files that were moved to src
-	cd $HDL_DIR/src
-	rm -f $cp_srcs
-
     # Commit changes to patch 
     cd $REPOSITORY_DIR
 	if [ -z "$COMMIT_MSG" ]; then
@@ -122,7 +112,7 @@ commit_vivado ()
 	else
 		MSG=$COMMIT_MSG
 	fi
-	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch
+	git commit -m "$MSG" $PATCHES_DIR/hdl_repo.patch $REPOSITORY_DIR/src/*
 
 	# Finished
     echo Finished committing Vivado project changes
