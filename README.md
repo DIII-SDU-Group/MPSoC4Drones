@@ -89,18 +89,20 @@ Packaging the build products. This step covers packaging the build products onto
 Committing the changes made to the individual parts of the project back to the project setup scripts, such that the project can be revision controlled in another git repository. 
 
 ### Environment setup
+You can initialize you MPSoC4Drones project by copying the MPSoC4Drones repository.
 
-Clone the repository: 
-
+To copy the MPSoC4Drones repository, you first need to create an empty (no .gitignore, README, license, or anything) repository with name `<name>` on GitHub. Copy the GitHub clone URL of the repository as `<url>`. Then on you host computer, do the following:
 ```bash
-git clone https://github.com/DIII-SDU-Group/MPSoC4Drones.git
+git init <name>
+cd <name>/
+
+git remote add <name> <url>
+git checkout -b master
+git pull --allow-unrelated-histories https://github.com/DIII-SDU-Group/MPSoC4Drones.git
+git push --set-upstream <name> master
 ```
 
-Enter the cloned directory:
-
-```bash
-cd MPSoC4Drones/
-```
+The repo is now copied and set up to track your remote repository.
 
 Source the MPSoC4Drones settings script:
 
@@ -138,7 +140,13 @@ Assuming you SD-card is formated as described in the [SD-card setup](#sd-card-se
 mp4d-package
 ```
 
-The SD-card is now ready for boot. 
+The SD-card is now ready for boot. When you have made changes to the project, you can commit the changes:
+
+```bash
+mp4d-commit
+```
+
+The changes are now comitted and ready to be pushed to you repo.
 
 ### SD card setup
 You will need an SD card with at least 8 GB of memory.
@@ -167,7 +175,7 @@ Using an FTDI-USB chip, make the following connection to the TELEM1 port of the 
 ### First boot
 Plug the SD-card into the Ultra96-V2, plugin the power, connect the JTAG-adapter, and connect the USB cable to the host computer. Open a serial session at baudrate 115200, e.g. using `screen`. Push the power button on the Ultra96-V2. You will now be able to monitor the boot process, first the boot loader, then the kernel, and finally Ubuntu.
 
-When prompted for a login, supply `u96` as both login and password.
+When prompted for a login, supply `mp4d` as both login and password.
 
 Before constructing a custom ROS2 system, build the PX4 Fast-RTPS ROS2 nodes. This only needs to be done once, and is done as follows:
 
@@ -181,13 +189,13 @@ Using only 3 jobs prevents starvation. This will take a while to finish.
 Now, your system is ready for use.
 
 ### Connect to the Ultra96-V2 using SSH
-Using the JTAG-UART connection to the Ultra96-V2, connect it to your prefered WiFi using `nmcli`. Go to your router administration page on your host computer and look up the IP address of the Ultra96-V2. If you have built using default configuration, the host name is *MPSoC4Drones*.
+Using the JTAG-UART connection to the Ultra96-V2, connect it to your prefered WiFi using `nmcli`. Go to your router administration page on your host computer and look up the IP address of the Ultra96-V2. If you have built using default configuration, the host name is *u96v2*.
 
 SSH into the Ultra96-V2 from a computer on the same network as the Ultra96-V2 by issueing
 ```bash
-ssh u96@IP_ADDRESS
+ssh mp4d@IP_ADDRESS
 ```
-Type the password `u96`. Use your custom login and password if you have built Ubuntu with non-default settings.
+Type the password `mp4d`. Use your custom login and password if you have built Ubuntu with non-default settings.
 
 ### Testing ROS2 and PX4 communication
 Power and boot the Ultra96-V2 and the configured flight controller. Make the connection between the two as described above. SSH into the Ultra96-V2 from one terminal. Command:
