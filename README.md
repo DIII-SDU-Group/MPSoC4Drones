@@ -13,7 +13,7 @@
 
 🄶🄸🅃🄷🅄🄱.🄲🄾🄼/🄳🄸🄸🄸-🅂🄳🅄-🄶🅁🄾🅄🄿
 
-MPSoC project framework for UAV research applications targeting the Ultra96-V2 as UAV companion computer with external PX4 powered flight controller. Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2. The framework is a wrapper of existing tools for embedded development provided by Xilinx as well as scripts provided by Avnet for building projects for the Ultra96-V2.
+MPSoC project framework for UAV research applications targeting the Ultra96-V2 as UAV companion computer with external PX4 powered flight controller. Tool chain for building images with custom programmable logic design, Ubuntu 20.04, and ROS2. The framework is a wrapper of existing tools for embedded development provided by [Xilinx](https://www.xilinx.com/) as well as scripts provided by [Avnet](https://www.avnet.com/) and the [PYNQ Project](http://www.pynq.io/) for building hardware, OS and packages for the Ultra96-V2.
 
 Prerequisites:
 
@@ -26,6 +26,13 @@ The work uses:
 - **Target Platform**: [Ubuntu Base 20.04 LTS for Arm64](http://cdimage.ubuntu.com/ubuntu-base/releases/20.04/release/)
 - **Target Middleware**: [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html)
 - **Target Development Board**: Avnet [Ultra96-V2](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-ultra96-v2-g-3074457345638646173/) with Avnet [U96 JTAG/UART to USB adapter](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-acc-u96-jtag-3074457345635355958/)
+
+#### A note about `sudo`-privileges:
+As we are building OS's, a lot of the manipulated files will be owned by the root user and will therefore require `sudo` to access. Therefore, `sudo` is called throughout the scripts. Whenever a long build is running and a `sudo` call is encountered, the default behavior is to hang until the user provides the password. Therefore, it is recommended enable passwordless `sudo` for the user. This is done as follows:
+```bash
+echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
+```
+Log in again for the changes to take effect. A suggestion could also be to get some familiarity with the tools before doing this, or run everything in a virtual machine, if you don't trust the scripts. At least it doesn't break my machine, but we take no responsibility. 🦖
 
 ## Table of contents
 
@@ -45,6 +52,7 @@ The work uses:
       - [mp4d-setup](#mp4d-setup)
       - [mp4d-build](#mp4d-build)
       - [mp4d-package](#mp4d-package)
+      - [mp4d-commit](#mp4d-commit)
     + [The toolchain](#the-toolchain)
     + [Development cases](#development-cases)
       - [Modifying the FPGA design without changes to memory mapping](#modifying-the-fpga-design-without-changes-to-memory-mapping)
@@ -218,13 +226,14 @@ The individual commands and functionalities are explained below.
 #### `mp4d-setup`
 The `mp4d-setup` command sets up the project structure in the three following steps:
 1. _Setup step 1_: **Cloning and patching the Avnet repositories**.  
-Avnet provides scripts for building projects for their boards in seperate GitHub repositories which interoperate. Therefore, the general project structure is adopted from Avnet. The cloned Avnet repositories are the following:
-    - the *bdf* repository cloned into the `bdf/` folder. This folder will contain the Avnet provided board definition files for the Ultra96-V2, which is used in Vivado to specify the characteristics of the board.
-    - the *hdl* repository cloned into the `hdl/` folder. This folder will contain the Vivado specific scripts for project creation and hardware building. The repository is patched from the original provided by Avnet in order to more flexibly facilitate hardware development in Vivado, and also to define a bare minimum Vivado project necessary for the OS to be able to run. Inside this folder will also be contained the actual Vivado project for the MPSoC4Drones project.
-    - the *petalinux* repository cloned into the `petalinux/` folder. This folder will contain the PetaLinux specific scripts for project creation and PetaLinux building. The repository is patched from the original provided by Avnet in order to more flexibly facilitate development with/without updating the hardware specification, without rebuilding everything, etc. Inside this folder will also be contained the actual PetaLinux project for the MPSoC4Drones project.
-    - the *meta-avnet* repository cloned into the `meta-avnet/` folder. This folder will contain the meta-layers provided by Avnet for the PetaLinux build. These layers define, among other things, patches to the kernel, hardware drivers, etc., specific to the Ultra96-V2, as well as the kernel driver configuration for the PetaLinux project. The repository is patched from the original provided by Avnet in order to remove specification of excessive packages to be installed in the user layer of the root filesystem built by PetaLinux, as this filesystem is replaced in MPSoC4Drones by a Ubuntu 20.04 filesystem, and this modification significantly decreases build time, as well as to add some additional kernel drivers necessary for PX4 communication to the build.
+Avnet provides scripts for building projects for their boards in seperate GitHub repositories which interoperate. Therefore, the general project structure is adopted from Avnet. Additionally, the PYNQ Project repository is cloned as some packages are borrowed and install onto the root filesystem from there. The cloned repositories are the following:
+    - the [Avnet *bdf* repository](https://github.com/Avnet/bdf) cloned into the `bdf/` folder. This folder will contain the Avnet provided board definition files for the Ultra96-V2, which is used in Vivado to specify the characteristics of the board.
+    - the [Avnet *hdl* repository](https://github.com/Avnet/hdl) cloned into the `hdl/` folder. This folder will contain the Vivado specific scripts for project creation and hardware building. The repository is patched from the original provided by Avnet in order to more flexibly facilitate hardware development in Vivado, and also to define a bare minimum Vivado project necessary for the OS to be able to run. Inside this folder will also be contained the actual Vivado project for the MPSoC4Drones project.
+    - the [Avnet *petalinux* repository](https://github.com/Avnet/petalinux) cloned into the `petalinux/` folder. This folder will contain the PetaLinux specific scripts for project creation and PetaLinux building. The repository is patched from the original provided by Avnet in order to more flexibly facilitate development with/without updating the hardware specification, without rebuilding everything, etc. Inside this folder will also be contained the actual PetaLinux project for the MPSoC4Drones project.
+    - the [Avnet *meta-avnet* repository](https://github.com/Avnet/meta-avnet) cloned into the `meta-avnet/` folder. This folder will contain the meta-layers provided by Avnet for the PetaLinux build. These layers define, among other things, patches to the kernel, hardware drivers, etc., specific to the Ultra96-V2, as well as the kernel driver configuration for the PetaLinux project. The repository is patched from the original provided by Avnet in order to remove specification of excessive packages to be installed in the user layer of the root filesystem built by PetaLinux, as this filesystem is replaced in MPSoC4Drones by a Ubuntu 20.04 filesystem, and this modification significantly decreases build time, as well as to add some additional kernel drivers necessary for PX4 communication to the build.
+    - The [PYNQ Project *PYNQ* repository](https://github.com/Xilinx/PYNQ) cloned into the `PYNQ/` folder. This folder will contain full the full PYNQ Project, however, only a few elements are used. The BitBake recipes for ZOCL/XRT drivers in the root filesystem `recipes-xrt` are used along with patched scripts to install a few packages into the root filesystem which must be cross-compiled from source. This is achieved in the PYNQ Project, and is thus included in this build.
 2. _Setup step 2_: **Setting up the Vivado project**.  
-Using the scripts in the patched version of the Avnet *hdl* repository now contained in the `hdl/` folder, the Vivado project is created on the path `hdl/projects/u96v2_sbc_mp4d_2020_2/`. The default bare-minimum block design is generated, the board definition files are added, and a constraints file is added to the project for reference and later pinout. This step requires that _setup step 1_ has been executed.
+Using the scripts in the patched version of the Avnet *hdl* repository now contained in the `hdl/` folder, the Vivado project is created on the path `hdl/projects/u96v2_sbc_mp4d_2020_2/`. The default bare-minimum block design is generated, the board definition files are added, and a constraints file is added to the project for reference and later pinout. If any commits of changes to the block design, added IPs in the `ip/` folder, or added sources, these will be fetched from the respective folders and reflected in the generated project. See the _commitment_ step below. This step requires that _setup step 1_ has been executed.
 3. _Setup step 3_: **Setting up the PetaLinux project**.  
 Using the scripts in the patched version of the Avnet *petalinux* repository now contained the `petalinux/` folder, the PetaLinux project is created on the path `petalinux/projects/u96v2_sbc_mp4d_2020_2/`. This step requires that _setup step 1_ has been executed.
 
@@ -237,77 +246,72 @@ The command has the following options:
 The `-A`, `--all` option will overrule the above options and issue all steps regardless.
 - For any step, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previous changes without prompting the user for yes/no.
 
-In general, the `mp4d-setup` command only needs to be called once during project creation, but can also be useful if the user wants to reset parts of the MPSoC4Drones project to default.
+In general, the `mp4d-setup` command only needs to be called once during project creation, but can also be useful if the user wants to reset parts of the MPSoC4Drones project to default, or if the user wants to regenerate the project after calling `mp4d-commit --clean` (see the _commitment_ step below).
 
 #### `mp4d-build`
 The `mp4d-build` command builds the project in the five following steps:
 1. _Build step 1_: **Building the Vivado project hardware specification**.  
 This step runs synthesis and implementation on the Vivado project contained in the `hdl/projects/u96v2_sbc_mp4d_2020_2/` folder. The build utilizes the patched versions of the Avnet hdl build scripts. The design bitstream is generated and the hardware specification .xsa file is exported. This step requires that _setup step 2_ has been executed.
 2. _Build step 2_: **Configuring the PetaLinux project**.  
-This step configures the PetaLinux project for build, imports the generated hardware specification, and imports the Avnet meta-layers. This step requires that _setup step 3_ and _build step 1_ have been executed.
+This step configures the PetaLinux project for build, imports the generated hardware specification, imports the Avnet meta-layers, and imports the BitBake recipes for ZOCL/XRT kernel modules from the PYNQ repo. This step requires that _setup step 3_ and _build step 1_ have been executed.
 3. _Build step 3_: **Building the PetaLinux project**  
-This step builds the PetaLinux project contained in the `petalinux/projects/u96v2_sbc_mp4d_2020_2/` folder, including the boot loader and the kernel. The boot files are stored in the directory `target/BOOT/`. This step requires that _build step 2_ has been executed.
+This step builds the PetaLinux project contained in the `petalinux/projects/u96v2_sbc_mp4d_2020_2/` folder, including the boot loader and the kernel. The boot files, kernel modules, kernel packages, and kernel module firmware files are stored in the respective folders in the `target/` directory. This step requires that _build step 2_ has been executed.
 4. _Build step 4_: **Building the Ubuntu root filesystem**  
-This step builds the Ubuntu 20.04 root filesystem, including installing necessary packages, setting up the root user and the primary user, installing ROS2, and setting up PX4 Fast-RTPS communication. The built root filesystem is contained in the directory `target/rootfs/`.
-5. _Build step 5_: **Importing kernel modules and drivers to the Ubuntu root filesystem**  
-This step imports the kernel modules and drivers from the PetaLinux build to the Ubuntu root filesystem contained in the `target/rootfs/` folder. This step requires that _build step 3_ and _build step 4_ have been executed.
+This step builds the Ubuntu 20.04 root filesystem, including installing necessary packages, setting up the root user and the primary user, installing ROS2, and setting up PX4 Fast-RTPS communication. The built root filesystem is contained in the directory `target/rootfs/`. If this step has been executed once and the PetaLinux project has consecutively been built again (_build step 3_), this step will not rebuild the full root filesystem but will only update the PetaLinux kernel modules outputs to reduce unnecessary time waste, unless explicitly commanded. This step requires that _build step 3_ has been executed.
 
 The command has the following options:
-- Calling `mp4d-build`, `mp4d-build -A`, or `mp4d-build --all` will issue _build step 1_, _2_, _3_, _4_, and _5_. For any step that has already been executed, the user will be prompted for yes/no about whether the build should continue and erase all previous build outputs.
+- Calling `mp4d-build`, `mp4d-build -A`, or `mp4d-build --all` will issue _build step 1_, _2_, _3_, and _4_. For any step _1_, _2_, or _3_ that has already been executed, the user will be prompted for yes/no about whether the build should continue and erase all previous build outputs. For _build step 4_, if the step has previously been executed, the root filesystem will not be rebuilt but the latest kernel module file from _build step 3_ will be imported.
 - Calling `mp4d-build` with one or more of the following options will issue the respective steps:
   - `-V`, `--vivado` for _build step 1_,
   - `--petalinux-config` for _build step 2_,
-  - `-P`, `--petalinux` for _build step 3_,
-  - `-U`, `--ubuntu` for _build step 4_, and
-  - `--ubuntu-import-modules` for _build step 5_.  
+  - `-P`, `--petalinux` for _build step 3_, and
+  - `-U`, `--ubuntu` for _build step 4_.
 The `-A`, `--all` option will overrule the above options and issue all steps regardless.
-- For any step, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previous build products without prompting the user for yes/no.
-
-_Build step 4_ and _5_ requires sudo priviledges and will prompt the user for password. The `mp4d-build` command is used iteratively with various options throughout the development process when new changes are tested.
+- For any step _1_, _2_, or _3_, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previous build products without prompting the user for yes/no. Additionally, adding the `-f`, `--force` option when executing _build step 4_ will issue a full rebuild of the root filesystem, regardless of previous builds.
 
 #### `mp4d-package`
 The `mp4d-package` command packages the project build products in the following steps:
 1. _Packaging step 1_: **Packaging boot files onto SD card BOOT partition**.  
 This step packages the BOOT files contained in the `target/BOOT/` folder onto the BOOT partition of the SD card. This step requires that _build step 3_ has been executed.
 2. _Packaging step 2_: **Packaging the root filesystem onto the SD card rootfs partition**.  
-This step packages the full root filesystem contained in the `target/rootfs/` folder on the rootfs partition of the SD card. This step requires that _build step 5_ has been executed.
-3. _Packaging step 3_: **Packaging just the kernel modules and drivers into the root filesystem on the SD card rootfs partition**.  
-This step can be executed if changes has been made to the PetaLinux build but not the Ubuntu build and the root filesystem has already once been packaged to the SD card. In this step, only the kernel modules and drivers are updated in the SD card rootfs partition to save time. As such, _packaging step 3_ is a subset of the work done in _packaging step 2_. This step requires that _packaging step 2_ has been executed with the rootfs partition on the SD card and that _build step 5_ has since been rerun.
+This step packages the full root filesystem contained in the `target/rootfs/` folder on the rootfs partition of the SD card. This step requires that _build step 4_ has been executed.
+3. _Packaging step 3_: **Creating a bootable image**.  
+This step packages the BOOT and rootfs partitions onto a bootable image which can be distributed and can be flashed onto an SD card with a tool like BalenaEtcher. ***THIS HAS NOT BEEN IMPLEMENTED YET***
 
  The command has the following options:
-- Calling `mp4d-package`, `mp4d-pacakge -A`, or `mp4d-package --all` will issue _package step 1_ and _2_. For any step that has already been executed, the user will be prompted for yes/no about whether the packaging should continue and erase previous packaged contents on the SD card.
+- Calling `mp4d-package`, `mp4d-pacakge -A`, or `mp4d-package --all` will issue _package step 1_, _2_, and _3_. For any step that has already been executed, the user will be prompted for yes/no about whether the packaging should continue and erase previous packaged contents.
 - Calling `mp4d-package` with one or more of the following options will issue the respective steps:
   - `-B`, `--boot` for _packaging step 1_,
   - `--rootfs` for _packaging step 2_, and
-  - `--kernel-modules` for _packaging step 3_.
+  - `-I`, `--image` for _packaging step 3_.
 The `-A`, `--all` option will overrule the above options and issue all steps regardless.
 - The `--mount-dir MOUNT_DIR` argument can be used to specify the directory `MOUNT_DIR` containing the `BOOT/` and `rootfs/` mount points. `MOUNT_DIR` defaults to `/media/$USER/`.
 - The `--boot-dir BOOT_DIR` argument can be used to specify the BOOT partition mount point `BOOT_DIR`. Setting this argument will overwrite the BOOT partition mount point derived from `MOUNT_DIR`. As such, `BOOT_DIR` defaults to `MOUNT_DIR/BOOT/`.
 - The `--rootfs-dir ROOTFS_DIR` argument can be used to specify the rootfs partition mount point `ROOTFS_DIR`. Setting this argument will overwrite the ROOTFS partition mount point derived from `MOUNT_DIR`. As such, `ROOTFS_DIR` defaults to `MOUNT_DIR/rootfs/`.
-- For any step, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previously packaged build products on the SD card without prompting the user for yes/no.
+- For any step, the user will be prompted if the step has already been executed. Adding the `-f`, `--force` option will overwrite previously packaged contents without prompting the user for yes/no.
 
 #### `mp4d-commit`
 The `mp4d-commit` command commits changes made to the project in the following steps:
 1. _Commitment step 1_: **Committing changes made to the Vivado project**.  
-This step modifies the setup scripts such that the design changes applied to the initial Vivado project is preserved through running the setup scripts again. This is achieved by adding any source design files and IPs to the patch that is applied to the Avnet hdl repository in _setup step 1_. Additionally, the tcl script which generates the block design is updated to reflect the resulting design. Finally, the constraints file is updated to preserve changes. The updated patch file _hdl_repo.patch_ is committed to git.
+This step modifies the setup scripts such that the design changes applied to the initial Vivado project is preserved through running the setup scripts again. This is achieved by adding any source design files and IPs to the patch that is applied to the Avnet hdl repository in _setup step 1_. Additionally, the tcl script which generates the block design is updated to reflect the resulting design. Finally, the constraints file is updated to preserve changes. The updated patch file _hdl_repo.patch_ is committed to git along with the constraints file, the block design script, and any added IPs or VHDL source files in the `ip/` and `src/` directories, respectively. This step requires that _setup step 1_ and _2_ has been executed.
 
 2. _Commitment step 2_: **Committing changes made to the meta-avnet layers**.  
-In this step, changes applied to the meta-avnet layers in the `meta-avnet/` folder for the PetaLinux build is similarly pushed back to the patch which is applied to the Avnet meta-avnet repository in _setup step 1_. Any modification made in the `meta-avnet/` folder is preserved. The updated patch file `patches/meta-avnet\_repo.patch` is committed to git.
+In this step, changes applied to the meta-avnet layers in the `meta-avnet/` folder for the PetaLinux build is similarly pushed back to the patch which is applied to the Avnet meta-avnet repository in _setup step 1_. Any modification made in the `meta-avnet/` folder is preserved. The updated patch file `patches/meta-avnet\_repo.patch` is committed to git. This step requires that _setup step 1_ has been executed.
 
-3. _Commitment step 3_: **Committing changes made to the Ubuntu rootfs setup-scripts**. This step simply commits changes made to the Ubuntu build scripts, `scripts/qemu_ubuntu_setup.sh` and `scripts/ubuntu_packages.sh`, to git. Though the functionality is trivial, the step is included to keep consistency in the framework.
+3. _Commitment step 3_: **Committing changes made to the Ubuntu rootfs setup-scripts**. This step simply commits changes made to the Ubuntu build scripts contained in the `scripts/ubuntu/` folder. Though the functionality is trivial, the step is included to keep consistency in the framework.  This step requires that _setup step 1_ has been executed.
 
-4. _Commitment step 4_: **Cleaning the project**. This steps removes all of the generated files and folders in the project. Specifically, the step will remove all files listed on the `.gitignore`. Only to be executed after having committed all changes to be kept through the above commitment steps, the functionality in this final step of the framework workflow prepares the project for distribution and versioning on git.
+4. _Commitment step 4_: **Cleaning the project**. This steps removes all of the generated files and folders in the project. Specifically, the step will remove all files listed on the `.gitignore`. Only to be executed after having committed all changes to be kept through the above commitment steps, the functionality in this final step of the framework workflow prepares the project for distribution and versioning on git. All untracked files will be removed, so be careful.
 
 The command has the following options:
 - Calling `mp4d-commit` will issue _commitment step 1_, _2_, and _3_.
-- Calling `mp4d-commit -A`, or `mp4d-commit --all` will issue the same three steps but will add any changes to the commit. Should only be used if the fundamental scripts are changed.
+- Calling `mp4d-commit -A`, or `mp4d-commit --all` will issue the same three steps but will add a broader range of changes to the commit. Should only be used if the fundamental scripts are changed.
 - Calling `mp4d-commit` with one or more of the following options will issue the respective steps:
   - `-V`, `--vivado` for _commitment step 1_,
   - `-M`, `--meta-avnet` for _commitment step 2_, and
   - `-U`, `--ubuntu` for _commitment step 3_.
 The `-A`, `--all` option will overrule the above options and issue all steps regardless.
 - Adding the `--clean` option will issue _commitment step 4_. The user will be prompted if the project should really be cleaned, as this operation deletes data.
-- Adding the `-f`, `--force` option with the `--clean` optino will clean the project without prompting the user.
+- Adding the `-f`, `--force` option with the `--clean` option will clean the project without prompting the user.
 
 ### The toolchain
 ![Toolchain image](figures/MPSoC4Drones_toolchain.png)
