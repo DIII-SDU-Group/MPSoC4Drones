@@ -1,0 +1,472 @@
+diff --git a/scripts/.common.sh.un~ b/scripts/.common.sh.un~
+new file mode 100755
+index 0000000000000000000000000000000000000000..db54ac7d6714b93fc33c75e12db73d6bbd5190e5
+GIT binary patch
+literal 10895
+zcmeI2y-yTD7{+%FP*D*PQ4$GUj8QBoskAUrV>F5%iL`panGn9rd7v#;#=pVD#>!Zk
+zXssspCI&Ue4^WAPg3&|^8+@LZdD&NTT=sS;XOg{{ot>K<p5H#Z@5^5Q@Yvmp<HsiE
+zqulL<_QGPr@uMeRHXYgD_pQ0{`Q>N#$}<mc-MRVb=Y=OOigM?pC_0?aUoDmkqr>Bq
+zH+lvphewC<J%jl|X{@JQn!Hvn4)t6aE{$C;lqz%;qsV>29NpM3U(}9`g|%)`VXkew
+zo=5AWOD}j7CAVD3Cl0yqXmxUL2}P!oL*Zln6)4O_4+TdQ{RSgS?|y*DDV&Owa{2s9
+z{~~rzatXcDf{w@QxbF)vx&_?{=v0YxwS(GPVpY-8k4+2%bdOh~Q~6gM<xz3JUZ+D1
+zZ0@b@2UMy=y4vEg?f+0cwWuJy`%uAU?0>h)Wpr4BSr{<7_qrd@sS@dGQBoc?URB=~
+zbkc^)W-K~L?>++2X`WDSjqD*z>G6J}*EX0X0U*aL8#h2R%A{x}g7(TngY<3|>Yw4+
+z1R8sYQF=Tyx@;py_yT|&6QHReS?Wa4UR!98-pxV%KAu*fv1e9$JT$s&6G!+0fE*K`
+zsUTVE+Mz*u<^Z{~Jgq=u4>3xQhenq*a)d7c$T0z$3X-Kx1nrG=8l-ohq5e6ZR-mzm
+z7^TNUqsum%g#n;E)7sb<o@qvz6wO#kuWF~CWD2#k5r`~WXc~wxYj@bXDrW8j6BFgp
+ziNa8^<SEj2Td-*XQF+J(imFJ4IuXTRmZC-`HBzJxx0;25XrO5H$kY@i_bg8ltBQSk
+zQG5a~{;5W>qoNlFM~bEK;;1(wP1v-268Qv930#5^jVNiGqNKlt#;RgAi}0^SsL^JP
+zMx+V1nN@<QL^6S*5hZO?lvIk04@Fhfmg177I1Bk1x70|HK5WLO1w`dP*@2=elA#tQ
+zl_KC&qUaigqKl(X#-lY-qz|{7g@UM@o9`n+fNF$E(@aFM#d^_Z6%0_jD?St}yhmEe
+zK=c~O;oAq3ej9J0R^Cw1(=FWh1y=_Xoseg$AX(}}S43;ID<ad&MjuAe@H@<(0o<}M
+z=?Yn?Q6@!mO~n0}OdgJfIoDAQal)*WCT%qf1kpgz=#i<Jh+=0oiu%TvM%!uD0%S6I
+zh?9&cX`6{Kb*+U-5z$4v%o2c09(jBMhakuZlcp(3YADM<LK6~uKiq2(VUU~mp{ydJ
+zgLa!Q16R1&rNL3@JF${hRg5GeDR^WZ5JYuxw!yT7MO@+|3%W>u!o*`hCX<JBf@)+e
+zv65cZLw>?3)Y8Te#YU`?G@a0-a6N)Yy3iK>0*aSHKx|b>*^ZU0f_O|2*T+uOoUf*g
+z(L2_LCUh_E&T_|=KOp1+DLMMD#fh_5m039pZ>-YBjdh=OES%)N$Pj$=PJg}s4|`Hb
+Ao&W#<
+
+literal 0
+HcmV?d00001
+
+diff --git a/scripts/common.sh b/scripts/common.sh
+index 72d2256..3ed71cd 100755
+--- a/scripts/common.sh
++++ b/scripts/common.sh
+@@ -63,6 +63,7 @@ META_AVNET_BRANCH="2020.2"
+ 
+ PAUSE_DELAY=5
+ BUILD_FROM_TAG="true"
++
+ TOOL_VER=$(echo $PETALINUX_VER | sed 's/\./p/g')
+ TAG_STAMP=$(cat ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt)
+ TAG_STRING=${TOOL_VER}_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${TAG_STAMP}
+@@ -130,7 +131,7 @@ check_git_tag()
+     else
+       echo -e "\nReported hdl tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
+       echo -e "\nThis does not match requested ${TAG_STRING}.  Exiting now.\n"
+-      exit
++      exit 1
+     fi
+       
+     # Verify the petalinux repository is checked out with the correct ${TAG_STRING} tag
+@@ -142,7 +143,7 @@ check_git_tag()
+     else
+       echo -e "\nReported petalinux tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
+       echo -e "\nThis does not match ${TAG_STRING}.  Exiting now.\n"
+-      exit
++      exit 1
+     fi
+   fi
+ }
+@@ -163,16 +164,16 @@ reset_git_branch()
+   fi
+ }
+ 
+-build_hw_platform ()
++create_hw_platform ()
+ {
+-  echo -e "\nChecking '${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}' Vivado Project ...\n"
++    # Change to HDL scripts folder.
++    cd ${HDL_SCRIPTS_FOLDER}
+ 
+-  # Check to see if the Vivado hardware project has not been built.
+-  # If it hasn't then build it now.
+-  # If it has then fall through and build the PetaLinux BSP
+-  if [ ! -e ${HDL_PROJECTS_FOLDER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.xsa ]
+-  then
+-    echo -e "\nNo built Vivado HW project ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER} found."
++    vivado -mode batch -source make_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.tcl -notrace -nolog -nojournal -tclargs create ${HDL_BOARD_NAME} ${HDL_PROJECT_NAME} 
++}
++
++build_hw_platform ()
++{
+     echo -e "Will build the hardware platform now.\n"
+ 
+     # DEBUG
+@@ -186,20 +187,7 @@ build_hw_platform ()
+     # Change to HDL scripts folder.
+     cd ${HDL_SCRIPTS_FOLDER}
+ 
+-    vivado -mode batch -source make_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.tcl -notrace -tclargs ${HDL_BOARD_NAME} ${HDL_PROJECT_NAME} -nolog -nojournal
+-
+-  else
+-    echo -e "\nFound Vivado HW project ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}."
+-    echo -e "Will build the PetaLinux BSP now.\n"
+-
+-    # DEBUG
+-    if [ "$DEBUG" == "yes" ];
+-    then
+-      echo ""
+-      read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds"
+-      echo ""
+-    fi
+-  fi
++    vivado -mode batch -source make_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.tcl -notrace -nolog -nojournal -tclargs build $1 ${HDL_BOARD_NAME} ${HDL_PROJECT_NAME} 
+ }
+ 
+ configure_cache_path ()
+@@ -285,6 +273,11 @@ create_petalinux_project ()
+ 
+   # Create the hardware definition folder.
+   mkdir -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform
++}
++
++configure_petalinux_project()
++{
++  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
+ 
+   # Import the hardware definition files and hardware platform bitstream from
+   # implemented system products folder.
+@@ -307,10 +300,7 @@ create_petalinux_project ()
+ 
+   # Import the hardware description into the PetaLinux project.
+   petalinux-config --silentconfig --get-hw-description=./hw_platform/ -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
+-}
+ 
+-configure_petalinux_project()
+-{
+   if [ -f ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ]
+   then
+     echo -e "\nPatching PetaLinux project config ...\n"
+@@ -325,8 +315,10 @@ configure_petalinux_project()
+   then
+     # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
+     # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
+-    echo -e "\nClone meta-avnet layer and checkout git tag ${TAG_STRING}\n"
+-    git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++    echo -e "\nFetch meta-avnet folder\n"
++    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++	rm -rf ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
++	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
+   else
+     # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
+     echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
+@@ -338,6 +330,33 @@ configure_petalinux_project()
+     echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
+     git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
+   fi
++  ## If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
++  #if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
++  #then
++  #  # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
++  #  # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
++  #  echo -e "\nClone meta-avnet layer and checkout git tag ${TAG_STRING}\n"
++  #  git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++  #else
++  #  # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
++  #  echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
++  #  echo -e "\n***WARNING:  This may result in build mismatch!***\n"
++  #  echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
++
++  #  read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
++
++  #  echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
++  #  git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
++  #fi
++
++  # Add meta-xrt from PYNQ
++  cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../PYNQ/sdbuild/boot/meta-pynq/recipes-xrt ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/recipes-xrt
++
++	echo 'CONFIG_xrt=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_xrt-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_zocl=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_opencl-headers-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
++	echo 'CONFIG_opencl-clhpp-dev=y' >> ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/configs/rootfs_config
+ 
+   if [ "$KEEP_CACHE" = "true" ]
+   then
+@@ -352,8 +371,100 @@ configure_petalinux_project()
+   petalinux-config --silentconfig
+ }
+ 
++#create_petalinux_project ()
++#{
++#  # This function is responsible for creating a PetaLinux project import
++#  # hardware platform specified in HDL_PROJECT_NAME variable
++#  #
++#  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++#
++#  echo -e "\nCreating '$PETALINUX_PROJECT_NAME' Petalinux project ...\n"
++#
++#  # Create the PetaLinux projects folder.
++#  mkdir -p ${PETALINUX_PROJECTS_FOLDER}
++#
++#  # Change to PetaLinux projects folder.
++#  cd ${PETALINUX_PROJECTS_FOLDER}
++#
++#  # Create the PetaLinux project.
++#  petalinux-create --type project --template ${SOC} --name ${PETALINUX_PROJECT_NAME} --force
++#
++#  # Create the hardware definition folder.
++#  mkdir -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform
++#
++#  # If tag_stamp.txt file exists and if $BUILD_FROM_TAG is true
++#  if [ -f ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt ] && [ "${BUILD_FROM_TAG}" = "true" ]
++#  then
++#    # Then clone meta-avnet and checkout git tag ${TAG_STRING} and if that fails 
++#    # (tag_stamp.txt file may be empty or may not match available git tags) clone meta-avnet master branch
++#    echo -e "\nFetch meta-avnet folder\n"
++#    #git clone -b ${TAG_STRING} ${META_AVNET_URL} project-spec/meta-avnet 
++#	cp -r ${PETALINUX_SCRIPTS_FOLDER}/../../meta-avnet ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/project-spec/meta-avnet
++#  else
++#    # No tag_stamp.txt file found or BUILD_FROM_TAG is set to "false"
++#    echo -e "\nTag ${TOOL_VER}_${PETALINUX_BOARD_NAME}_${TAG_STAMP} not found.  Cloning ${META_AVNET_BRANCH} branch instead.\n"
++#    echo -e "\n***WARNING:  This may result in build mismatch!***\n"
++#    echo -e "\nStop (<ctrl>-c) in the next ${PAUSE_DELAY} seconds if this is not OK. \n"
++#
++#    read -t ${PAUSE_DELAY} -p "Pause here for ${PAUSE_DELAY} seconds" || :
++#
++#    echo -e "\nClone meta-avnet layer and checkout ${META_AVNET_BRANCH} branch\n"
++#    git clone -b ${META_AVNET_BRANCH} ${META_AVNET_URL} project-spec/meta-avnet
++#  fi
++#}
++#
++#configure_petalinux_project()
++#{
++#  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++#  # Import the hardware definition files and hardware platform bitstream from
++#  # implemented system products folder.
++#  cd ${HDL_PROJECTS_FOLDER}
++#
++#  echo -e "\nImporting hardware definition ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.xsa from HDL project folder ...\n"
++#
++#  cp -f ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.xsa \
++#  ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform/.
++#
++#  echo -e "\nImporting hardware bitstream ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_wrapper.bit from HDL project folder...\n"
++#
++#  cp -f ${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${PLNX_VER}/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}.runs/impl_1/${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_wrapper.bit \
++#  ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}/hw_platform/system_wrapper.bit
++#
++#  # Change directories to the hardware definition folder for the PetaLinux
++#  # project, at this point the .hdf file must be located in this folder
++#  # for the petalinux-config step to be successful.
++#  cd ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
++#
++#  # Import the hardware description into the PetaLinux project.
++#  petalinux-config --silentconfig --get-hw-description=./hw_platform/ -p ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
++#
++#  if [ -f ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ]
++#  then
++#    echo -e "\nPatching PetaLinux project config ...\n"
++#    bash ${PETALINUX_CONFIGS_FOLDER}/project/config.board.${PETALINUX_BOARD_NAME}.sh ${PETALINUX_BOARD_PROJECT} ${PETALINUX_PROJECT_NAME}
++#  else
++#    echo -e "\nWARNING: No board specific PetaLinux project configuration files found, \n"
++#    echo -e "PetaLinux project config is not touched for this build ...\n"
++#  fi
++#
++#  if [ "$KEEP_CACHE" = "true" ]
++#  then
++#    configure_cache_path
++#  fi
++#
++#  if [ "$KEEP_WORK" = "true" ]
++#  then
++#    do_not_rm_work
++#  fi
++#
++#  petalinux-config --silentconfig
++#}
++
+ configure_boot_method ()
+ {
++  PETALINUX_PROJECT_NAME=${PETALINUX_PROJECT_ROOT_NAME}_${PLNX_VER}
++
++  cd ${PETALINUX_PROJECTS_FOLDER}/${PETALINUX_PROJECT_NAME}
+ 
+   # Change PetaLinux project config to change the boot method
+   echo -e "\nModifying project config for ${BOOT_METHOD} boot support...\n"
+@@ -371,6 +482,14 @@ build_bsp ()
+   # Sometimes the build fails because of fetch or setscene issues, so we try another time
+   petalinux-build -c ${PETALINUX_BUILD_IMAGE} || petalinux-build -c ${PETALINUX_BUILD_IMAGE}
+ 
++  ## Additional components build
++  petalinux-build -c bootloader
++  petalinux-build -c u-boot
++  petalinux-build -c kernel
++  petalinux-build -c device-tree
++  petalinux-build -c pmufw
++  petalinux-build -c arm-trusted-firmware
++
+   if [ "$NO_BIT_OPTION" = "yes" ]
+   then
+     # Create boot image which does not contain the bistream image.
+diff --git a/scripts/make_u96v2_sbc_mp4d.sh b/scripts/make_u96v2_sbc_mp4d.sh
+new file mode 100755
+index 0000000..e17c896
+--- /dev/null
++++ b/scripts/make_u96v2_sbc_mp4d.sh
+@@ -0,0 +1,165 @@
++# ----------------------------------------------------------------------------
++#
++#        ** **        **          **  ****      **  **********  ********** ®
++#       **   **        **        **   ** **     **  **              **
++#      **     **        **      **    **  **    **  **              **
++#     **       **        **    **     **   **   **  *********       **
++#    **         **        **  **      **    **  **  **              **
++#   **           **        ****       **     ** **  **              **
++#  **  .........  **        **        **      ****  **********      **
++#     ...........
++#                                     Reach Further™
++#
++# ----------------------------------------------------------------------------
++#
++#  This design is the property of Avnet.  Publication of this
++#  design is not authorized without written consent from Avnet.
++#
++#  Please direct any questions to the Ultra96 community support forum:
++#     http://avnet.me/Ultra96_Forum
++#
++#  Product information is available at:
++#     http://avnet.me/ultra96-v2
++#
++#  Disclaimer:
++#     Avnet, Inc. makes no warranty for the use of this code or design.
++#     This code is provided  "As Is". Avnet, Inc assumes no responsibility for
++#     any errors, which may appear in this code, nor does it make a commitment
++#     to update the information contained herein. Avnet, Inc specifically
++#     disclaims any implied warranties of fitness for a particular purpose.
++#                      Copyright(c) 2021 Avnet, Inc.
++#                              All rights reserved.
++#
++# ----------------------------------------------------------------------------
++#
++#  Create Date:         Aug 03, 2020
++#  Design Name:         Ultra96v2 Base BSP
++#  Module Name:         make_u96v2_sbc_base.sh
++#  Project Name:        Ultra96v2 Base BSP
++#  Target Devices:      Xilinx Zynq UltraScale+ 3EG
++#  Hardware Boards:     Ultra96v2 Board
++#
++# ----------------------------------------------------------------------------
++#  Modified by Frederik Nyboe, DIII, Nov 30, 2021
++# ----------------------------------------------------------------------------
++
++#!/bin/bash
++
++# Stop the script whenever we had an error (non-zero returning function)
++set -e
++
++# MAIN_SCRIPT_FOLDER is the folder where this current script is
++MAIN_SCRIPT_FOLDER=$(realpath $0 | xargs dirname)
++
++FSBL_PROJECT_NAME=zynqmp_fsbl
++
++HDL_PROJECT_NAME=mp4d
++HDL_BOARD_NAME=u96v2_sbc
++
++ARCH="aarch64"
++SOC="zynqMP"
++
++PETALINUX_BOARD_FAMILY=u96v2
++PETALINUX_BOARD_NAME=${HDL_BOARD_NAME}
++PETALINUX_BOARD_PROJECT=${HDL_PROJECT_NAME}
++PETALINUX_PROJECT_ROOT_NAME=${PETALINUX_BOARD_NAME}_${PETALINUX_BOARD_PROJECT}
++
++PETALINUX_BUILD_IMAGE=avnet-image-full
++
++KEEP_CACHE="true"
++KEEP_WORK="true"
++DEBUG="no"
++
++#NO_BIT_OPTION can be set to 'yes' to generate a BOOT.BIN without bitstream
++NO_BIT_OPTION='no'
++
++source ${MAIN_SCRIPT_FOLDER}/common.sh
++
++# Get some args:
++VIVADO_CREATE="false"
++VIVADO_BUILD="false"
++VIVADO_JOBS=
++PETALINUX_CREATE="false"
++PETALINUX_CONFIGURE="false"
++PETALINUX_BUILD="false"
++
++while [[ $# -gt 0 ]]; do
++  key="$1"
++
++	case $key in
++    	--vivado-create)
++			VIVADO_CREATE="true"
++      		shift # past value
++      		;;
++    	--vivado-build)
++			VIVADO_BUILD="true"
++      		shift # past value
++      		;;
++    	--vivado-jobs)
++			VIVADO_JOBS=$2
++      		shift # past value
++			shift # past argument
++      		;;
++    	--petalinux-create)
++			PETALINUX_CREATE="true"
++      		shift # past value
++      		;;
++    	--petalinux-configure)
++			PETALINUX_CONFIGURE="true"
++      		shift # past value
++      		;;
++    	--petalinux-build)
++			PETALINUX_BUILD="true"
++      		shift # past value
++      		;;
++		*)
++			echo Unknown option $1 
++			echo
++			exit 1
++			;;
++	esac
++done
++
++# Continue work
++
++verify_repositories
++verify_environment
++check_git_tag
++
++if [ $VIVADO_CREATE = "true" ]
++then
++	create_hw_platform
++fi
++
++if [ $VIVADO_BUILD = "true" ] 
++then 
++	build_hw_platform $VIVADO_JOBS
++fi
++
++if [ $PETALINUX_CREATE = "true" ]
++then
++	create_petalinux_project
++fi
++
++if [ $PETALINUX_CONFIGURE = "true" ]
++then
++	configure_petalinux_project
++fi
++
++if [ $PETALINUX_BUILD = "true" ]
++then
++	BOOT_METHOD='EXT4'
++	unset BOOT_SUFFIX
++	unset INITRAMFS_IMAGE
++	configure_boot_method
++
++	build_bsp
++fi
++
++#BOOT_METHOD='INITRD'
++#BOOT_SUFFIX='_MINIMAL'
++#INITRAMFS_IMAGE="avnet-image-minimal"
++#configure_boot_method
++#build_bsp
++
++#package_bsp
+diff --git a/scripts/tag_stamp.txt b/scripts/tag_stamp.txt
+index e83abb4..612e50c 100644
+--- a/scripts/tag_stamp.txt
++++ b/scripts/tag_stamp.txt
+@@ -1 +1 @@
+-20210426_105325
++20211202_104300
