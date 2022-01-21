@@ -80,9 +80,9 @@ commit_vivado ()
 			else
 				rm -f $REPOSITORY_DIR/src/$f
 			fi
-		else
-			cp_srcs="$cp_srcs $f"
 		fi
+
+		cp_srcs="$cp_srcs $f"
 	done
 
     # Changes to HDL sources
