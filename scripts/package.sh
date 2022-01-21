@@ -29,7 +29,7 @@ Help()
 	echo "			Takes precedence over MOUNT_DIR if specified. Defaults to /media/$USER/BOOT"
 	echo "--rootfs-dir ROOTFS_DIR	ROOTFS_DIR specifies the full rootfs partition mount point path. "
 	echo "			Takes precedence over MOUNT_DIR if specified. Defaults to /media/$USER/rootfs"
-	#echo "-I, --image		create the full image"
+	echo "-I, --image		create the full image"
 	echo "-f, --force		overwrite existing work without prompting"
 	echo
 	echo "-h, --help		show this message"
@@ -159,12 +159,12 @@ package_rootfs ()
 	echo Successfully packaged rootfs
 }
 
-## Create image
-#create_image() 
-#{
-#	echo "Create image is not implemented :-("
-#	echo
-#}
+# Create image
+create_image() 
+{
+	echo "Create image has not been implemented yet :-("
+	echo
+}
 
 ##########################################################
 # Main
@@ -173,7 +173,7 @@ package_rootfs ()
 PACKAGE_ALL="false"
 PACKAGE_BOOT="false"
 PACKAGE_ROOTFS="false"
-PACKAGE_KERNEL_MODULES="false"
+CREATE_IMAGE="false"
 MOUNT_DIR=/media/$USER
 BOOT_DIR=
 ROOTFS_DIR=
@@ -227,15 +227,11 @@ while [[ $# -gt 0 ]]; do
 	esac
 done
 
-if [ $PACKAGE_BOOT = "false" ] && [ $PACKAGE_ROOTFS = "false" ] && [ $PACKAGE_KERNEL_MODULES = "false" ] || [ $PACKAGE_ALL = "true" ]
+if [ $PACKAGE_BOOT = "false" ] && [ $PACKAGE_ROOTFS = "false" ] && [ $CREATE_IMAGE = "false" ] || [ $PACKAGE_ALL = "true" ]
 then
 	PACKAGE_BOOT="true"
 	PACKAGE_ROOTFS="true"
-fi
-
-if [ $PACKAGE_ROOTFS = "true" ] && [ $PACKAGE_KERNEL_MODULES = "true" ]
-then
-	PACKAGE_KERNEL_MODULES="false"
+	#CREATE_IMAGE="true"
 fi
 
 if [ -z "$BOOT_DIR" ]
@@ -259,9 +255,9 @@ then
 	package_rootfs
 fi
 
-if [ $PACKAGE_KERNEL_MODULES = "true" ]
+if [ $CREATE_IMAGE = "true" ]
 then
-	package_kernel_modules
+	create_image
 fi
 
 echo Finished packaging
