@@ -32,7 +32,7 @@ As we are building OS's, a lot of the manipulated files will be owned by the roo
 ```bash
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 ```
-Log in again for the changes to take effect. A suggestion could also be to get some familiarity with the tools before doing this, or run everything in a virtual machine, if you don't trust the scripts. At least it doesn't break my machine, but we take no responsibility. 🦖
+A suggestion could also be to get some familiarity with the tools before doing this, or run everything in a virtual machine, if you don't trust the scripts. At least it doesn't break my machine, but we take no responsibility. 🦖
 
 ## Table of contents
 
