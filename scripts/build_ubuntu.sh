@@ -172,6 +172,9 @@ if [ $UPDATE_KERNEL = "false" ]; then
 
 	sudo rm -rf $UBUNTU_ROOTFS_DIR/mp4d_settings
 	cd $TARGET_DIR
+	
+	# Workaround for sudo
+    	sudo chown root:root $UBUNTU_ROOTFS_DIR/usr/bin/sudo && chmod 4755 $UBUNTU_ROOTFS_DIR/usr/bin/sudo
 
 	# Finished
 
