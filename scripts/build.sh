@@ -137,6 +137,10 @@ configure_petalinux ()
 	# Run Avnet scripts
 	$REPOSITORY_DIR/petalinux/scripts/make_${BOARD}_${PROJECT}.sh --petalinux-configure
 
+    # Import system-user.dtsi
+    rm -f $PETALINUX_PROJECT_DIR/project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+    cp -f $REPOSITORY_DIR/src/system-user.dtsi $PETALINUX_PROJECT_DIR/project-spec/meta-user/recipes-bsp/device-tree/files/system-user.dtsi
+
 	# Done
 	if [ $? -ne 0 ]
 	then

@@ -10,12 +10,12 @@
 .Xil
 vivado*.str
 
-./petalinux/
-./hdl/
-./bdf/
-./meta-avnet/
-./target/
-./PYNQ/
+/petalinux/
+/hdl/
+/bdf/
+/meta-avnet/
+/target/
+/PYNQ/
 
 .git_setup
 .vivado_setup
