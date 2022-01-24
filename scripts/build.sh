@@ -298,7 +298,7 @@ build_ubuntu ()
 		exit 1
 	fi
 
-	UPDATE_KERNEL=
+	UPDATE_KERNEL="-"
 
 	# Check if has already been built
 	if [ -e $REPOSITORY_DIR/.ubuntu_built ]

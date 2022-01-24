@@ -14,3 +14,4 @@ cpio
 apt-utils 
 libc6-armhf-cross
 libsysfs-dev
+kmod
