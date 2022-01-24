@@ -174,7 +174,7 @@ if [ $UPDATE_KERNEL = "false" ]; then
 	cd $TARGET_DIR
 	
 	# Workaround for sudo
-    	sudo chown root:root $UBUNTU_ROOTFS_DIR/usr/bin/sudo && chmod 4755 $UBUNTU_ROOTFS_DIR/usr/bin/sudo
+    	sudo chown root:root $UBUNTU_ROOTFS_DIR/usr/bin/sudo && sudo chmod 4755 $UBUNTU_ROOTFS_DIR/usr/bin/sudo
 
 	# Finished
 
