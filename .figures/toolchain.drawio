@@ -1,1 +1,115 @@
-<mxfile host="app.diagrams.net" modified="2022-01-27T09:33:54.952Z" agent="5.0 (X11)" version="16.4.7" etag="ruYAOnsC4E4AVg7HyOQf" type="github"><diagram id="DBENo5YtDbYjwAVl-Cwq">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-01-27T10:49:39.065Z" agent="5.0 (X11)" etag="SCpMelXLf0YtC5sliThe" version="16.4.7" type="github">
+  <diagram id="DBENo5YtDbYjwAVl-Cwq" name="Page-1">
+    <mxGraphModel dx="1422" dy="793" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-28" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="190" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-26" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="190" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-25" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="190" width="340" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-1" value="&lt;div style=&quot;font-size: 14px&quot;&gt;&lt;font style=&quot;font-size: 14px&quot;&gt;MPSoC4Drones Build Scripts&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="200" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-2" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Patched Avnet Build Scripts&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="270" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-3" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Xilinx &lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;Vivado&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="160" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-4" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="fHIxv8XUNMr_YjeUw-Ng-2" target="fHIxv8XUNMr_YjeUw-Ng-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="260" y="520" as="sourcePoint" />
+            <mxPoint x="310" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="200" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-5" value="Xilinx PetaLinux" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="280" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-7" value="MPSoC4Drones Ubuntu Build Scripts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="370" y="270" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-8" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="fHIxv8XUNMr_YjeUw-Ng-1" target="fHIxv8XUNMr_YjeUw-Ng-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="60" y="300" as="sourcePoint" />
+            <mxPoint x="110" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="260" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-9" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;MPSoC4Drones Build Scripts&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="560" y="200" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-10" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Patched Avnet Build Scripts&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="560" y="270" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-11" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Xilinx &lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;Vivado&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="560" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-12" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" source="fHIxv8XUNMr_YjeUw-Ng-10" target="fHIxv8XUNMr_YjeUw-Ng-13" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="660" y="520" as="sourcePoint" />
+            <mxPoint x="710" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="720" y="320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-13" value="Xilinx PetaLinux" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="680" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-14" value="MPSoC4Drones Ubuntu Build Scripts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="770" y="270" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-15" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" source="fHIxv8XUNMr_YjeUw-Ng-9" target="fHIxv8XUNMr_YjeUw-Ng-10" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="300" as="sourcePoint" />
+            <mxPoint x="510" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="660" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-16" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;MPSoC4Drones Build Scripts&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="960" y="200" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-17" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Patched Avnet Build Scripts&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="960" y="270" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-18" value="&lt;div style=&quot;font-size: 14px;&quot;&gt;Xilinx &lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 14px;&quot;&gt;Vivado&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="960" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-20" value="Xilinx PetaLinux" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="340" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-21" value="MPSoC4Drones Ubuntu Build Scripts" style="rounded=1;whiteSpace=wrap;html=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="270" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-22" value="" style="curved=1;endArrow=classic;html=1;rounded=0;" edge="1" source="fHIxv8XUNMr_YjeUw-Ng-16" target="fHIxv8XUNMr_YjeUw-Ng-21" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="860" y="300" as="sourcePoint" />
+            <mxPoint x="910" y="250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1220" y="250" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-23" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="285" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fHIxv8XUNMr_YjeUw-Ng-29" value="" style="shape=singleArrow;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="285" width="40" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
