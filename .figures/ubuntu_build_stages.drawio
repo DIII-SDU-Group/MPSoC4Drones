@@ -1,1 +1,22 @@
-<mxfile host="app.diagrams.net" modified="2022-01-27T10:56:31.879Z" agent="5.0 (X11)" version="16.4.7" etag="XMh_o9ImwZEbhDAWIfby" type="github"><diagram id="0SNQZQu3KKmyIqHAQL3a">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-01-27T11:03:19.020Z" agent="5.0 (X11)" etag="KTmb3kaMU5TuSH8OK85P" version="16.4.7" type="github">
+  <diagram id="0SNQZQu3KKmyIqHAQL3a" name="Page-1">
+    <mxGraphModel dx="1185" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0bNIMNib5GJZe4HeItKy-1" value="&lt;div&gt;&lt;b&gt;Stage 1&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Essential packages from binary&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0bNIMNib5GJZe4HeItKy-2" value="&lt;div&gt;&lt;b&gt;Stage 2&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Essential packages from source&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0bNIMNib5GJZe4HeItKy-3" value="&lt;div&gt;&lt;b&gt;Stage 3&lt;/b&gt;&lt;/div&gt;&lt;div&gt;User setup,&amp;nbsp; additional packages&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0bNIMNib5GJZe4HeItKy-4" value="&lt;div&gt;&lt;b&gt;Stage 4&lt;/b&gt;&lt;/div&gt;&lt;div&gt;ROS2 installation, ROS2 packages&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
