@@ -174,7 +174,7 @@ When prompted for a login, supply `mp4d` as both login and password.
 Before constructing a custom ROS2 system, build the PX4 Fast-RTPS ROS2 nodes. This only needs to be done once, and is done as follows:
 
 ```bash
-export MAKEFLAGS= "-j 3"
+export MAKEFLAGS="-j 3"
 source ~/ros2_ws/src/px4_ros_com/scripts/build_ros2_workspace.bash
 ```
 
