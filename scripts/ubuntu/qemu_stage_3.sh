@@ -33,6 +33,12 @@ echo "wilc-sdio" > /etc/modules-load.d/wilc-sdio.conf
 # dialout
 adduser $UBUNTU_USER dialout
 
+# Add UIO functionality
+groupadd uio
+adduser $UBUNTU_USER uio
+usermod -a -G uio $UBUNTU_USER
+echo SUBSYSTEMS==\"uio\", GROUP=\"uio\", MODE=\"0660\" > /etc/udev/rules.d/70-uio.rules
+
 # sudo
 chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
 
