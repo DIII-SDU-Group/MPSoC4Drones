@@ -348,7 +348,7 @@ Changing the Ubuntu host name, user name, or user and root password is done by c
 1. Change the relevant variables in the file `scripts/settings.sh`.
 2. Enter the MPSoC4Drones toolchain from _build step 4_.
 ### Activating USB ACM connection
-When using FTDI chip which for example is used in the serial communication with Pixhawk or Dynamixel motors, one needs to activate its driver from the PetaLinux device driver configuration part. First, enter your PetaLinux project, Second, reconfigure the project by `petalinux-config -c kernel` and enable USB Modem (CDC ACM) support. Then rebuild the project `petalinux-build`. It shall look like this:
+When using FTDI chip which for example is used in the serial communication with Pixhawk or Dynamixel motors, one needs to activate its driver from the PetaLinux device driver configuration part. First, enter your PetaLinux project, Second, reconfigure the project by `petalinux-config -c kernel` and enable USB Modem (CDC ACM) support. Then rebuild the project `mp4d-build --petalinux-config -P`. It shall look like this:
 ![ACM enable image](.figures/ACM.png)
 ## Acknowledgements
 Everything in this repository is heavily based on the work of others, especially the guys from [Avnet](https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/ultra96-v2/). Additionally, it is a work in progress, so bugs due to different OS or tool versions may arise. We work continuously to upgrade the system to the latest available tools. Please raise an issue if you experience any bugs that are not already reported.
