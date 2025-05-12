@@ -17,11 +17,11 @@ curl -sSL $(cat /mp4d_settings/ros_distro_key_url) -o /usr/share/keyrings/ros-ar
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] $(cat /mp4d_settings/ros2_package_url) $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# Install ROS2 Foxy
+# Install ROS2 HUMBLE
 sudo apt update
-sudo apt install -y ros-foxy-ros-base
+sudo apt install -y ros-humble-ros-base
 
-echo "source /opt/ros/foxy/setup.bash" >> /home/$UBUNTU_USER/.bashrc
+echo "source /opt/ros/humble/setup.bash" >> /home/$UBUNTU_USER/.bashrc
 
 su - $UBUNTU_USER -c "mkdir -p ~/ros2_ws/src"
 
@@ -32,7 +32,7 @@ su - $UBUNTU_USER -c "cd ~/ros2_ws/ && git clone https://github.com/ros-tooling/
 su - $UBUNTU_USER -c "mkdir -p ~/ros2_ws/src"
 
 # Install PX4 dependencies
-apt install -y python3-colcon-common-extensions ros-foxy-eigen3-cmake-module 
+apt install -y python3-colcon-common-extensions ros-humble-eigen3-cmake-module 
 pip3 install -U empy pyros-genmsg setuptools
 
 # Install Fast-RTPS-Gen

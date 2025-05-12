@@ -89,14 +89,15 @@ setup_git()
 	git apply --reject $PATCHES_DIR/hdl_repo24.patch
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
-	git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+	git checkout $AVNET_REPO_TAG 
 
 	cd $REPOSITORY_DIR/petalinux
 	git checkout $AVNET_REPO_TAG
 	git apply --reject $PATCHES_DIR/petalinux_repo24.patch
+    git apply --reject $PATCHES_DIR/petalinux_repo24_tag.patch # Unable to combine into one patch at the time
 	git add -A && git commit -m "MPSoC4Drones"
 	git tag -f $DIII_REPO_TAG HEAD
-	git checkout $AVNET_REPO_TAG && git checkout $DIII_REPO_TAG
+	git checkout $AVNET_REPO_TAG 
 
 	cd $REPOSITORY_DIR/meta-avnet
 	git checkout $AVNET_REPO_TAG
@@ -107,7 +108,7 @@ setup_git()
 
 	cd $REPOSITORY_DIR/PYNQ
 	git checkout $PYNQ_TAG
-	# git apply --reject $PATCHES_DIR/PYNQ_repo.patch 
+	git apply --reject $PATCHES_DIR/PYNQ_repo24.patch 
 	# git add -A && git commit -m "MPSoC4Drones"
 	# git tag -f $DIII_REPO_TAG HEAD
 	# git checkout $PYNQ_TAG && git checkout $DIII_REPO_TAG

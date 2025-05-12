@@ -1,0 +1,60 @@
+From 2623d9d8fae00bae9075cef51d4e452dfd821c92 Mon Sep 17 00:00:00 2001
+From: Tobi Adetula <oluwatobi.adetula1@gmail.com>
+Date: Wed, 9 Apr 2025 10:46:33 +0200
+Subject: [PATCH] set build from tag to true and tag to petalinux version
+
+---
+ scripts/common.sh | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+
+diff --git a/scripts/common.sh b/scripts/common.sh
+index 3921ce5..1f04426 100755
+--- a/scripts/common.sh
++++ b/scripts/common.sh
+@@ -59,10 +59,12 @@ META_AVNET_URL="https://github.com/Avnet/meta-avnet.git"
+ META_AVNET_BRANCH="2024.1"
+ 
+ PAUSE_DELAY=5
+-BUILD_FROM_TAG="false"
++BUILD_FROM_TAG="true"
+ TOOL_VER=$(echo $PETALINUX_VER | sed 's/\./p/g')
+-TAG_STAMP=$(cat ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt)
+-TAG_STRING=${TOOL_VER}_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${TAG_STAMP}
++# TAG_STAMP=$(cat ${PETALINUX_SCRIPTS_FOLDER}/tag_stamp.txt)
++# TAG_STRING=${TOOL_VER}_${HDL_BOARD_NAME}_${HDL_PROJECT_NAME}_${TAG_STAMP}
++TAG_STAMP=${PETALINUX_VER}
++TAG_STRING=${PETALINUX_VER}
+ 
+ source $MAIN_SCRIPT_FOLDER/build_common.sh
+ 
+@@ -91,11 +93,11 @@ check_git_tag()
+     # Verify the hdl repository is checked out with the correct ${TAG_STRING} tag
+     cd ${HDL_FOLDER}
+     echo -e "\nVerifying the hdl repository is checked out with the correct ${TAG_STRING} tag.\n"
+-    if [ ${TAG_STRING} = $(git status head | head -n1 | cut -d ' ' -f4) ]
++    if [ ${TAG_STRING} = $(git status head | head -n1 | cut -d ' ' -f3) ]
+     then
+       echo -e "\nReported hdl tag matches ${TAG_STRING}.  Check petalinux tag next...\n"
+     else
+-      echo -e "\nReported hdl tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
++      echo -e "\nReported hdl tag is $(git status head | head -n1 | cut -d ' ' -f3).\n"
+       echo -e "\nThis does not match requested ${TAG_STRING}.  Exiting now.\n"
+       exit
+     fi
+@@ -103,11 +105,11 @@ check_git_tag()
+     # Verify the petalinux repository is checked out with the correct ${TAG_STRING} tag
+     cd ${PETALINUX_FOLDER}
+     echo -e "\nVerifying the petalinux repository is checked out with the correct ${TAG_STRING} tag.\n"
+-    if [ ${TAG_STRING} = $(git status head | head -n1 | cut -d ' ' -f4) ]
++    if [ ${TAG_STRING} = $(git status head | head -n1 | cut -d ' ' -f3) ]
+     then
+       echo -e "\nReported petalinux tag matches ${TAG_STRING}.  Build will continue...\n"
+     else
+-      echo -e "\nReported petalinux tag is $(git status head | head -n1 | cut -d ' ' -f4).\n"
++      echo -e "\nReported petalinux tag is $(git status head | head -n1 | cut -d ' ' -f3).\n"
+       echo -e "\nThis does not match ${TAG_STRING}.  Exiting now.\n"
+       exit
+     fi
+-- 
+2.43.0
+

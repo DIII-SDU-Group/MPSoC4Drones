@@ -7,26 +7,60 @@
 [[ $0 != $BASH_SOURCE ]] && SCRIPTS_DIR=$(realpath $PWD/$BASH_SOURCE | xargs dirname) || SCRIPTS_DIR=$(realpath $0 | xargs dirname)
 source $SCRIPTS_DIR/settings.sh >> /dev/null
 
+
+# Redefine BOARD and LINUX_VERSION
+BOARD="u96v2_sbc_base_xczu3eg"
+LINUX_VERSION="6.6.10-xilinx-v2024.1-g2a9895f4630b"
+
 ##########################################################
 # Ctrl+c trap:
 trap unmount_qemu INT
 
 function unmount_qemu() {
-	sudo umount -fl $UBUNTU_ROOTFS_DIR/dev 2> /dev/null
-	sudo umount -fl $UBUNTU_ROOTFS_DIR/proc 2> /dev/null
-	sudo umount -fl $UBUNTU_ROOTFS_DIR/sys 2> /dev/null
-	sudo umount -fl ${UBUNTU_ROOTFS_DIR}$XILINX_TOOLS_DIR 2> /dev/null
+    sudo umount -fl $UBUNTU_ROOTFS_DIR/dev/pts 2> /dev/null
+    sudo umount -fl $UBUNTU_ROOTFS_DIR/dev 2> /dev/null
+    sudo umount -fl $UBUNTU_ROOTFS_DIR/proc 2> /dev/null
+    sudo umount -fl $UBUNTU_ROOTFS_DIR/sys 2> /dev/null
+    sudo umount -fl ${UBUNTU_ROOTFS_DIR}$XILINX_TOOLS_DIR 2> /dev/null
 }
 
 function mount_qemu() {
-	sudo cp -av /usr/bin/qemu-aarch64-static $UBUNTU_ROOTFS_DIR/usr/bin/
-	sudo cp -av /run/systemd/resolve/stub-resolv.conf $UBUNTU_ROOTFS_DIR/etc/resolv.conf
+    sudo cp -av /usr/bin/qemu-aarch64-static $UBUNTU_ROOTFS_DIR/usr/bin/
 
-	sudo mount --bind /dev/ $UBUNTU_ROOTFS_DIR/dev
-	sudo mount --bind /proc/ $UBUNTU_ROOTFS_DIR/proc
-	sudo mount --bind /sys/ $UBUNTU_ROOTFS_DIR/sys
+    # Handle resolv.conf symlink
+    if [ -L $UBUNTU_ROOTFS_DIR/etc/resolv.conf ]; then
+        sudo rm $UBUNTU_ROOTFS_DIR/etc/resolv.conf
+    fi
+
+    if [ -f /run/systemd/resolve/stub-resolv.conf ]; then
+        sudo cp -av /run/systemd/resolve/stub-resolv.conf $UBUNTU_ROOTFS_DIR/etc/resolv.conf
+    else
+        echo "Warning: /run/systemd/resolve/stub-resolv.conf not found. Using /etc/resolv.conf as fallback."
+        sudo cp -av /etc/resolv.conf $UBUNTU_ROOTFS_DIR/etc/resolv.conf
+    fi
+
+    sudo mount --bind /dev/ $UBUNTU_ROOTFS_DIR/dev
+    sudo mount --bind /dev/pts $UBUNTU_ROOTFS_DIR/dev/pts  # Mount dev/pts for pseudoterminals
+    sudo mount --bind /proc/ $UBUNTU_ROOTFS_DIR/proc
+    sudo mount --bind /sys/ $UBUNTU_ROOTFS_DIR/sys
 }
 
+function copy_tools_to_chroot() {
+    # Copy cpio
+    sudo cp -v $(which cpio) $UBUNTU_ROOTFS_DIR/usr/bin/
+    # Copy depmod
+    sudo cp -v $(which depmod) $UBUNTU_ROOTFS_DIR/usr/bin/
+
+    # Copy dependencies for cpio
+    for lib in $(ldd $(which cpio) | awk '{print $3}' | grep -v '^$'); do
+        sudo cp -v $lib $UBUNTU_ROOTFS_DIR/lib/ || sudo cp -v $lib $UBUNTU_ROOTFS_DIR/lib64/
+    done
+
+    # Copy dependencies for depmod
+    for lib in $(ldd $(which depmod) | awk '{print $3}' | grep -v '^$'); do
+        sudo cp -v $lib $UBUNTU_ROOTFS_DIR/lib/ || sudo cp -v $lib $UBUNTU_ROOTFS_DIR/lib64/
+    done
+}
 ##########################################################
 # Main:
 
@@ -45,7 +79,7 @@ if [ $UPDATE_KERNEL = "false" ]; then
 	cd $UBUNTU_ROOTFS_DIR
 
 	# Get base rootfs
-	echo Fetching Ubuntu 20.04 base rootfs...
+	echo Fetching Ubuntu 22.04 base rootfs...
 	echo
 
 	wget $UBUNTU_20_4_BASE_ROOTFS_URL -O - | tar xpz -C $UBUNTU_ROOTFS_DIR
@@ -132,7 +166,8 @@ mkdir $MODULES_DIR/tmp
 tar -xf $MODULES_DIR/modules--*.tgz -C $MODULES_DIR/tmp
 sudo mkdir -p $UBUNTU_ROOTFS_DIR/lib/modules/$LINUX_VERSION/
 sudo cp -r --no-preserve=ownership $MODULES_DIR/tmp/lib/modules/$LINUX_VERSION/* $UBUNTU_ROOTFS_DIR/lib/modules/$LINUX_VERSION/
-sudo cp -f $PETALINUX_PROJECT_DIR/build/tmp/sysroots-components/$BOARD/wilc/lib/modules/$LINUX_VERSION/extra/* $UBUNTU_ROOTFS_DIR/usr/lib/modules/$LINUX_VERSION/extra/
+# Directory for wilc does not exist in the kernel source
+sudo cp -f $PETALINUX_PROJECT_DIR/build/tmp/sysroots-components/u96v2_sbc_base_xczu3eg/wilc/lib/modules/$LINUX_VERSION/updates/* $UBUNTU_ROOTFS_DIR/usr/lib/modules/$LINUX_VERSION/*
 
 # Extract kernel headers and run depmod
 mount_qemu
